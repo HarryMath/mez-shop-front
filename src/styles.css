@@ -1,1 +1,190 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --header-top-height-pc: calc(35px + 0.875vw);
+  --header-bottom-height-pc: calc(42px + 1.05vw);
+  --content-size: calc(1020px + 15vw);
+  --padding-size-pc: calc(10px + 0.5vw);
+  --menu-width: calc(150px + 7.5vw);
+
+
+  --checkbox-size: calc(17px + 0.425vw);
+  --search-width: calc(250px + 12.5vw);
+  --form-width: calc(270px + 13.5vw);
+
+  --accent-color-light: #d6414c;
+  --accent-color: #ca3b46;
+  --accent-color-dark: #ba303c;
+  --green-color: #4caf50;
+  --primary-color-light: #5c7fd1;
+  --primary-color: #2f407d;
+  --primary-color-dark: #16203d;
+  --header-color: #535e5bd4;
+  --tooltip-color: #292929f0;
+  --my-border-color: #77777777;
+  --background-color:  #fbfcff;
+}
+
+/*_____________ REBOOT _____________*/
+html, body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  font-weight: 400;
+  width: 100vw;
+  overflow-x: hidden;
+  font-size: calc(13px + 0.325vw);
+  color: #444;
+  background: var(--background-color);
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  color: unset;
+  text-decoration: none;
+}
+p {
+  margin-block-start: 0;
+  margin-block-end: 1em;
+}
+hr {
+  height: 1px;
+  border: none;
+  background: #8888885d;
+}
+i {
+  font-size: calc(11px + 0.275vw);
+}
+input, textarea {
+  font-size: calc(13px + 0.325vw);
+}
+/*______________TOOLS _______________*/
+.hidden {
+  display: none;
+}
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.underlined {
+  text-decoration: underline;
+}
+.link:hover {
+  text-decoration: underline;
+}
+.with-tooltip {
+  position: relative;
+  width: fit-content;
+  z-index: 1;
+}
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.2);
+  display: none;
+  opacity: 0;
+  background-color: var(--tooltip-color);
+  width: max-content;
+  max-width: 210px;
+  color: #fff;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: calc(13px + 0.1vw);
+  z-index: 1;
+  font-weight: 400;
+  text-transform: none;
+}
+.tooltip> p {
+  margin-bottom: 4px;
+}
+.tooltip-additional {
+  display: block;
+  opacity: 0.7;
+  font-size: 12px;
+}
+.tooltip:after {
+  content: "";
+  position: absolute;
+  bottom: 100%; left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent var(--tooltip-color) transparent;
+}
+.with-tooltip:hover .tooltip {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%)
+}
+.with-columns, .row {
+  display: flex;
+}
+.row {
+  align-items: center;
+  justify-content: space-between;
+}
+.btn {
+  border-radius: 6px;
+  cursor: pointer;
+  height: calc(var(--header-top-height-pc)*0.9);
+  line-height: calc(var(--header-top-height-pc)*0.9);
+  padding: 0 calc(var(--padding-size-pc)*1.5);
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: inset -1px -2px 1px 1px #00000029, inset 1px 2px 1px 1px #ffffff40, 1px 2px 4px 0 #01040e50;
+}
+.btn:active {
+  box-shadow: inset -1px -2px 1px 1px #ffffff25, inset 1px 2px 2px 1px #00000030;
+}
+.btn-primary {
+  background-color: var(--accent-color-light);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: var(--accent-color);
+}
+.btn-primary:active {
+  background-color: var(--accent-color-dark);
+}
+
+.input-block {
+  position: relative;
+}
+.input-block> label {
+  position: absolute;
+  left: 7px;
+  transform: translateY(30%);
+  font-size: calc(13px + 0.325vw);
+  transition: 0.2s;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.input {
+  width: 100%;
+  outline: none!important;
+  border-radius: 4px;
+  border: 1px solid #354a8599;
+  background: #fff;
+  height: calc(var(--header-top-height-pc)*0.9);
+  color: #666;
+  font-size: calc(13px + 0.325vw);
+}
+.input-block> .input {
+  padding-left: 7px;
+  padding-top: calc(9px + 0.225vw);
+}
+.form .input:focus + label, .form .input:valid + label {
+  top: 1px;
+  font-size: calc(8px + 0.2vw);
+  transform: none;
+}
+h1, h2, h3 {
+  font-size: calc(20px + 0.5vw);
+}
+h4, h5, h6 {
+  font-size: calc(17px + 0.425vw);
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: calc(var(--padding-size-pc) * 0.6);
+}

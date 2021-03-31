@@ -1,0 +1,20 @@
+<div id="engine{{ engine.id }}">
+  <div class="item-image">
+    <img src="{{ engine.photo }}" alt="engine">
+  </div>
+  <div class="item-name-block">
+    <div class="item-provider">{{ engine.manufacturer }}</div>
+    <div class="item-name" [contentEditable]="engine.id > 3">{{ engine.name }}</div>
+    <div class="item-type">{{ engine.type }}</div>
+  </div>
+  <div class="item-info">
+    <div *ngFor="let characteristic of engine.characteristics | keyvalue">
+      <div class="param-name">{{ characteristic.key }}</div>
+      <div class="param-value">{{ characteristic.value }}</div>
+    </div>
+  </div>
+  <div class="item-price-block">
+    <div>₽{{ engine.price }}</div>
+    <div><i class="fas fa-check"></i> в наличии</div>
+  </div>
+</div>

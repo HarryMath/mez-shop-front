@@ -1,0 +1,67 @@
+.item-image {
+  display: flex;
+  overflow: hidden;
+}
+.item-image> img {
+  margin: 0 auto;
+  height: calc(90px + 6vw);
+  mix-blend-mode: multiply;
+  padding: calc(5px + 0.25vw);
+}
+.item-info> div {
+  display: flex;
+  align-items: center;
+  font-size: calc(11px + 0.275vw);
+  white-space: nowrap;
+  padding: 1px;
+}
+.param-name {
+  width: 40%;
+  overflow: hidden;
+  padding: 0 3px;
+  text-overflow: ellipsis;
+}
+.param-value {
+  font-weight: 500;
+  width: 60%;
+  overflow: hidden;
+  padding: 0 3px;
+}
+.item-info>div:nth-child(2n + 1) {
+  background-color: #8888892a;
+}
+.item-name-block {
+  color: var(--primary-color);
+}
+.item-name {
+  font-size: calc(17px + 0.425vw);
+  font-weight: 500;
+}
+.item-provider {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 0.85;
+  font-size: calc(13px + 0.325vw);
+  width: 100%;
+  overflow: hidden;
+}
+.item-type {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 300;
+  font-size: calc(12px + 0.325vw);
+  transform: translateY(-30%);
+  opacity: 0.7;
+  width: 100%;
+  overflow: hidden;
+}
+.item-price-block {
+  padding-top: 6px;
+}
+.item-price-block>div:first-child {
+  font-size: calc(18px + 0.45vw);
+  font-weight: 500;
+}
+.item-price-block>div:last-child {
+  color: var(--green-color);
+}
