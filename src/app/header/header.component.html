@@ -1,5 +1,4 @@
-<div class="header">
-  <div class="header-top-wrapper">
+  <div class="header-top-wrapper unselectable">
     <div class="header-top">
       <a class="logo" routerLink="/">
         <img src="assets/logo.png" alt="МЭЗ" class="header-top-item">
@@ -24,6 +23,10 @@
     </div>
   </div>
   <div class="header-bottom-wrapper">
+    <div id="menuButton">
+      <div></div><div></div><div></div>
+    </div>
+    <img src="assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item">
     <div class="header-bottom">
       <div class="search-block header-bottom-item">
         <label for="search-input" class="search-input-label">
@@ -31,14 +34,13 @@
         </label>
         <input type="text" id="search-input" placeholder="поиск">
       </div>
-      <div class="right-block">
+      <div class="right-block unselectable">
         <div class="header-bottom-item">
-          <i class="fas fa-comment-alt"></i> написать нам
+          <i class="fas fa-comment-alt"></i> <span>написать нам</span>
         </div>
         <div class="header-bottom-item">
-          <i class="fas fa-shopping-cart"></i> корзина
+          <i class="fas fa-shopping-cart"></i> <span>корзина</span>
         </div>
       </div>
     </div>
   </div>
-</div>

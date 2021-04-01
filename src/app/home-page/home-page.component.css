@@ -13,12 +13,12 @@
 .landing {
   width: 100%;
   max-width: var(--content-size);
-  padding: 0 var(--padding-size-pc);
+  padding: 0 var(--padding-size);
   margin: 0 auto calc(20px + 1vw);
 }
 .landing-text {
   color: #fff;
-  padding: var(--padding-size-pc);
+  padding: var(--padding-size);
   width: calc(50% - 100px - 5vw);
 }
 .landing-text a {
@@ -28,21 +28,24 @@
   font-weight: 500;
   filter: brightness(1.1) saturate(1.1);
 }
+.landing-text h2 {
+  white-space: nowrap;
+}
 .landing-text>div {
-  width: calc(100% + 50px + 2.5vw);
+  width: calc(130% + 50px + 2.5vw);
 }
 .landing-image {
   width: calc(50% + 100px + 5vw);
   max-width: calc(400px + 20vw);
-  padding-left: var(--padding-size-pc);
+  padding-left: var(--padding-size);
   margin-top: auto;
 }
 .search-block {
   background-color: #fff;
   border-radius: 6px;
-  box-shadow: 6px 6px 20px 6px #2633575e;
-  margin: 0 var(--padding-size-pc);
-  padding: calc(var(--padding-size-pc)*0.8);
+  box-shadow: 4px 10px 20px 6px #2633575e;
+  margin: 0 var(--padding-size);
+  padding: calc(var(--padding-size)*0.8);
 }
 select {
   padding: 0 7px;
@@ -57,7 +60,7 @@ select {
 .news, .category {
   width: 100%;
   max-width: var(--content-size);
-  padding: var(--padding-size-pc);
+  padding: var(--padding-size);
   margin: 0 auto calc(20px + 1vw);
 }
 .news h3, .category h3 {

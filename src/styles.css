@@ -1,9 +1,9 @@
 :root {
-  --header-top-height-pc: calc(35px + 0.875vw);
-  --header-bottom-height-pc: calc(42px + 1.05vw);
+  --header-top-height: calc(35px + 0.875vw);
+  --header-bottom-height: calc(42px + 1.05vw);
   --content-size: calc(1020px + 15vw);
-  --padding-size-pc: calc(10px + 0.5vw);
-  --menu-width: calc(150px + 7.5vw);
+  --padding-size: calc(10px + 0.5vw);
+  --menu-width: calc(200px + 10vw);
 
 
   --checkbox-size: calc(17px + 0.425vw);
@@ -29,13 +29,14 @@ html, body {
   margin: 0;
   font-weight: 400;
   width: 100vw;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
   font-size: calc(13px + 0.325vw);
   color: #444;
   background: var(--background-color);
 }
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 a {
   color: unset;
@@ -76,6 +77,12 @@ input, textarea {
   position: relative;
   width: fit-content;
   z-index: 1;
+}
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .tooltip {
   position: absolute;
@@ -127,9 +134,9 @@ input, textarea {
 .btn {
   border-radius: 6px;
   cursor: pointer;
-  height: calc(var(--header-top-height-pc)*0.9);
-  line-height: calc(var(--header-top-height-pc)*0.9);
-  padding: 0 calc(var(--padding-size-pc)*1.5);
+  height: calc(var(--header-top-height)*0.9);
+  line-height: calc(var(--header-top-height)*0.9);
+  padding: 0 calc(var(--padding-size)*1.5);
   font-weight: 500;
   white-space: nowrap;
   box-shadow: inset -1px -2px 1px 1px #00000029, inset 1px 2px 1px 1px #ffffff40, 1px 2px 4px 0 #01040e50;
@@ -166,7 +173,7 @@ input, textarea {
   border-radius: 4px;
   border: 1px solid #354a8599;
   background: #fff;
-  height: calc(var(--header-top-height-pc)*0.9);
+  height: calc(var(--header-top-height)*0.9);
   color: #666;
   font-size: calc(13px + 0.325vw);
 }
@@ -186,5 +193,19 @@ h4, h5, h6 {
   font-size: calc(17px + 0.425vw);
   font-weight: 500;
   margin-top: 0;
-  margin-bottom: calc(var(--padding-size-pc) * 0.6);
+  margin-bottom: calc(var(--padding-size) * 0.6);
+}
+
+/* __________ PC only __________ */
+@media screen and (min-width: 551px) {
+}
+@media screen and (max-width: 900px) {
+}
+@media screen and (max-width: 660px) {
+}
+/* __________ mobile only __________ */
+@media screen and (max-width: 550px) {
+  :root {
+    --header-bottom-height: calc(45px + 1.125vw);
+  }
 }

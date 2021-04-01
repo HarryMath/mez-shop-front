@@ -6,13 +6,13 @@
   width: 100%;
   max-width: var(--content-size);
   margin: 0 auto;
-  padding: 0 var(--padding-size-pc);
+  padding: 0 var(--padding-size);
 }
 .content-header {
   display: flex;
   position: relative;
-  padding: var(--padding-size-pc);
-  margin-top: calc(var(--padding-size-pc)*0.5);
+  padding: var(--padding-size);
+  margin-top: calc(var(--padding-size)*0.5);
   border-bottom: 1px solid #88888877;
   align-items: flex-end;
 }
@@ -28,13 +28,13 @@
 }
 .sort-block {
   position: absolute;
-  right: var(--padding-size-pc);
+  right: var(--padding-size);
   top: 50%;
   transform: translateY(-50%);
 }
 #sortBy {
-  height: calc(var(--header-top-height-pc) * 0.76);
-  line-height: calc(var(--header-top-height-pc) * 0.76);
+  height: calc(var(--header-top-height) * 0.76);
+  line-height: calc(var(--header-top-height) * 0.76);
   outline: none!important;
   border: 1px solid #88888877;
   margin-left: 5px;
@@ -52,10 +52,10 @@
 .content-filters {
   width: var(--menu-width);
   height: fit-content;
-  padding: var(--padding-size-pc);
+  padding: var(--padding-size);
 }
 .filter-block {
-  height: var(--header-top-height-pc);
+  height: var(--header-top-height);
   overflow: hidden;
   margin-bottom: 2px;
   transition: 0.2s;
@@ -73,15 +73,15 @@
 }
 .filter-name {
   position: relative;
-  padding: 0 var(--padding-size-pc);
-  height: var(--header-top-height-pc);
-  line-height: calc(var(--header-bottom-height-pc)*0.85);
+  padding: 0 var(--padding-size);
+  height: var(--header-top-height);
+  line-height: calc(var(--header-bottom-height)*0.85);
   background: #acc3dd4d;
   cursor: pointer;
 }
 .filter-name>i {
   position: absolute;
-  right: var(--padding-size-pc);
+  right: var(--padding-size);
   top: 50%;
   transform: translateY(-50%) scale(1.2) rotateZ(180deg);
   transition: 0.2s;
@@ -91,14 +91,14 @@
 }
 .filter-options {
   display: block;
-  padding: calc(var(--padding-size-pc)*0.5) 0;
+  padding: calc(var(--padding-size)*0.5) 0;
 }
 .filter-options>div {
   display: flex;
   align-items: center;
   position: relative;
   cursor: pointer;
-  padding-left: calc(var(--padding-size-pc)*0.5);
+  padding-left: calc(var(--padding-size)*0.5);
   border-radius: 3px;
   margin-bottom: 3px;
   min-height: calc(var(--checkbox-size) * 2);

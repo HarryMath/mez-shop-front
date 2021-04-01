@@ -1,6 +1,6 @@
 .catalog-content {
   width: 100%;
-  padding: var(--padding-size-pc);
+  padding: var(--padding-size);
   position: relative;
   min-height: calc(200px + 10vw);
   display: flex;
@@ -32,15 +32,15 @@
 .catalog-footer {
   width: 100%;
   display: flex;
-  height: calc(var(--header-top-height-pc)*2.5);
+  height: calc(var(--header-top-height)*2.5);
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #88888877;
 }
 .page {
-  min-width: calc(var(--header-top-height-pc)*0.8);
-  height: calc(var(--header-top-height-pc)*0.8);
-  line-height: calc(var(--header-top-height-pc)*0.8);
+  min-width: calc(var(--header-top-height)*0.8);
+  height: calc(var(--header-top-height)*0.8);
+  line-height: calc(var(--header-top-height)*0.8);
   text-align: center;
   background: #8888901d;
   color: var(--primary-color);
@@ -68,7 +68,7 @@
   width: 25%;
   transition: 0.2s;
   border-radius: 4px;
-  padding: calc(var(--padding-size-pc)*0.5);
+  padding: calc(var(--padding-size)*0.5);
 }
 
 /* __________ PC only __________ */
