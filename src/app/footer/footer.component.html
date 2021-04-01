@@ -4,12 +4,7 @@
       <h4>Как мы можем помочь?</h4>
       <p>Если у вас есть какие-либо вопросы или вам нужен совет, мы с радостью ответитм!
         Заполните форму обратной связи или свяжитесь с нами
-        <span class="link with-tooltip">
-                    другим удобным для вас способом
-                    <span class="tooltip underlined" onclick="goTo('footer')">
-                        наши контакты
-                    </span>
-                </span>
+        другим удобным для вас способом
       </p>
     </div>
     <div class="contact-form">
@@ -28,7 +23,7 @@
         </div>
         <div class="with-columns">
           <div class="label">поля, помеченные звёздочкой (*) обязательны для заполнения</div>
-          <div class="btn btn-primary">отправить</div>
+          <div class="btn btn-primary" (click)="sendFeedback()">отправить</div>
         </div>
       </form>
     </div>
