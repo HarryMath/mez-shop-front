@@ -3,7 +3,8 @@
   --header-bottom-height: calc(42px + 1.05vw);
   --content-size: calc(1020px + 15vw);
   --padding-size: calc(10px + 0.5vw);
-  --menu-width: calc(200px + 10vw);
+  --menu-width: calc(210px + 5.25vw);
+  --input-height: calc(31px + 0.775vw);
 
 
   --checkbox-size: calc(17px + 0.425vw);
@@ -54,7 +55,7 @@ hr {
 i {
   font-size: calc(11px + 0.275vw);
 }
-input, textarea {
+input, textarea, select {
   font-size: calc(13px + 0.325vw);
 }
 /*______________TOOLS _______________*/
@@ -134,8 +135,8 @@ input, textarea {
 .btn {
   border-radius: 6px;
   cursor: pointer;
-  height: calc(var(--header-top-height)*0.9);
-  line-height: calc(var(--header-top-height)*0.9);
+  height: var(--input-height);
+  line-height: var(--input-height);
   padding: 0 calc(var(--padding-size)*1.5);
   font-weight: 500;
   white-space: nowrap; text-align: center;
@@ -160,11 +161,11 @@ input, textarea {
 }
 .input-block> label {
   position: absolute;
-  left: 7px;
-  transform: translateY(30%);
+  left: 7px; top: 0;
+  line-height: var(--input-height);
   font-size: calc(13px + 0.325vw);
   transition: 0.2s;
-  opacity: 0.6;
+  opacity: 0.8;
   pointer-events: none;
 }
 .input {
@@ -173,18 +174,22 @@ input, textarea {
   border-radius: 4px;
   border: 1px solid #354a8599;
   background: #fff;
-  height: calc(var(--header-top-height)*0.9);
+  height: var(--input-height);
   color: #666;
   font-size: calc(13px + 0.325vw);
 }
 .input-block> .input {
   padding-left: 7px;
-  padding-top: calc(9px + 0.225vw);
+  padding-top: calc(10px + 0.25vw);
 }
-.form .input:focus + label, .form .input:valid + label {
-  top: 1px;
-  font-size: calc(8px + 0.2vw);
-  transform: none;
+select.input { padding-left: 3px!important; }
+.input-block>.input:focus + label,
+.input-block>input:valid + label,
+.input-block>textarea:valid + label,
+.input-block>select:not([val=""]):valid + label {
+  font-size: calc(10px + 0.25vw);
+  transform: translateY(calc(-9px - 0.225vw));
+  opacity: 0.5;
 }
 h1, h2, h3 {
   font-size: calc(20px + 0.5vw);
@@ -192,8 +197,7 @@ h1, h2, h3 {
 h4, h5, h6 {
   font-size: calc(17px + 0.425vw);
   font-weight: 500;
-  margin-top: 0;
-  margin-bottom: calc(var(--padding-size) * 0.6);
+  margin: 0;
 }
 
 /* __________ PC only __________ */
@@ -207,5 +211,6 @@ h4, h5, h6 {
 @media screen and (max-width: 550px) {
   :root {
     --header-bottom-height: calc(47px + 1.175vw);
+    --input-height: calc(35px + 0.875vw);
   }
 }

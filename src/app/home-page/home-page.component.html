@@ -18,43 +18,55 @@
       </div>
       <div class="row filter-row">
 
-        <select id="productType" class="input">
-          <option> тип двигателя </option>
-          <option>тип 1</option>
-          <option>тип 2</option>
-          <option>тип 3</option>
-        </select>
+        <div class="input-block">
+          <select id="productType" class="input" val="" onclick="this.setAttribute('val', this.value);">
+            <option value=""> </option>
+            <option>тип 1</option>
+            <option>тип 2</option>
+            <option>тип 3</option>
+          </select>
+          <label for="productType">тип двигателя</label>
+        </div>
 
-        <select id="productBrand" class="input">
-          <option> производитель </option>
-          <option>производитель 1</option>
-          <option>производитель 2</option>
-          <option>производитель 3</option>
-        </select>
+        <div class="input-block">
+          <select id="productBrand" class="input" val="" onclick="this.setAttribute('val', this.value);">
+            <option value=""> </option>
+            <option>производитель 1</option>
+            <option>производитель 2</option>
+            <option>производитель 3</option>
+          </select>
+          <label for="productBrand">производитель</label>
+        </div>
 
-        <select id="voltage" class="input">
-          <option value="90V"> вольтаж </option>
-          <option value="90V">90V</option>
-          <option value="115V">115V</option>
-          <option value="180V">180V</option>
-          <option value="200V">200V</option>
-          <option value="230V">230V</option>
-          <option value="277V">277V</option>
-          <option value="460V">460V</option>
-          <option value="575V">575V</option>
-          <option value="2300V">2300V</option>
-          <option value="4160V">4160V</option>
-          <option value="416V">416V</option>
-          <option value="400V">400V</option>
-        </select>
+        <div class="input-block">
+          <select id="voltage" class="input" val="" onclick="this.setAttribute('val', this.value);">
+            <option value=""></option>
+            <option value="90V">90V</option>
+            <option value="115V">115V</option>
+            <option value="180V">180V</option>
+            <option value="200V">200V</option>
+            <option value="230V">230V</option>
+            <option value="277V">277V</option>
+            <option value="460V">460V</option>
+            <option value="575V">575V</option>
+            <option value="2300V">2300V</option>
+            <option value="4160V">4160V</option>
+            <option value="416V">416V</option>
+            <option value="400V">400V</option>
+          </select>
+          <label for="voltage">вольтаж</label>
+        </div>
 
-        <select id="frequency" class="input">
-          <option> частота </option>
-          <option> < 900</option>
-          <option>900 - 1200</option>
-          <option>1200 - 2500</option>
-          <option>2500 - 3600</option>
-        </select>
+        <div class="input-block">
+          <select id="frequency" class="input" val="" onclick="this.setAttribute('val', this.value);">
+            <option value=""></option>
+            <option> < 900</option>
+            <option>900 - 1200</option>
+            <option>1200 - 2500</option>
+            <option>2500 - 3600</option>
+          </select>
+          <label for="frequency">частота</label>
+        </div>
 
         <div id="searchButton" class="btn btn-primary">
           3450 результатов

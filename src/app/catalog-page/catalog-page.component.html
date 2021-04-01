@@ -1,1 +1,98 @@
-<app-content></app-content>
+<div class="content-wrapper">
+  <div class="content">
+    <div class="content-header">
+      <div class="goods-title">Все товары </div>
+      <div class="goods-count"> 1562 единицы</div>
+      <div class="sort-block">
+        <label for="sortBy" class="sort-by-label">сортировать по: </label>
+        <select id="sortBy">
+          <option value="0" selected>популярности</option>
+          <option value="1">цене (сначала дешевые)</option>
+          <option value="2">цене (сначала дорогие)</option>
+          <option value="3">новизне</option>
+        </select>
+      </div>
+    </div>
+    <div class="content-main">
+
+      <div class="content-filters">
+        <div class="filter-block opened">
+          <div class="filter-name">тип
+            <i class="fas fa-chevron-up"></i>
+          </div>
+          <div class="filter-options">
+            <div>
+              <input type="checkbox" id="explosion">
+              <label for="explosion">взрывозащитные двигатели</label>
+            </div>
+            <div>
+              <input type="checkbox" id="speed">
+              <label for="speed">многоскоростные двигатели</label>
+            </div>
+            <div>
+              <input type="checkbox" id="standard">
+              <label for="standard">стандартные двигатели</label>
+            </div>
+            <div>
+              <input type="checkbox" id="slip">
+              <label for="slip">двигатели с повышенным скольжением</label>
+            </div>
+            <div>
+              <input type="checkbox" id="power">
+              <label for="power">тяговые двигатели</label>
+            </div>
+          </div>
+        </div>
+        <div class="filter-block opened">
+          <div class="filter-name">производитель
+            <i class="fas fa-chevron-up"></i>
+          </div>
+          <div class="filter-options">
+            <div>
+              <input type="checkbox" id="pr1">
+              <label for="pr1">производитель 1</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pr2">
+              <label for="pr2">производитель 2</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pr3">
+              <label for="pr3">производитель 3</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pr4">
+              <label for="pr4">производитель 4</label>
+            </div>
+          </div>
+        </div>
+        <div class="filter-block opened">
+          <div class="filter-name">другой параметр
+            <i class="fas fa-chevron-up"></i>
+          </div>
+          <div class="filter-options">
+            <div>
+              <input type="checkbox" id="pr12">
+              <label for="pr12">оация 1</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pr22">
+              <label for="pr22">опция 2</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pr32">
+              <label for="pr32">опция 3</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pr42">
+              <label for="pr42">опция 4</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-catalog class="catalog"></app-catalog>
+
+    </div>
+  </div>
+</div>
