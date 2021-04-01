@@ -31,6 +31,7 @@
   cursor: pointer;
   display: block;
   position: relative;
+  white-space: nowrap;
 }
 .header-bottom-item {
   height: var(--header-bottom-height);
@@ -85,9 +86,6 @@
 .right-block {
   float: right;
   display: flex;
-}
-.right-block>div {
-  float: right;
 }
 .search-block {
   position: relative;
@@ -153,6 +151,8 @@
     left: unset; right: 0;
     width: unset; transform: none;
   }
+  .header-top {position: relative; height: unset; width: 100%}
+  .header-top> .right-block {display: block; float: unset;}
   .header-top-wrapper {
     position: fixed;
     top: var(--header-bottom-height);
@@ -165,7 +165,7 @@
   #search-input {
     box-shadow: none;
     width: var(--header-bottom-height);
-    opacity: 0;
+    opacity: 0; transition: 0.2s;
   }
   #menuButton {
     height: calc(var(--header-top-height) * 0.6);
@@ -187,6 +187,22 @@
   #menuButton>div:nth-child(1) { top: 15%; }
   #menuButton>div:nth-child(2) { top: 50%; }
   #menuButton>div:nth-child(3) { top: 85%; }
+  #menuButton.active> div { top: 50%; transform: translateY(-50%) rotate(-45deg); }
+  #menuButton.active> div:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+  .header-top-wrapper.menu-active { transform: none }
+
+  .menu-overlay {
+    position: fixed;
+    background-color: #0000303d;
+    transition: opacity 0.2s;
+    height: calc(100vh - var(--header-bottom-height));
+    width: 100vw;
+    top: var(--header-bottom-height); right: 0;
+    transform: translateX(101%);
+    z-index: 9; opacity: 0;
+  }
+
+  .menu-overlay.menu-active { opacity: 1; transform: none }
 
   .header-bottom-item {
     width: var(--header-bottom-height);
@@ -196,10 +212,17 @@
   .header-bottom-item i { transform: scale(1.4); color: #fff }
   .header-bottom-item span { display: none }
 
+  .logo { display: none; visibility: hidden}
   .logo-mobile {
     position: absolute;
     transform: translateX(-15%) scale(0.65);
     left: var(--header-bottom-height);
     width: unset;
+  }
+  .header-top-item {
+    font-size: calc(17px + 0.425vw);
+    height: var(--header-bottom-height);
+    line-height: var(--header-bottom-height);
+    border-bottom: 1px dashed var(--primary-color-light);
   }
 }

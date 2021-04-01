@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  menuActive = false;
+
+  toggleMenu(): void {
+    this.menuActive = !this.menuActive;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

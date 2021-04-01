@@ -25,15 +25,15 @@
 
 /*_____________ REBOOT _____________*/
 html, body {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   margin: 0;
   font-weight: 400;
-  width: 100vw;
-  /*overflow-x: hidden;*/
+  width: 100vw; height: 100vh;
+  overflow: hidden;
   font-size: calc(13px + 0.325vw);
   color: #444;
   background: var(--background-color);
 }
+body { overflow-y: scroll }
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -138,7 +138,7 @@ input, textarea {
   line-height: calc(var(--header-top-height)*0.9);
   padding: 0 calc(var(--padding-size)*1.5);
   font-weight: 500;
-  white-space: nowrap;
+  white-space: nowrap; text-align: center;
   box-shadow: inset -1px -2px 1px 1px #00000029, inset 1px 2px 1px 1px #ffffff40, 1px 2px 4px 0 #01040e50;
 }
 .btn:active {
@@ -206,6 +206,6 @@ h4, h5, h6 {
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {
   :root {
-    --header-bottom-height: calc(45px + 1.125vw);
+    --header-bottom-height: calc(47px + 1.175vw);
   }
 }

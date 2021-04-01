@@ -55,6 +55,7 @@ select {
   font-weight: bold;
   opacity: 0.5;
   cursor: pointer;
+  padding: 0 var(--padding-size);
 }
 
 .news, .category {
@@ -65,4 +66,24 @@ select {
 }
 .news h3, .category h3 {
   text-align: center;
+}
+
+/* __________ PC only __________ */
+@media screen and (min-width: 551px) {
+}
+@media screen and (max-width: 900px) {
+}
+@media screen and (max-width: 660px) {
+  .filter-row {
+    flex-wrap: wrap;
+  }
+  .filter-row>select { width: calc(50% - 6px); margin-bottom: 6px}
+  .filter-row>*:nth-child(1),.filter-row>*:nth-child(2), .filter-row>*:last-child {
+    width: 100%;
+  }
+}
+/* __________ mobile only __________ */
+@media screen and (max-width: 550px) {
+  .landing-text, .landing-text>div { width: 100%}
+  .landing-image { display: none; visibility: hidden}
 }

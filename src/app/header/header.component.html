@@ -1,4 +1,4 @@
-  <div class="header-top-wrapper unselectable">
+<div [ngClass]="{'menu-active': menuActive}" class="header-top-wrapper unselectable">
     <div class="header-top">
       <a class="logo" routerLink="/">
         <img src="assets/logo.png" alt="МЭЗ" class="header-top-item">
@@ -22,8 +22,9 @@
       </div>
     </div>
   </div>
-  <div class="header-bottom-wrapper">
-    <div id="menuButton">
+<div [ngClass]="{'menu-active': menuActive}" class="menu-overlay" (click)="toggleMenu()"></div>
+<div class="header-bottom-wrapper">
+    <div id="menuButton" (click)="toggleMenu()" [ngClass]="{'active': menuActive}">
       <div></div><div></div><div></div>
     </div>
     <img src="assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item">
@@ -36,10 +37,10 @@
       </div>
       <div class="right-block unselectable">
         <div class="header-bottom-item">
-          <i class="fas fa-comment-alt"></i> <span>написать нам</span>
+          <i class="fas fa-comment-alt"></i><span> написать нам</span>
         </div>
         <div class="header-bottom-item">
-          <i class="fas fa-shopping-cart"></i> <span>корзина</span>
+          <i class="fas fa-shopping-cart"></i><span> корзина</span>
         </div>
       </div>
     </div>
