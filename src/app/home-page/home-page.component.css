@@ -80,7 +80,7 @@
   .filter-row {
     flex-wrap: wrap;
   }
-  .filter-row>* { width: calc(50% - 6px); margin-bottom: 6px}
+  .filter-row>* { width: calc(50% - 3px); margin-bottom: 6px; margin-right: 0 }
   .filter-row>*:nth-child(1),.filter-row>*:nth-child(2), .filter-row>*:last-child {
     width: 100%;
   }

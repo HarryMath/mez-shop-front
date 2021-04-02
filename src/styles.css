@@ -71,8 +71,9 @@ input, textarea, select {
   padding: 13px;
   max-height: 20vh;
   font-weight: 500;
-  background-color: #353739;
-  color: #ccc;
+  background-color: #383e4e;
+  border: 1px solid #eeeeee2d;
+  color: #eee;
   border-radius: 4px;
   overflow: hidden;
   font-size: 14px;
@@ -100,7 +101,7 @@ input, textarea, select {
   opacity: 0.5;
 }
 .msg_closer:hover {
-  background-color: #aaafec2c;
+  background-color: #b3bdff47;
   opacity: 1;
 }
 .hidden {
@@ -212,7 +213,7 @@ input, textarea, select {
   opacity: 0.8;
   pointer-events: none;
 }
-.input {
+.input, .select {
   width: 100%;
   outline: none!important;
   border-radius: 4px;
@@ -226,11 +227,13 @@ input, textarea, select {
   padding-left: 7px;
   padding-top: calc(10px + 0.25vw);
 }
-select.input { padding-left: 3px!important; }
+.input-block> .select {
+  padding-left: 3px;
+  padding-top: calc(10px + 0.25vw);
+}
 .input-block>.input:focus + label,
-.input-block>input:valid + label,
-.input-block>textarea:valid + label,
-.input-block>select:not([val=""]):valid + label {
+.input-block>.input:valid + label,
+.input-block>.select:not([val=""]):valid + label {
   font-size: calc(10px + 0.25vw);
   transform: translateY(calc(-9px - 0.225vw));
   opacity: 0.5;
