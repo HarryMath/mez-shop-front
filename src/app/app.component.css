@@ -6,3 +6,36 @@
   color: #444;
   background: #fbfcff;
 }
+
+@keyframes gear-anim {
+  0% { transform: translate(-50%, -50%) rotate(0deg) }
+  100% { transform: translate(-50%, -50%) rotate(1800deg) }
+}
+@keyframes lightning-anim {
+  0% { transform: translate(-50%, -50%) scale(1.2) }
+  100% { transform: translate(-50%, -50%) scale(20) }
+}
+@keyframes overlay-anim {
+  0% { opacity: 1; }
+  100% { opacity: 0; z-index: -1; visibility: hidden; display: none; }
+}
+#loadingOverlay {
+  position: absolute; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: var(--primary-color);
+  z-index: 15;
+  animation: overlay-anim 0.3s 3.2s linear forwards;
+}
+.gear, .lightning {
+  width: calc(100px + 2.5vw);
+  height: calc(100px + 2.5vw);
+  top: 50%; left: 50%; position: absolute;
+}
+.lightning {
+  transform: translate(-50%, -50%) scale(1.2) rotate(-10deg);
+  filter: drop-shadow(1px 1px 6px var(--primary-color-dark));
+}
+.gear {
+  transform: translate(-50%, -50%);
+  animation: gear-anim 3s cubic-bezier(0, 0.32, 0.43, 1)
+}

@@ -1,19 +1,19 @@
-<div [ngClass]="{'menu-active': menuActive}" class="header-top-wrapper unselectable">
+<div [ngClass]="{'menu-active': headerService.menuActive}" class="header-top-wrapper unselectable">
     <div class="header-top">
       <a class="logo" routerLink="/">
         <img src="assets/logo.png" alt="МЭЗ" class="header-top-item">
       </a>
       <div class="right-block">
-        <a class="header-top-item" routerLink="/catalog">
+        <a class="header-top-item" routerLink="/catalog" (click)="hideMenu()">
           Каталог
         </a>
-        <a class="header-top-item" routerLink="/about">
+        <a class="header-top-item" routerLink="/about" (click)="hideMenu()">
           О нас
         </a>
-        <a class="header-top-item" routerLink="/sellers">
+        <a class="header-top-item" routerLink="/sellers" (click)="hideMenu()">
           Центры продаж
         </a>
-        <a class="header-top-item" routerLink="/customers">
+        <a class="header-top-item" routerLink="/customers" (click)="hideMenu()">
           Клиентам
         </a>
         <div class="header-top-item" id="authButton">
@@ -22,18 +22,18 @@
       </div>
     </div>
   </div>
-<div [ngClass]="{'menu-active': menuActive}" class="menu-overlay" (click)="toggleMenu()"></div>
+<div [ngClass]="{'menu-active': headerService.menuActive}" class="menu-overlay" (click)="toggleMenu()"></div>
 <div class="header-bottom-wrapper">
-    <div id="menuButton" (click)="toggleMenu()" [ngClass]="{'active': menuActive}">
+    <div id="menuButton" (click)="toggleMenu()" [ngClass]="{'active': headerService.menuActive}">
       <div></div><div></div><div></div>
     </div>
-    <a routerLink="/"><img src="assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item"></a>
-    <div class="header-bottom">
+    <a routerLink="/" (click)="hideMenu()"><img src="assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item"></a>
+    <div class="header-bottom" [ngClass]="{'search': searchActive}">
       <div class="search-block header-bottom-item">
         <label for="search-input" class="search-input-label">
           <i class="fas fa-search"></i>
         </label>
-        <input type="text" id="search-input" placeholder="поиск">
+        <input type="text" id="search-input" placeholder="поиск" (focus)="focusSearch()" (blur)="blurSearch()">
       </div>
       <div class="right-block unselectable">
         <div class="header-bottom-item">

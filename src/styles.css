@@ -209,7 +209,7 @@ input, textarea, select {
   left: 7px; top: 0;
   line-height: var(--input-height);
   font-size: calc(13px + 0.325vw);
-  transition: 0.2s;
+  transition: 0.2s linear;
   opacity: 0.8;
   pointer-events: none;
 }
