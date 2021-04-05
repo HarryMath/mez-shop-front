@@ -65,3 +65,14 @@
 .item-price-block>div:last-child {
   color: var(--green-color);
 }
+/* __________ mobile only __________ */
+@media screen and (max-width: 550px) {
+  .item-image> img {
+    height: calc(110px + 5.5vw);
+  }
+}
+@media screen and (max-width: 400px) {
+  .item-image> img {
+    height: calc(140px + 7vw);
+  }
+}

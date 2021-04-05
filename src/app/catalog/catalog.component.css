@@ -31,7 +31,7 @@
 
 .catalog-footer {
   width: 100%;
-  display: flex;
+  display: flex; flex-wrap: wrap;
   height: calc(var(--header-top-height)*2.5);
   align-items: center;
   justify-content: center;
@@ -46,7 +46,7 @@
   color: var(--primary-color);
   border-radius: 4px;
   margin: 4px;
-  padding: 0 5px;
+  padding: 0 7px;
   cursor: pointer;
 }
 .page:hover {
@@ -93,6 +93,12 @@
 }
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {
+  .item-image> img {
+    height: calc(110px + 5.5vw);
+  }
+}
+
+@media screen and (max-width: 400px) {
   .item {
     width: 100%;
     padding-bottom: 10px;

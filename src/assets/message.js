@@ -1,19 +1,15 @@
-import {Injectable} from '@angular/core';
-
-@Injectable({providedIn: 'root'})
-export class Message {
-  messageElement: Element;
-  interval: any;
+class Message {
+  messageElement;
+  interval;
 
   constructor() {
     this.messageElement = document.createElement('div');
     this.messageElement.className = 'msg_window unselectable';
-    this.messageElement.innerHTML = `<div class="msg"></div><div class="msg_closer" onclick="hide()">×</div>`;
+    this.messageElement.innerHTML = `<div class="msg"></div><div class="msg_closer" onclick="message.hide()">×</div>`;
     document.body.appendChild(this.messageElement);
   }
 
-  show(message: string, status = 0): void {
-    // @ts-ignore
+  show(message, status) {
     this.messageElement.querySelector('.msg').innerHTML = message;
     if ( status === -1) {
       try {
@@ -23,13 +19,15 @@ export class Message {
       }
     }
     this.messageElement.classList.add('msg_visible');
-    this.interval = window.setInterval((): void => {
+    this.interval = window.setInterval(() => {
       this.hide();
-    }, 6000);
+    }, 6000)
   }
 
-  hide(): void {
+  hide() {
     clearInterval(this.interval);
     this.messageElement.classList.remove('msg_visible');
   }
 }
+
+window.message = new Message();

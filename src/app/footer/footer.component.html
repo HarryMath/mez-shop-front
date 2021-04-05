@@ -8,40 +8,43 @@
       </p>
     </div>
     <div class="contact-form">
-      <form class="form">
+      <div class="form">
         <div class="input-block">
-          <input id="name" class="input" autocomplete="off" required>
+          <input id="name" class="input" autocomplete="off" required [formControl]="name" >
           <label for="name">Ваше имя*</label>
         </div>
         <div class="input-block">
-          <input id="contact" class="input" autocomplete="off" required>
+          <input id="contact" class="input" autocomplete="off" required [formControl]="contact">
           <label for="contact">E-mail или телефон*</label>
         </div>
         <div class="input-block">
-          <textarea id="message" class="input" autocomplete="off" required></textarea>
+          <textarea id="message" class="input" autocomplete="off" required [formControl]="message"></textarea>
           <label for="message">Ваше сообщение</label>
         </div>
-        <div class="with-columns">
+        <div class="row">
           <div class="label">поля, помеченные звёздочкой (*) обязательны для заполнения</div>
           <div class="btn btn-primary" (click)="sendFeedback()">отправить</div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
 
+<div class="footer-top-wrapper">
+  <div class="footer-top"></div>
+</div>
 <div class="footer-bottom-wrapper">
   <div class="footer-bottom">
     <div class="footer-col">
-      <h5>Адрес</h5>
+      <h5><i class="fas fa-map-marker-alt"></i> Адрес</h5>
       <div>212649, Республика Беларусь, г. Могилев, ул. Королева, 8</div>
     </div>
     <div class="footer-col">
-      <h5>Контакты</h5>
+      <h5><i class="fas fa-address-book"></i> Контакты</h5>
     </div>
     <div class="footer-col"></div>
     <div class="footer-col">
-      <h5>e-mail адреса:</h5>
+      <h5><i class="fas fa-mail-bulk"></i> e-mail адреса:</h5>
       <div>
         <div><a href="mailto:eldvig@mogilev.by" target="_blank">eldvig@mogilev.by</a></div>
         <div><a href="mailto:motor@liftmach.by" target="_blank">motor@liftmach.by</a></div>

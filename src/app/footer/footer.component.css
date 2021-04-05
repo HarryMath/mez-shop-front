@@ -38,8 +38,8 @@
   padding: var(--padding-size);
   font-style: italic;
 }
-form .label {
-  font-size: calc(9px + 0.225vw);
+.form .label {
+  font-size: calc(10px + 0.25vw);
   margin-right: var(--padding-size);
 }
 
@@ -51,14 +51,25 @@ form .label {
 .footer-bottom {
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   max-width: var(--content-size);
   padding: var(--padding-size);
   padding-right: calc(var(--padding-size)*2);
   margin: 0 auto;
-  color: #eeeeeeed;
+  color: #eeeeeecc;
 }
+.footer-col {
+  margin: var(--padding-size) 0;
+  min-width: calc(100px + 5vw);
+  max-width: calc(200px + 10vw);
+  padding: var(--padding-size);
+}
+.footer-col, .footer-col> h5 {
+  margin-bottom: var(--padding-size);
+}
+h5 i { font-size: calc(13px + 0.325vw)}
 
 /* __________ PC only __________ */
 @media screen and (min-width: 551px) {
@@ -67,6 +78,7 @@ form .label {
 }
 @media screen and (max-width: 660px) {
   .contact-text, .contact-form { width: 100% }
+  .contact-block { padding: var(--padding-size) }
 }
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {

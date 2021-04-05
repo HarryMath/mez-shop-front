@@ -10,11 +10,13 @@
 }
 .content-header {
   display: flex;
-  position: relative;
+  position: sticky;
+  top: 0; background-color: var(--background-color);
   padding: var(--padding-size);
   margin-top: calc(var(--padding-size)*0.5);
   border-bottom: 1px solid #88888877;
   align-items: flex-end;
+  z-index: 8;
 }
 .goods-title {
   font-size: calc(20px + 0.5vw);
@@ -118,3 +120,56 @@
 .filter-options>div>label {
   margin-left: calc(var(--checkbox-size)*1.7);
 }
+
+/* __________ PC only __________ */
+@media screen and (min-width: 551px) {
+  #filtersBtn {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+}
+@media screen and (max-width: 660px) {
+  .goods-count {
+    display: none;
+  }
+}
+/* __________ mobile only __________ */
+@media screen and (max-width: 550px) {
+  .catalog {
+    width: 100%;
+  }
+  .catalog-content, .content { padding: 0 }
+  .content-filters {
+    background: #fff;
+    position: fixed;
+    top: 0; right: 0;
+    transition: 0.2s;
+    z-index: 11; padding: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    transform: translateX(101%);
+  }
+  .content-filters.active {
+    transform: none;
+  }
+  .content-header {
+    top: var(--header-bottom-height);
+    background-color: #fff;
+    margin: 0;
+  }
+  .sort-block { width: calc(50% - var(--padding-size)) }
+  #sortBy { width: 100%; overflow: hidden; margin: 0; height: var(--input-height) }
+  .goods-title, .sort-block> label { display: none }
+  #filtersBtn {
+    width: calc(50% - var(--padding-size));
+    background-color: var(--primary-color);
+    color: #fff; box-shadow: none;
+  }
+  .filter-options { padding: calc(var(--padding-size)*0.5) }
+
+}
+
+@media screen and (max-width: 390px) {
+}
+

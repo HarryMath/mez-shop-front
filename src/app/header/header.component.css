@@ -99,7 +99,6 @@
   border-radius: 6px;
   padding: 0 var(--padding-size);
   background: #242c477c;
-  /*box-shadow: inset 3px 3px 3px #00000030, -2px -2px 5px 0 #ffffff2e, 4px 3px 5px #00000045, inset -3px -3px 5px 0 #ffffff14;*/
   box-shadow: inset 3px 3px 4px #161f3777, 3px 2px 5px 0 #4e64a38a;
   color: #eee;
   font-size: calc(13px + 0.325vw);
@@ -163,12 +162,12 @@
     width: var(--menu-width);
     z-index: 10;
     transform: translateX(-101%);
-    transition: 0.2s;
+    transition: width 0.2s;
   }
   #search-input {
     box-shadow: none;
     width: var(--header-bottom-height);
-    opacity: 0; transition: 0.4s;
+    opacity: 0; transition: width, opacity 0.4s;
   }
   #menuButton {
     height: calc(var(--header-top-height) * 0.6);

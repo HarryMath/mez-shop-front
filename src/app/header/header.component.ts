@@ -10,10 +10,10 @@ export class HeaderComponent implements OnInit {
 
   searchActive = false;
 
-  constructor(public headerService: MenuService) { }
+  constructor(public menuService: MenuService) { }
 
   toggleMenu(): void {
-    this.headerService.toggleMenu();
+    this.menuService.toggleMenu();
   }
 
   focusSearch(): void {
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   hideMenu(): void {
-    this.headerService.hideMenu();
+    this.menuService.hideMenu();
   }
 
   ngOnInit(): void {

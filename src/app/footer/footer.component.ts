@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
-import {Message} from '../tools/tools.module';
+import {FormControl} from '@angular/forms';
+
 
 @Component({
   selector: 'app-footer',
@@ -9,21 +10,17 @@ import {Message} from '../tools/tools.module';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  // @ts-ignore
-  nameNode: input;
-  // @ts-ignore
-  contactNode: input;
-  // @ts-ignore
-  messageNode: input;
 
-  constructor(private http: HttpClient, private message: Message) { }
+  name = new FormControl('');
+  contact = new FormControl('');
+  message = new FormControl('');
+
+  constructor(private http: HttpClient) { }
 
   sendFeedback(): void {
-    console.log('sending...');
-    const name = this.nameNode.value.trim();
-    const contact = this.contactNode.value.trim();
-    const message = this.messageNode.value.trim();
-    console.log(name, contact, message);
+    const name = this.name.value.trim();
+    const contact = this.contact.value.trim();
+    const message = this.message.value.trim();
     if (name.length > 2) {
       if (contact.length > 4) {
         let requestText = `https://mez-api.herokuapp.com/feedback?name=${name}&contact=${contact}`;
@@ -31,26 +28,23 @@ export class FooterComponent implements OnInit {
         this.http.get(requestText)
           .pipe(
             tap(response => {
-              console.log('response: ' + response);
-              this.message.show(
-                response === 1 ?
-                  'ваше сообщение отправлено!' :
-                  'сообщение не отправлено :c<br>попробуйте связаться другим способом', -1
+              // @ts-ignore
+              window.message.show(response === 1 ?
+                'ваше сообщение отправлено!' :
+                'сообщение не отправлено :c<br>попробуйте связаться другим способом', -1
               );
             })
           ).subscribe();
       } else {
-        this.message.show('введите ваш контакт, чтобы мы могли с вами связаться', -1);
+        // @ts-ignore
+        window.message.show('введите ваш контакт, чтобы мы могли с вами связаться', -1);
       }
     } else {
-      this.message.show('имя слишком короткое', -1);
+      // @ts-ignore
+      window.message.show('имя слишком короткое', -1);
     }
   }
 
-  ngOnInit(): void {
-    this.nameNode = document.getElementById('name');
-    this.contactNode = document.getElementById('contact');
-    this.messageNode = document.getElementById('message');
-  }
+  ngOnInit(): void {}
 
 }

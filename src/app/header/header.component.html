@@ -1,4 +1,4 @@
-<div [ngClass]="{'menu-active': headerService.menuActive}" class="header-top-wrapper unselectable">
+<div [ngClass]="{'menu-active': menuService.menuActive}" class="header-top-wrapper unselectable">
     <div class="header-top">
       <a class="logo" routerLink="/">
         <img src="assets/logo.png" alt="МЭЗ" class="header-top-item">
@@ -22,9 +22,9 @@
       </div>
     </div>
   </div>
-<div [ngClass]="{'menu-active': headerService.menuActive}" class="menu-overlay" (click)="toggleMenu()"></div>
+<div [ngClass]="{'menu-active': menuService.overlayActive()}" class="menu-overlay" (click)="menuService.hideAll()"></div>
 <div class="header-bottom-wrapper">
-    <div id="menuButton" (click)="toggleMenu()" [ngClass]="{'active': headerService.menuActive}">
+    <div id="menuButton" (click)="toggleMenu()" [ngClass]="{'active': menuService.menuActive}">
       <div></div><div></div><div></div>
     </div>
     <a routerLink="/" (click)="hideMenu()"><img src="assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item"></a>

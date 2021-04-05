@@ -1,7 +1,8 @@
 <div class="content-wrapper">
   <div class="content">
-    <div class="content-header">
-      <div class="goods-title">Все товары </div>
+    <div class="content-header unselectable">
+      <div class="goods-title" >Все товары </div>
+      <div id="filtersBtn" class="btn" (click)="menuService.showFilters()"><i class="fas fa-sliders-h"></i> фильтры</div>
       <div class="goods-count"> 1562 единицы</div>
       <div class="sort-block">
         <label for="sortBy" class="sort-by-label">сортировать по: </label>
@@ -15,7 +16,7 @@
     </div>
     <div class="content-main">
 
-      <div class="content-filters">
+      <div class="content-filters unselectable" [ngClass]="{'active': menuService.filterMenuActive}">
         <div class="filter-block opened">
           <div class="filter-name">тип
             <i class="fas fa-chevron-up"></i>
