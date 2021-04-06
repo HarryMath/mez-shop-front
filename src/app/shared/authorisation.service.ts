@@ -44,6 +44,8 @@ export class AuthorisationService {
     AuthorisationService.user = user;
     AuthorisationService.isAuthorised = true;
     window.localStorage.setItem('user', JSON.stringify(user));
+    // @ts-ignore
+    window.message.show('Вы вошли успешно!', 1);
     try {
       const element = document.getElementById('authButton');
       // @ts-ignore

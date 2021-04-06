@@ -255,7 +255,7 @@
   }
   .user {
     order: -1; height: unset;
-    padding: var(--padding-size) 0;
+    padding: var(--padding-size) calc(var(--padding-size)*0.5);
     align-items: flex-start;
   }
   .user> div {
