@@ -23,8 +23,8 @@
   animation: overlay-anim 0.3s 3.2s linear forwards;
 }
 #loadingOverlay>div {
-  top: 50%; left: 50%; position: absolute;
-  transform: translate(-50%, -50%);
+  bottom: 50%; left: 50%; position: fixed;
+  transform: translate(-50%, 50%);
   color: #fff;
   text-align: center;
 }
