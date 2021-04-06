@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuService} from '../shared/menu.service';
+import {AuthorisationService} from '../shared/authorisation.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ export class HeaderComponent implements OnInit {
 
   searchActive = false;
 
-  constructor(public menuService: MenuService) { }
+  constructor(public menuService: MenuService,
+              public authService: AuthorisationService) { }
 
   toggleMenu(): void {
     this.menuService.toggleMenu();

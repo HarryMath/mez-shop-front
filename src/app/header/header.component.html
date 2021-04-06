@@ -16,7 +16,11 @@
         <a class="header-top-item" routerLink="/customers" (click)="hideMenu()">
           Клиентам
         </a>
-        <div class="header-top-item" id="authButton">
+        <div *ngIf="authService.isAuthorised()" class="header-top-item user">
+          <span>{{authService.getUserName()}}</span>
+          <div class="user-image" [style]="'background-image: url(' + authService.getUserPhoto() + ')'"></div>
+        </div>
+        <div *ngIf="!authService.isAuthorised()" class="header-top-item" id="authButton">
           <i class="fas fa-user"></i> вход | регистрация
         </div>
       </div>
