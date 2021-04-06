@@ -232,13 +232,8 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   color: #666;
   font-size: calc(13px + 0.325vw);
 }
-.input-block> .input {
-  padding-left: 7px;
-  padding-top: calc(10px + 0.25vw);
-}
-.input-block> .select {
-  padding-left: 3px;
-  padding-top: calc(10px + 0.25vw);
+.input-block> .input, .input-block> .select  {
+  padding: calc(10px + 0.25vw) 13px 0 7px;
 }
 .input-block>.input:focus + label,
 .input-block>.input:valid + label,

@@ -172,7 +172,7 @@
     background-color: var(--primary-color);
     z-index: 10;
   }
-  .header-top {position: relative; height: unset; width: 100%}
+  .header-top {position: relative; height: unset; width: 100%; padding: 0}
   .header-top> .right-block {
     display: flex; flex-direction: column;
     float: unset;
@@ -255,7 +255,7 @@
   }
   .user {
     order: -1; height: unset;
-    padding: var(--padding-size) calc(var(--padding-size)*0.5);
+    padding: var(--padding-size);
     align-items: flex-start;
   }
   .user> div {
