@@ -90,7 +90,7 @@
 .user> span {
   text-overflow: ellipsis;
   overflow: hidden;
-  max-width: calc(var(--menu-width) * 0.63)
+  max-width: calc(var(--menu-width)*0.85 - 60px - 3vw)
 }
 .user> div {
   width: calc(var(--header-top-height) * 0.8);
@@ -99,6 +99,7 @@
   border-radius: 50%; color: #fff;
   text-align: center;
   background-size: cover;
+  background-color: var(--green-color);
   margin-left: calc(var(--padding-size)*0.5);
 }
 
@@ -261,6 +262,7 @@
   .user> div {
     width: calc(50px + 2.5vw);
     height: calc(50px + 2.5vw);
+    line-height: calc(50px + 2.5vw);
     margin-left: 0;
     margin-right: var(--padding-size);
     border-radius: 9px;

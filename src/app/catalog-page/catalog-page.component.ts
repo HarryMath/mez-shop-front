@@ -12,7 +12,6 @@ export interface FilterOption {
   selected: boolean;
 }
 
-
 @Component({
   selector: 'app-catalog-page',
   templateUrl: './catalog-page.component.html',
@@ -44,6 +43,24 @@ export class CatalogPageComponent implements OnInit {
   ];
 
   constructor(public menuService: MenuService) { }
+
+  toggleFilter(filter: FilterBlock): void {
+    try {
+      const filterElement = document.getElementById('f' + filter.name); // @ts-ignore
+      filterElement.style.cssText = 'height: ' + filterElement.offsetHeight + 'px';
+      if (filter.opened) { // @ts-ignore
+        filterElement.setAttribute('openedHeight', filterElement.offsetHeight); // @ts-ignore
+        setTimeout(() => { filterElement.style.cssText = ''; }, 5); // @ts-ignore
+      } else if (filterElement.getAttribute('openedHeight')) {
+        setTimeout(() => { // @ts-ignore
+            filterElement.style.cssText = 'height: ' + filterElement.getAttribute('openedHeight') + 'px';
+          }, 5);
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+    filter.opened = !filter.opened;
+  }
 
   ngOnInit(): void {
   }

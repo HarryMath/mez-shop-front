@@ -78,7 +78,7 @@ h5 i { font-size: calc(13px + 0.325vw)}
 }
 @media screen and (max-width: 660px) {
   .contact-text, .contact-form { width: 100% }
-  .contact-block { padding: var(--padding-size) }
+  .contact-block { padding: calc(var(--padding-size)*3) var(--padding-size) }
 }
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {

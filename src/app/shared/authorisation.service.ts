@@ -4,16 +4,18 @@ import {environment} from '../../environments/environment';
 declare var google: any;
 export interface User {
   id: number|null;
-  googleId: string|null;
-  mail: string|null;
+  googleId: string;
+  mail: string;
   name: string;
-  photo: string;
+  phone: string|null;
+  photo: string|null;
+  isAdmin: boolean;
 }
 
 @Injectable({providedIn: 'root'})
 export class AuthorisationService {
 
-  static user: User = {id: null, googleId: '', mail: '', name: '', photo: ''};
+  static user: User = {id: null, googleId: '', mail: '', name: '', photo: null, phone: null, isAdmin: false};
   static isAuthorised = false;
 
   constructor() {
@@ -22,7 +24,6 @@ export class AuthorisationService {
       try {
         const user = JSON.parse(userString);
         if (user.name) {
-          // this.user = user;
           AuthorisationService.user = user;
           AuthorisationService.isAuthorised = true;
           return;
@@ -37,9 +38,9 @@ export class AuthorisationService {
     const info = this.parseJwt(response.credential);
     const user = {
       // @ts-ignore
-      mail: info.email, googleId: response.clientId,
+      mail: info.email, googleId: response.clientId, phone: null,
       // @ts-ignore
-      name: info.name, photo: info.picture, id: null
+      name: info.name, photo: info.picture, id: null, isAdmin: false
     };
     AuthorisationService.user = user;
     AuthorisationService.isAuthorised = true;
@@ -77,13 +78,15 @@ export class AuthorisationService {
   }
 
   getUserName(): string {
-    // return this.user.name.split(' ')[0];
-    return AuthorisationService.user.name.split(' ')[0];
+    return AuthorisationService.user.name;
+  }
+  getFirstChar(): string {
+    return AuthorisationService.user.name.charAt(0);
   }
 
-  getUserPhoto(): string {
-    // return this.user.name.split(' ')[0];
-    return AuthorisationService.user.photo;
+  getUserImageStyle(): string {
+    return AuthorisationService.user.photo != null ?
+      `background-image: url(${AuthorisationService.user.photo}); color: transparent` : '';
   }
 
   showGoogleOneTapWindow(): void {

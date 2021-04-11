@@ -18,7 +18,7 @@
         </a>
         <div *ngIf="authService.isAuthorised()" class="header-top-item user">
           <span>{{authService.getUserName()}}</span>
-          <div class="user-image" [style]="'background-image: url(' + authService.getUserPhoto() + ')'"></div>
+          <div class="user-image" style="{{authService.getUserImageStyle()}}">{{authService.getFirstChar()}}</div>
         </div>
         <div *ngIf="!authService.isAuthorised()" class="header-top-item" id="authButton">
           <i class="fas fa-user"></i> вход | регистрация
@@ -33,14 +33,14 @@
     </div>
     <a routerLink="/" (click)="hideMenu()"><img src="assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item"></a>
     <div class="header-bottom" [ngClass]="{'search': searchActive}">
-      <div class="search-block header-bottom-item">
+      <div class="search-block header-bottom-item" (click)="hideMenu()">
         <label for="search-input" class="search-input-label">
           <i class="fas fa-search"></i>
         </label>
         <input type="text" id="search-input" placeholder="поиск" (focus)="focusSearch()" (blur)="blurSearch()">
       </div>
       <div class="right-block unselectable">
-        <div class="header-bottom-item">
+        <div class="header-bottom-item" onclick="goTo('contactBlock')">
           <i class="fas fa-comment-alt"></i><span> написать нам</span>
         </div>
         <div class="header-bottom-item">

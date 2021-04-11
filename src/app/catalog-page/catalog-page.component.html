@@ -19,8 +19,8 @@
 
       <div class="content-filters unselectable" [ngClass]="{'active': menuService.filterMenuActive}">
         <div *ngFor="let filter of filters"
-             class="filter-block" [ngClass]="{'opened': filter.opened}">
-            <div class="filter-name" (click)="filter.opened = !filter.opened">
+             class="filter-block" [ngClass]="{'opened': filter.opened}" id="f{{filter.name}}">
+            <div class="filter-name" (click)="toggleFilter(filter)">
               {{filter.name}}
               <i class="fas fa-chevron-up"></i>
             </div>
