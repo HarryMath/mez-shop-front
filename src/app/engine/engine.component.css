@@ -1,5 +1,6 @@
 .item-image {
   display: flex;
+  justify-content: center;
   overflow: hidden;
 }
 .item-image> img {
