@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CatalogService} from '../shared/catalog.service';
+import {CatalogService} from '../../shared/catalog.service';
 
 @Component({
   selector: 'app-catalog',

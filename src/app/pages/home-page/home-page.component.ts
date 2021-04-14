@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CatalogService} from '../../shared/catalog.service';
 
 export interface EngineTypeDTO {
   name: string;
@@ -13,10 +14,14 @@ export interface EngineTypeDTO {
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  categoriesLoaded = false;
 
-  constructor() { }
+  constructor(public catalogService: CatalogService) { }
 
   ngOnInit(): void {
+    this.catalogService.loadCategories().subscribe(() => {
+      this.categoriesLoaded = true;
+    });
   }
 
 }

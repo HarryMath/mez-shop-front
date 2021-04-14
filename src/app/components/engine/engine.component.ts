@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Engine} from '../shared/catalog.service';
+import {EnginePreview} from '../../shared/catalog.service';
 
 @Component({
   selector: 'app-engine',
@@ -8,12 +8,10 @@ import {Engine} from '../shared/catalog.service';
 })
 export class EngineComponent implements OnInit {
 
-  @Input() engine!: Engine;
+  @Input() engine!: EnginePreview;
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.count('engine initialized');
-  }
+  ngOnInit(): void { }
 
 }

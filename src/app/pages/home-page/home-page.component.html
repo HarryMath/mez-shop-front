@@ -80,7 +80,10 @@
   <div class="categories">
     <h3>Доступные категории</h3>
     <div class="categories-content">
-
+      <app-category class="category"
+        *ngFor="let categoryPreview of catalogService.categories"
+        [category]="categoryPreview"
+      ></app-category>
     </div>
   </div>
 </div>

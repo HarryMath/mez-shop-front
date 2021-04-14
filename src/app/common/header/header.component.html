@@ -1,7 +1,7 @@
 <div [ngClass]="{'menu-active': menuService.menuActive}" class="header-top-wrapper unselectable">
     <div class="header-top">
       <a class="logo" routerLink="/">
-        <img src="assets/logo.png" alt="МЭЗ" class="header-top-item">
+        <img src="/assets/logo.png" alt="МЭЗ" class="header-top-item">
       </a>
       <div class="right-block">
         <a class="header-top-item" routerLink="/catalog" (click)="hideMenu()">
@@ -31,7 +31,7 @@
     <div id="menuButton" (click)="toggleMenu()" [ngClass]="{'active': menuService.menuActive}">
       <div></div><div></div><div></div>
     </div>
-    <a routerLink="/" (click)="hideMenu()"><img src="assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item"></a>
+    <a routerLink="/" (click)="hideMenu()"><img src="../../../assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item"></a>
     <div class="header-bottom" [ngClass]="{'search': searchActive}">
       <div class="search-block header-bottom-item" (click)="hideMenu()">
         <label for="search-input" class="search-input-label">

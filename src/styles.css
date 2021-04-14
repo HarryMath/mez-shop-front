@@ -243,6 +243,9 @@ h4, h5, h6 {
   font-weight: 500;
   margin: 0;
 }
+/*___________ SPECIAL __________ */
+.category:hover .category-name { text-decoration: underline }
+.category:hover img { transform: scale(1.1) }
 
 /* __________ PC only __________ */
 @media screen and (min-width: 551px) {

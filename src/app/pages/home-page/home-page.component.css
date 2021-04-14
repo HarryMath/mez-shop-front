@@ -71,13 +71,24 @@
 .news h3, .categories h3 {
   text-align: center;
 }
+.categories-content, .news-content {
+  padding: var(--padding-size);
+  display: flex; flex-wrap: wrap;
+}
+.category {
+  width: 20%; padding: var(--padding-size); cursor: pointer;
+  margin-bottom: var(--padding-size);
+}
 
 /* __________ PC only __________ */
 @media screen and (min-width: 551px) {
 }
+/*_______________________________*/
 @media screen and (max-width: 900px) {
+  .category { width: 25% }
 }
 @media screen and (max-width: 660px) {
+  .category { width: 33% }
   .filter-row {
     flex-wrap: wrap;
   }
@@ -91,4 +102,10 @@
   .landing-text, .landing-text>div { width: 100%}
   .landing-image { display: none; visibility: hidden}
   #searchButton { margin-top: 4px }
+  .categories-content { padding: 0}
+  .category {width: 50%}
 }
+@media screen and (max-width: 350px) {
+  .category {width: 100%}
+}
+

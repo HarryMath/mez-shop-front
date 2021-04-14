@@ -1,0 +1,29 @@
+.category-image {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+.category-image> img {
+  height: calc(90px + 6vw);
+  margin: 0 auto;
+  padding: 5px;
+  transition: 0.2s;
+}
+.category-name {
+  font-weight: 500;
+  color: #202c58;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  height: calc(var(--input-height) * 2.3);
+  text-align: center;
+  justify-content: center;
+}
+.category-name> div {
+  margin: auto; word-break: break-word;
+}
+.category-description {
+  font-size: calc(12px + 0.3vw);
+  opacity: 0.5;
+  text-align: center;
+}

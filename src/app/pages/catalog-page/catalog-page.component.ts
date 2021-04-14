@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuService} from '../shared/menu.service';
+import {MenuService} from '../../shared/menu.service';
 
 export interface FilterBlock {
   name: string;

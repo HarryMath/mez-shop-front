@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { EngineComponent } from './engine/engine.component';
+import { HeaderComponent } from './common/header/header.component';
+import { FooterComponent } from './common/footer/footer.component';
+import { EngineComponent } from './components/engine/engine.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CatalogComponent } from './catalog/catalog.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
-import { CatalogPageComponent } from './catalog-page/catalog-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { CatalogPageComponent } from './pages/catalog-page/catalog-page.component';
+import { CategoryComponent } from './components/category/category.component';
 
 const appRoutes = [
   { path: '', component: HomePageComponent },
@@ -27,7 +28,8 @@ const appRoutes = [
     EngineComponent,
     CatalogComponent,
     HomePageComponent,
-    CatalogPageComponent
+    CatalogPageComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
