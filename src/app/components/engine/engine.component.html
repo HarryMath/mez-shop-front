@@ -8,9 +8,11 @@
     <div class="item-type">{{ engine.type }}</div>
   </div>
   <div class="item-info">
-    <div *ngFor="let characteristic of engine.characteristics | keyvalue">
-      <div class="param-name">{{ characteristic.key }}</div>
-      <div class="param-value">{{ characteristic.value }}</div>
+    <div *ngIf="engine.characteristics.length > 0">
+      <div class="param-name">P</div><div class="param-value">{{ getPower() }} кВт</div>
+      <div class="param-name">частота</div><div class="param-value">{{ getFrequency() }} об/мин</div>
+      <div class="param-name">кпд</div><div class="param-value">{{ getEfficiency() }}</div>
+      <div class="param-name">масса</div><div class="param-value">{{ engine.characteristics[0].mass }}</div>
     </div>
   </div>
   <div class="item-price-block">

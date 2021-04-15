@@ -4,17 +4,17 @@
         <img src="/assets/logo.png" alt="МЭЗ" class="header-top-item">
       </a>
       <div class="right-block">
+        <a class="header-top-item" routerLink="/" (click)="hideMenu()">
+          Главная
+        </a>
         <a class="header-top-item" routerLink="/catalog" (click)="hideMenu()">
           Каталог
         </a>
         <a class="header-top-item" routerLink="/about" (click)="hideMenu()">
           О нас
         </a>
-        <a class="header-top-item" routerLink="/sellers" (click)="hideMenu()">
-          Центры продаж
-        </a>
-        <a class="header-top-item" routerLink="/customers" (click)="hideMenu()">
-          Клиентам
+        <a class="header-top-item" routerLink="/contacts" (click)="hideMenu()">
+          Контакты
         </a>
         <div *ngIf="authService.isAuthorised()" class="header-top-item user">
           <span>{{authService.getUserName()}}</span>
