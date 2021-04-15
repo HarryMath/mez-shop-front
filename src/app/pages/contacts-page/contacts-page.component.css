@@ -1,0 +1,11 @@
+.content {
+  padding-bottom: var(--padding-size);
+}
+.department {
+  border: 1px solid #d8dde9;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  margin-bottom: var(--padding-size);
+  padding-bottom: 0;
+  display: block;
+}

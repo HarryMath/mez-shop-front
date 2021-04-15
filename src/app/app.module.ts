@@ -12,11 +12,14 @@ import {RouterModule} from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CatalogPageComponent } from './pages/catalog-page/catalog-page.component';
 import { CategoryComponent } from './components/category/category.component';
+import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
+import { DepartmentComponent } from './components/department/department.component';
 
 const appRoutes = [
   { path: '', component: HomePageComponent },
   { path: 'catalog', component: CatalogPageComponent, pathMatch: 'full' },
   { path: 'catalog/:id', component: CatalogPageComponent, pathMatch: 'prefix' },
+  { path: 'contacts', component: ContactsPageComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '/'}
 ];
 
@@ -29,7 +32,9 @@ const appRoutes = [
     CatalogComponent,
     HomePageComponent,
     CatalogPageComponent,
-    CategoryComponent
+    CategoryComponent,
+    ContactsPageComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule,

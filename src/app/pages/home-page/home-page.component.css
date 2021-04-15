@@ -73,7 +73,7 @@
 }
 .categories-content, .news-content {
   padding: var(--padding-size);
-  display: flex; flex-wrap: wrap;
+  display: flex; flex-wrap: wrap; justify-content: center;
 }
 .category {
   width: 20%; padding: var(--padding-size); cursor: pointer;
