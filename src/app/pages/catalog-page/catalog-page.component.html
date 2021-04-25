@@ -20,17 +20,22 @@
       <div class="content-filters unselectable" [ngClass]="{'active': menuService.filterMenuActive}">
         <div *ngFor="let filter of filters"
              class="filter-block" [ngClass]="{'opened': filter.opened}" id="f{{filter.name}}">
-            <div class="filter-name" (click)="toggleFilter(filter)">
+            <div class="filter-name" (click)="toggleFilterBlock(filter)">
               {{filter.name}}
               <i class="fas fa-chevron-up"></i>
             </div>
           <div class="filter-options">
             <div *ngFor="let option of filter.options">
-              <input type="checkbox" id="{{option.name}}" [checked]="option.selected">
+              <input
+                type="checkbox"
+                id="{{option.name}}"
+                [(ngModel)]="option.selected"
+                (change)="reloadCatalog()">
               <label for="{{option.name}}">{{option.name}}</label>
             </div>
           </div>
         </div>
+        <div class="removeFilters" (click)="removeFilters()">сбросить фильтры</div>
       </div>
 
       <app-catalog class="catalog"></app-catalog>

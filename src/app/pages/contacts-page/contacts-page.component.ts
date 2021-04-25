@@ -25,6 +25,34 @@ export interface Phone {
 export class ContactsPageComponent implements OnInit {
 
   departments: Department[] = [
+    {name: 'Отдел сбыта ОАО "Могилевлифтмаш"', contacts: [
+        {name: 'Серов Андрей Евгеньевич', position: 'Заместитель начальника отдела сбыта', phones: [
+            {phone: '+375 (222) 73-83-30', label: ''}, {phone: '+375 (222) 73-83-31', label: ''}
+          ], mails: []},
+        {name: 'Отдел сбыта электродвигателей', position: null, phones: [
+            {phone: '+375 (222) 73-83-30', label: ''}, {phone: '+375 (222) 73-83-31', label: ''}
+          ], mails: []}
+      ]},
+
+    {name: 'Отдел продаж ОАО "Могилевлифтмаш"', contacts: [
+        {name: 'Кузьменков Сергей Владимирович', position: 'Начальник отдела продаж электродвигателей', phones: [
+            {phone: '+375 (222) 646-851', label: ''}
+          ], mails: []},
+        {name: 'Бычков Сергей Николаевич', position: 'Начальник отдела рекламы и продаж потребительских товаров', phones: [
+            {phone: '+375 (222) 740-822', label: ''}
+          ], mails: []},
+        {name: 'Бюро продаж потребительских товаров', position: null, phones: [
+            {phone: '+375 (222) 740-890', label: ''}
+          ], mails: ['reklama@liftmach.by']},
+        {name: 'Бюро продаж электродвигателей', position: null, phones: [
+            {phone: '+375 (222) 649-980', label: '(РФ)'},
+            {phone: '+375 (222) 739-013', label: '(РФ)'},
+            {phone: '+375 (222) 738-460', label: '(РБ)'},
+            {phone: '+375 (222) 649-370', label: '(РБ)'},
+            {phone: '+375 (222) 738-328', label: '(зарубежье)'}
+          ], mails: ['motor@liftmach.by']}
+      ]},
+
     {name: 'Руководители и специалисты', contacts: [
         {name: 'Евсеенко Дмитрий Анатольевич', position: 'Начальник управления экономики', phones: [
             {phone: '+375 (222) 73-83-26', label: ''}
@@ -70,34 +98,6 @@ export class ContactsPageComponent implements OnInit {
           ], mails: []},
         {name: 'Бюро технического контроля', position: null, phones: [
             {phone: '+375 (222) 73-83-37', label: ''}
-          ], mails: []}
-      ]},
-
-    {name: 'Отдел продаж ОАО "Могилевлифтмаш"', contacts: [
-        {name: 'Кузьменков Сергей Владимирович', position: 'Начальник отдела продаж электродвигателей', phones: [
-            {phone: '+375 (222) 646-851', label: ''}
-          ], mails: []},
-        {name: 'Бычков Сергей Николаевич', position: 'Начальник отдела рекламы и продаж потребительских товаров', phones: [
-            {phone: '+375 (222) 740-822', label: ''}
-          ], mails: []},
-        {name: 'Бюро продаж потребительских товаров', position: null, phones: [
-            {phone: '+375 (222) 740-890', label: ''}
-          ], mails: ['reklama@liftmach.by']},
-        {name: 'Бюро продаж электродвигателей', position: null, phones: [
-            {phone: '+375 (222) 649-980', label: '(РФ)'},
-            {phone: '+375 (222) 739-013', label: '(РФ)'},
-            {phone: '+375 (222) 738-460', label: '(РБ)'},
-            {phone: '+375 (222) 649-370', label: '(РБ)'},
-            {phone: '+375 (222) 738-328', label: '(зарубежье)'}
-          ], mails: ['motor@liftmach.by']}
-      ]},
-
-    {name: 'Отдел сбыта ОАО "Могилевлифтмаш"', contacts: [
-        {name: 'Серов Андрей Евгеньевич', position: 'Заместитель начальника отдела сбыта', phones: [
-            {phone: '+375 (222) 73-83-30', label: ''}, {phone: '+375 (222) 73-83-31', label: ''}
-          ], mails: []},
-        {name: 'Отдел сбыта электродвигателей', position: null, phones: [
-            {phone: '+375 (222) 73-83-30', label: ''}, {phone: '+375 (222) 73-83-31', label: ''}
           ], mails: []}
       ]},
 

@@ -19,6 +19,9 @@ export class DepartmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.department.name === 'Отдел сбыта ОАО "Могилевлифтмаш"') {
+      this.opened = true;
+    }
   }
 
 }

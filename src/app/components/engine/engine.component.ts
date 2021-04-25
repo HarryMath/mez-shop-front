@@ -14,6 +14,13 @@ export class EngineComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  getPhotoCss(): string {
+    if (this.engine.photo === null || this.engine.photo === 'null' || this.engine.photo.length < 5) {
+      return '';
+    }
+    return `background-image: url(${this.engine.photo})`;
+  }
+
   getPower(): string {
     let result = '';
     for (let i = 0; i < this.engine.characteristics.length; i++) {

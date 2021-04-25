@@ -1,7 +1,7 @@
 
-  <div class="department-header unselectable">
+  <div class="department-header unselectable" (click)="opened = !opened">
     <h6 class="department-name">{{department.name}}</h6>
-    <div class="department-shower" [ngClass]="{'opened': opened}" (click)="opened = !opened">
+    <div class="department-shower" [ngClass]="{'opened': opened}">
       <span>{{getStateString()}}</span>
       <i class="fas fa-chevron-up"></i>
     </div>
@@ -13,7 +13,8 @@
       <div class="contact-post" *ngIf="contact.position!=null">{{contact.position}}</div>
       <div class="contact-phone" *ngFor="let phone of contact.phones">
         <i class="fas fa-phone-alt"></i>
-        <a class="link" href="tel: {{phone.phone}}">{{phone.phone}}</a> {{phone.label}}
+        <a class="link" href="tel: {{phone.phone}}">{{phone.phone}}</a>
+        <span class="unselectable"> {{phone.label}}</span>
       </div>
       <div class="contact-phone" *ngFor="let mail of contact.mails">
         <i class="fas fa-envelope"></i>

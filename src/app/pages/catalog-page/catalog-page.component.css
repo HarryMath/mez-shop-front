@@ -50,7 +50,7 @@
   height: var(--header-top-height);
   overflow: hidden;
   margin-bottom: 2px;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 .filter-block.opened {
   height: fit-content;
@@ -59,7 +59,7 @@
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
-.filter-block:last-child>.filter-name {
+.filter-block:nth-last-child(2)>.filter-name {
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
@@ -76,7 +76,7 @@
   right: var(--padding-size);
   top: 50%;
   transform: translateY(-50%) scale(1.2) rotateZ(180deg);
-  transition: 0.2s;
+  transition: 0.3s;
 }
 .filter-block.opened .filter-name>i {
   transform: translateY(-50%) scale(1.2);
@@ -89,10 +89,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  cursor: pointer;
   padding-left: calc(var(--padding-size)*0.5);
   border-radius: 3px;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   min-height: calc(var(--checkbox-size) * 2);
 }
 .filter-options>div:hover {
@@ -109,6 +108,20 @@
 }
 .filter-options>div>label {
   margin-left: calc(var(--checkbox-size)*1.7);
+  cursor: pointer;
+  padding: 2px 3px 2px 0;
+}
+.removeFilters {
+  margin: var(--padding-size);
+  line-height: var(--input-height);
+  padding: 0 calc(var(--padding-size)*1.5);
+  border-radius: 4px; border: 1px solid #99999977;
+  transition: 0.1s; transform: scale(0.95);
+  cursor: pointer; text-align: center; font-weight: 500;
+  font-size: calc(14px + 0.35vw); white-space: nowrap;
+}
+.removeFilters:hover {
+  color: var(--accent-color);
 }
 
 /* __________ PC only __________ */

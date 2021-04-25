@@ -28,10 +28,10 @@
   </div>
 <div [ngClass]="{'menu-active': menuService.overlayActive()}" class="menu-overlay" (click)="menuService.hideAll()"></div>
 <div class="header-bottom-wrapper">
-    <div id="menuButton" (click)="toggleMenu()" [ngClass]="{'active': menuService.menuActive}">
+    <div id="menuButton" (click)="menuService.toggleMenu()" [ngClass]="{'active': menuService.menuActive}">
       <div></div><div></div><div></div>
     </div>
-    <a routerLink="/" (click)="hideMenu()"><img src="../../../assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item"></a>
+    <a routerLink="/" (click)="hideMenu()"><img src="/assets/logoWhite.png" alt="МЭЗ" class="logo-mobile header-bottom-item"></a>
     <div class="header-bottom" [ngClass]="{'search': searchActive}">
       <div class="search-block header-bottom-item" (click)="hideMenu()">
         <label for="search-input" class="search-input-label">

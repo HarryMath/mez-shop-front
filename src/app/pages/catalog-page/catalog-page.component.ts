@@ -44,7 +44,7 @@ export class CatalogPageComponent implements OnInit {
 
   constructor(public menuService: MenuService) { }
 
-  toggleFilter(filter: FilterBlock): void {
+  toggleFilterBlock(filter: FilterBlock): void {
     try {
       const filterElement = document.getElementById('f' + filter.name); // @ts-ignore
       filterElement.style.cssText = 'height: ' + filterElement.offsetHeight + 'px';
@@ -62,7 +62,19 @@ export class CatalogPageComponent implements OnInit {
     filter.opened = !filter.opened;
   }
 
-  ngOnInit(): void {
+  removeFilters(): void {
+    this.filters.forEach(filter => {
+      filter.options.forEach(option => {
+        option.selected = false;
+      });
+    });
+    this.reloadCatalog();
   }
 
+  reloadCatalog(): void {
+    console.log('reloading');
+  }
+
+  ngOnInit(): void {
+  }
 }

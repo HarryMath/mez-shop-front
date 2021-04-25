@@ -1,7 +1,7 @@
 :root {
   --header-top-height: calc(35px + 0.875vw);
   --header-bottom-height: calc(42px + 1.05vw);
-  --content-size: calc(1020px + 15vw);
+  --content-size: calc(1100px + 15vw);
   --padding-size: calc(10px + 0.5vw);
   --menu-width: calc(210px + 5.25vw);
   --input-height: calc(31px + 0.775vw);
@@ -66,7 +66,7 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   opacity: 0;
   z-index: 100;
   min-width: calc(70px + 10vw);  max-width: calc(100% - 40px);
-  padding: var(--padding-size); padding-right: 0;
+  padding: calc(var(--padding-size)*0.5) var(--padding-size); padding-right: 0;
   font-weight: 500; background-color: #383e4e;  border: 1px solid #eeeeee2d; color: #eee; border-radius: 4px;
   overflow: hidden;
   font-size: 15px;

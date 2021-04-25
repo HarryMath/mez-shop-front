@@ -14,6 +14,7 @@ export class MenuService {
 
   toggleMenu(): void {
     this.menuActive = !this.menuActive;
+    this.filterMenuActive = false;
   }
 
   hideFilters(): void {
@@ -22,6 +23,7 @@ export class MenuService {
 
   showFilters(): void {
     this.filterMenuActive = true;
+    this.menuActive = false;
   }
 
   hideAll(): void {

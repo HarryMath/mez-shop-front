@@ -1,13 +1,12 @@
 .item-image {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
+  position: relative;
 }
-.item-image> img {
+.item-image> div {
+  background: url("/assets/photo.png") no-repeat center;
+  background-size: contain;
   margin: 0 auto;
   height: calc(90px + 6vw);
   mix-blend-mode: multiply;
-  padding: calc(5px + 0.25vw);
 }
 .item-info> div {
   display: flex;

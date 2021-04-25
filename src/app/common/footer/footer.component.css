@@ -73,7 +73,8 @@
 }
 .footer-top-wrapper { background-color: var(--primary-color); padding: var(--padding-size)}
 .footer-top { color: #fff; justify-content: center; }
-.footer-top span {font-weight: bold; font-size: calc(16px + 0.4vw)}
+.footer-top span {font-weight: bold; font-size: calc(16px + 0.4vw); white-space: nowrap; margin-left: 7px}
+.footer-top span> i {margin: 0 5px; }
 .terms-block {
   width: 100%;
   max-width: var(--content-size);

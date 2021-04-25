@@ -22,6 +22,7 @@ export interface EnginePreview {
   manufacturer: string;
   type: string;
   price: number;
+  mass: number;
   photo: string;
   characteristics: Characteristics[];
 }
@@ -31,6 +32,7 @@ export interface EngineDetails {
   name: string;
   manufacturer: string;
   price: number;
+  mass: number;
   photo: string;
   type: Category;
   characteristics: Characteristics[];
@@ -49,7 +51,6 @@ export interface Characteristics {
   momentsRatio: number;
   momentsMaxRatio: number;
   momentsMinRatio: number;
-  mass: number;
 }
 
 @Injectable({providedIn: 'root'})

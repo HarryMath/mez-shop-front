@@ -14,10 +14,6 @@ export class HeaderComponent implements OnInit {
   constructor(public menuService: MenuService,
               public authService: AuthorisationService) { }
 
-  toggleMenu(): void {
-    this.menuService.toggleMenu();
-  }
-
   focusSearch(): void {
     this.searchActive = true;
   }

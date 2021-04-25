@@ -1,19 +1,25 @@
 <div id="engine{{ engine.id }}">
   <div class="item-image">
-    <img src="{{ engine.photo }}" alt="engine">
+    <div style="{{getPhotoCss()}}"></div>
   </div>
   <div class="item-name-block">
     <div class="item-provider">{{ engine.manufacturer }}</div>
     <div class="item-name" [contentEditable]="engine.id > 3">{{ engine.name }}</div>
     <div class="item-type">{{ engine.type }}</div>
   </div>
-  <div class="item-info">
-    <div *ngIf="engine.characteristics.length > 0">
-      <div class="param-name">P</div><div class="param-value">{{ getPower() }} кВт</div>
-      <div class="param-name">частота</div><div class="param-value">{{ getFrequency() }} об/мин</div>
-      <div class="param-name">кпд</div><div class="param-value">{{ getEfficiency() }}</div>
-      <div class="param-name">масса</div><div class="param-value">{{ engine.characteristics[0].mass }}</div>
-    </div>
+  <div class="item-info" *ngIf="engine.characteristics.length > 0">
+      <div>
+        <div class="param-name">P</div><div class="param-value">{{ getPower() }} кВт</div>
+      </div>
+      <div>
+        <div class="param-name">частота номинальная</div><div class="param-value">{{ getFrequency() }} об/мин</div>
+      </div>
+      <div>
+        <div class="param-name">кпд</div><div class="param-value">{{ getEfficiency() }} %</div>
+      </div>
+      <div>
+        <div class="param-name">масса</div><div class="param-value">{{ engine.mass }} кг</div>
+      </div>
   </div>
   <div class="item-price-block">
     <div>₽{{ engine.price }}</div>
