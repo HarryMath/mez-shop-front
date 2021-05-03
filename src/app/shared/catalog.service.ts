@@ -74,4 +74,7 @@ export class CatalogService {
       );
   }
 
+  loadEngine(id: string): Observable<EngineDetails> {
+    return this.http.get<EngineDetails>('https://mez-api.herokuapp.com/engines/' + id + '?withDetails=true');
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CatalogService} from '../../shared/catalog.service';
+import {NewsService} from '../../shared/news.service';
 
 export interface EngineTypeDTO {
   name: string;
@@ -15,12 +16,19 @@ export interface EngineTypeDTO {
 })
 export class HomePageComponent implements OnInit {
   categoriesLoaded = false;
+  newsLoaded = false;
 
-  constructor(public catalogService: CatalogService) { }
+  constructor(
+    public catalogService: CatalogService,
+    public newsService: NewsService
+  ) { }
 
   ngOnInit(): void {
     this.catalogService.loadCategories().subscribe(() => {
       this.categoriesLoaded = true;
+    });
+    this.newsService.load3Previews().subscribe(() => {
+      this.newsLoaded = true;
     });
   }
 

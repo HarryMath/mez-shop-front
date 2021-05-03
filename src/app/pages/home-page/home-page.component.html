@@ -1,6 +1,7 @@
 <div class="landing-wrapper unselectable">
   <div class="landing-background"></div>
   <div class="landing">
+    <app-map [customStyle]="'color: #fff; padding-left: calc(var(--padding-size)); opacity: 0.9'"></app-map>
     <div class="row">
       <div class="landing-text">
         <div>
@@ -91,6 +92,11 @@
 <div class="news-wrapper">
   <div class="news">
     <h3>Новости</h3>
-    <div class="news-content"></div>
+    <div class="news-content" *ngIf="newsService.postPreviews.length > 0">
+      <app-post-main
+        *ngFor="let post of newsService.postPreviews"
+        [post]="post" class="post"
+      ></app-post-main>
+    </div>
   </div>
 </div>

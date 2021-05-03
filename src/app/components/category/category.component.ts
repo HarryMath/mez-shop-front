@@ -12,7 +12,7 @@ export class CategoryComponent implements OnInit {
   constructor() { }
 
   getPhoto(): string {
-    return this.category.photo == null ?
+    return (this.category.photo === null || this.category.photo === 'null') ?
       '/assets/noImage.png' :
       this.category.photo;
   }

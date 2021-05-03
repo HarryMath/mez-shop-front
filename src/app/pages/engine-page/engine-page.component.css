@@ -1,0 +1,46 @@
+.content {
+  display: block;
+}
+.item-info {
+  width: calc(100% - var(--buy-block-width));
+}
+.item-buy-block {
+  position: sticky; top: 0;
+  right: 0;
+  width: var(--buy-block-width);
+}
+.index {
+  display: inline-block;
+  transform: translate(-10%, 15%) scale(0.8);
+}
+.characteristics {
+  margin-bottom: var(--padding-size);
+}
+.characteristics> div { /* container */
+  margin: var(--padding-size) 0;
+  border: 1px solid #aaaaaa; border-radius: 2px;
+  background-color: #ffffff3d; overflow: hidden;
+}
+.characteristics> div> div { /* row */
+  display: flex; justify-content: space-between;
+  min-height: calc(var(--header-top-height)*0.8);
+  border-top: 1px solid #aaaaaa;
+}
+.characteristics> div> div:first-child { /* row */
+  background-color: #aaaaaa10;
+  border-top: none; font-weight: 500;
+}
+.characteristics> div> div> div { /* cell */
+  display: flex; align-items: center;
+  width: 10.75%; border-left: 1px solid #aaaaaa;
+  padding: 2px; overflow: hidden;
+}
+.characteristics> div> div> div:first-child { /* cell */
+  border-left: none;
+  font-weight: 500;
+}
+.characteristics> div> div> div:nth-child(2) { width: 14% }
+.characteristics> div> div> div> div {
+  text-align: center; width: 100%;
+}
+

@@ -14,11 +14,14 @@ import { CatalogPageComponent } from './pages/catalog-page/catalog-page.componen
 import { CategoryComponent } from './components/category/category.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 import { DepartmentComponent } from './components/department/department.component';
+import { PostMainComponent } from './components/post-main/post-main.component';
+import { MapComponent } from './common/map/map.component';
+import { EnginePageComponent } from './pages/engine-page/engine-page.component';
 
 const appRoutes = [
   { path: '', component: HomePageComponent },
   { path: 'catalog', component: CatalogPageComponent, pathMatch: 'full' },
-  { path: 'catalog/:id', component: CatalogPageComponent, pathMatch: 'prefix' },
+  { path: 'catalog/:id', component: EnginePageComponent, pathMatch: 'prefix' },
   { path: 'contacts', component: ContactsPageComponent, pathMatch: 'full' },
   { path: '**', redirectTo: '/'}
 ];
@@ -34,7 +37,10 @@ const appRoutes = [
     CatalogPageComponent,
     CategoryComponent,
     ContactsPageComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    PostMainComponent,
+    MapComponent,
+    EnginePageComponent
   ],
   imports: [
     BrowserModule,

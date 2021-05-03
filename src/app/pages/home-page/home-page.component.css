@@ -79,6 +79,23 @@
   width: 20%; padding: var(--padding-size); cursor: pointer;
   margin-bottom: var(--padding-size);
 }
+/* __________ NEWS BLOCK _________*/
+.news-content {
+  justify-content: space-between;
+}
+.post {
+  border-radius: 6px;
+  padding: var(--padding-size);
+  background-color: #fff;
+  display: block;
+  box-shadow: 0 3px 7px 0 #26335724;
+  transition: 0.2s;
+  width: calc(33.3% - var(--padding-size));
+}
+.post:hover {
+  transform: scale(1.01);
+  box-shadow: 0 5px 9px 4px #26335733;
+}
 
 /* __________ PC only __________ */
 @media screen and (min-width: 551px) {

@@ -1,4 +1,4 @@
-<div id="engine{{ engine.id }}">
+<a id="engine{{ engine.id }}" routerLink="/catalog/{{engine.id}}">
   <div class="item-image">
     <div style="{{getPhotoCss()}}"></div>
   </div>
@@ -25,4 +25,4 @@
     <div>₽{{ engine.price }}</div>
     <div><i class="fas fa-check"></i> в наличии</div>
   </div>
-</div>
+</a>
