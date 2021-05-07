@@ -5,18 +5,25 @@
     <div class="with-columns">
       <div class="item-info">
 
-        <div class="with-columns">
+        <div class="with-columns item-top">
           <div class="item-gallery"></div>
           <div class="main-info">
-            <h3 class="name">{{engine.name}}</h3>
+            <h2 class="name">Двигатель {{engine.name}}</h2>
             <div class="origin">
-              <a class="link" routerLink="/catalog" [queryParams]="{brand : engine.manufacturer}">{{engine.manufacturer}}</a> ·
-              <a class="link" routerLink="/catalog" [queryParams]="{type : engine.type.name}">{{engine.type.name}}</a>
+              <div>
+                <a class="link" routerLink="/catalog" [queryParams]="{brand : engine.manufacturer}">{{engine.manufacturer}}</a>
+              </div>
+              <div>
+                <a class="link" routerLink="/catalog" [queryParams]="{type : engine.type.name}">{{engine.type.name}}</a>
+              </div>
+              <div class="naming">
+                <span>наименование: </span> {{engine.name}}
+              </div>
             </div>
             <div class="main-characteristics">
-              <div><div>фазность: </div><div>{{engine.characteristics.length}}</div></div>
-              <div><div>мощности: </div><div>{{getPower()}} кВт</div></div>
-              <div><div>масса: </div><div>{{engine.mass}} кг</div></div>
+              <div><div>&#x2022; фазность: </div><div>{{engine.characteristics.length}}</div></div>
+              <div><div>&#x2022; мощности: </div><div>{{getPower()}}</div></div>
+              <div><div>&#x2022; масса: </div><div>{{engine.mass}} кг</div></div>
             </div>
             <div class="link" onclick="goTo('characteristics')">все характеристики <i class="fas fa-chevron-down"></i></div>
           </div>
@@ -46,7 +53,7 @@
               <div><div>{{row.frequency}}</div></div>
               <div><div>{{row.efficiency}}</div></div>
               <div><div>{{row.cosFi}}</div></div>
-              <div><div>{{row.electricityNominal220}}|{{row.electricityNominal380}}</div></div>
+              <div><div>{{row.electricityNominal220}}, {{row.electricityNominal380}}</div></div>
               <div><div>{{row.electricityRatio}}</div></div>
               <div><div>{{row.momentsRatio}}</div></div>
               <div><div>{{row.momentsMaxRatio}}</div></div>
@@ -58,23 +65,28 @@
 
       <div class="item-buy-block">
         <div class="price-block">
-          <div>Цена: </div><div>₽{{engine.price}}</div>
+          <div>Цена: </div>
+          <div>{{engine.price}} ₽
+            <span style="opacity: 0.3; font-size: 0.75em;" *ngIf="amount > 1">
+               · {{amount}} = {{engine.price * amount}} ₽
+            </span>
+          </div>
         </div>
         <div class="count-block unselectable">
           <div>
-            <div (click)="less()" [ngClass]="amount < 2 ? 'disabled' : ''">-</div>
-            <div>{{amount}}</div>
-            <div (click)="more()">+</div>
+            <div class="counter" (click)="less()" [ngClass]="amount < 2 ? 'disabled' : ''">-</div>
+            <div class="amount">{{amount}}</div>
+            <div class="counter" (click)="more()">+</div>
           </div> шт
         </div>
-        <div class="btn btn-primary cart-btn">
+        <div class="btn btn-primary btn-3d unselectable" (click)="adToCart()">
           в корзину
           <i class="fas fa-shopping-cart"></i>
         </div>
-        <div class="btn btn-secondary buy-btn">
+        <div class="btn btn-secondary unselectable">
           купить в 1 клик
         </div>
-        <div><i class="fas fa-check"></i> в наличии</div>
+        <div class="available"><i class="fas fa-check"></i> в наличии на складе</div>
       </div>
     </div>
 

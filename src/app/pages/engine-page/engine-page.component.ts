@@ -27,11 +27,15 @@ export class EnginePageComponent implements OnInit {
   ngOnInit(): void {
     const path = this.router.url.split('/');
     const id = path[path.length - 1].split('?')[0];
+    this.activePhoto = 0;
+    this.amount = 1;
     this.catalogService.loadEngine(id)
       .subscribe(response => {
         this.engine = response;
         this.photos = this.engine.photos;
-        this.photos.unshift(this.engine.photo);
+        if (this.engine.photo !== null && this.engine.photo.length > 5) {
+          this.photos.unshift(this.engine.photo);
+        }
         this.engineLoaded = true;
       },
       error => { // @ts-ignore
@@ -64,9 +68,13 @@ export class EnginePageComponent implements OnInit {
   getPower(): string {
     let result = '';
     for (let i = 0; i < this.engine.characteristics.length; i++) {
-      result += this.engine.characteristics[i].power;
-      if (i !== this.engine.characteristics.length - 1) { result += '/'; }
+      result += this.engine.characteristics[i].power +  ' кВт';
+      if (i !== this.engine.characteristics.length - 1) { result += ', '; }
     }
     return result;
+  }
+
+  adToCart(): void {
+
   }
 }

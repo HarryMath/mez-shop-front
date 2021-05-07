@@ -25,7 +25,7 @@ export class EngineComponent implements OnInit {
     let result = '';
     for (let i = 0; i < this.engine.characteristics.length; i++) {
       result += this.engine.characteristics[i].power;
-      if (i !== this.engine.characteristics.length - 1) { result += '/'; }
+      if (i !== this.engine.characteristics.length - 1) { result += ', '; }
     }
     return result;
   }
@@ -34,7 +34,7 @@ export class EngineComponent implements OnInit {
     let result = '';
     for (let i = 0; i < this.engine.characteristics.length; i++) {
       result += this.engine.characteristics[i].frequency;
-      if (i !== this.engine.characteristics.length - 1) { result += '/'; }
+      if (i !== this.engine.characteristics.length - 1) { result += ', '; }
     }
     return result;
   }
@@ -43,7 +43,7 @@ export class EngineComponent implements OnInit {
     let result = '';
     for (let i = 0; i < this.engine.characteristics.length; i++) {
       result += this.engine.characteristics[i].efficiency;
-      if (i !== this.engine.characteristics.length - 1) { result += '/'; }
+      if (i !== this.engine.characteristics.length - 1) { result += ',  '; }
     }
     return result;
   }
