@@ -10,7 +10,7 @@ export class MapComponent implements OnInit {
 
   constructor(private router: Router) { }
   private static readonly translate: Map<string, string> = new Map<string, string>(
-      [['home', 'главная'],
+      [['home', 'Главная'],
       ['news', 'новости'],
       ['contacts', 'котакты'],
       ['catalog', 'каталог']]);

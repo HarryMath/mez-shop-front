@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuService} from '../../shared/menu.service';
+import {CatalogService} from "../../shared/catalog.service";
 
 export interface FilterBlock {
   name: string;
@@ -41,8 +42,9 @@ export class CatalogPageComponent implements OnInit {
         {name: 'производитель 3', selected: false},
       ]}
   ];
+  catalogLoaded = false;
 
-  constructor(public menuService: MenuService) { }
+  constructor(public menuService: MenuService, public catalogService: CatalogService) { }
 
   toggleFilterBlock(filter: FilterBlock): void {
     try {
@@ -76,5 +78,8 @@ export class CatalogPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.catalogService.loadEngines().subscribe(() => {
+      this.catalogLoaded = true;
+    });
   }
 }
