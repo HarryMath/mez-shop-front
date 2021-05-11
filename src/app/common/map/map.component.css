@@ -1,15 +1,14 @@
 .map {
   display: flex;
   flex-wrap: nowrap;
-  padding: var(--padding-size) 0;
+  padding: var(--padding-size-m);
   padding-bottom: 0;
-  height: calc(15px + 0.375vw);
   opacity: 0.6;
 }
 .map> div {
-  margin-right: calc(var(--padding-size) * 0.5);
+  margin-right: calc(var(--padding-size-m) * 0.5);
 }
 span {
-  width: var(--padding-size);
+  width: var(--padding-size-m);
 }
 .svg { opacity: 0.7}

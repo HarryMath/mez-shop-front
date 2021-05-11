@@ -1,14 +1,37 @@
+<div class="gallery unselectable" *ngIf="galleryOpened">
+  <div class="photo" [style]="'background-image: url(' + photos[activePhoto] + ')'"></div>
+  <div class="prev" (click)="prevPhoto()"><i class="fas absolute-center fa-chevron-left"></i></div>
+  <div class="next" (click)="nextPhoto()"><i class="fas absolute-center fa-chevron-right"></i></div>
+  <div class="closer" (click)="galleryOpened = false">×</div>
+</div>
+
 <div class="content-wrapper">
-  <div class="content">
-    <app-map></app-map>
+  <div class="content" [ngClass]="engineLoaded? '' : 'loading'">
+    <app-map [customStyle]="'position: absolute'"></app-map>
 
     <div class="with-columns">
       <div class="item-info">
 
+        <h2 class="mobile">Двигатель {{engine.name}}</h2>
         <div class="with-columns item-top">
-          <div class="item-gallery"></div>
+          <div class="item-gallery">
+            <div class="main-photo-wrapper">
+              <img *ngIf="photos.length > 0" alt="photo"
+                   src="{{photos[activePhoto]}}"
+                   (click)="galleryOpened = true">
+              <img *ngIf="photos.length < 1" src="assets/noImage.png" alt="photo">
+            </div>
+            <div class="rest-photos" *ngIf="photos.length > 0">
+              <div
+                *ngFor="let photo of photos; let i = index"
+                [ngClass]="i === activePhoto ? 'selected' : ''"
+                (click)="activePhoto = i"
+                [style]="'background-image: url(' + photo + ')'"
+              ></div>
+            </div>
+          </div>
           <div class="main-info">
-            <h2 class="name">Двигатель {{engine.name}}</h2>
+            <h2 class="name desktop">Двигатель {{engine.name}}</h2>
             <div class="origin">
               <div>
                 <a class="link" routerLink="/catalog" [queryParams]="{brand : engine.manufacturer}">{{engine.manufacturer}}</a>
@@ -25,7 +48,7 @@
               <div><div>&#x2022; мощности: </div><div>{{getPower()}}</div></div>
               <div><div>&#x2022; масса: </div><div>{{engine.mass}} кг</div></div>
             </div>
-            <div class="link" onclick="goTo('characteristics')">все характеристики <i class="fas fa-chevron-down"></i></div>
+            <div class="link goTo" onclick="goTo('characteristics')">все характеристики <i class="fas fa-chevron-down"></i></div>
           </div>
         </div>
 
@@ -86,7 +109,7 @@
         <div class="btn btn-secondary unselectable">
           купить в 1 клик
         </div>
-        <div class="available"><i class="fas fa-check"></i> в наличии на складе</div>
+        <div class="available desktop"><i class="fas fa-check"></i> в наличии на складе</div>
       </div>
     </div>
 

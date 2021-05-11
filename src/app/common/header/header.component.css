@@ -21,13 +21,13 @@
   transform: translateX(-50%);
   width: 100%;
   max-width: var(--content-size);
-  padding: 0 var(--padding-size); overflow: hidden;
+  padding: 0 var(--padding-size-m); overflow: hidden;
 }
 .header-top { height: var(--header-top-height); }
 .header-bottom { height: var(--header-bottom-height); }
 
 .header-bottom-item, .header-top-item {
-  padding: 0 var(--padding-size);
+  padding: 0 var(--padding-size-m);
   cursor: pointer;
   display: block;
   position: relative;
@@ -47,7 +47,7 @@
   bottom: calc(3px + 5%);
   border-radius: 3px;
   height: 3px;
-  width: calc(100% - var(--padding-size)*1.5);
+  width: calc(100% - var(--padding-size-m)*1.5);
   background: var(--accent-color-light);
   left: 50%;
   transform: translateX(-50%) scaleX(0);
@@ -100,7 +100,7 @@
   text-align: center;
   background-size: cover;
   background-color: var(--green-color);
-  margin-left: calc(var(--padding-size)*0.5);
+  margin-left: calc(var(--padding-size-m)*0.5);
 }
 
 .right-block {
@@ -117,7 +117,7 @@
   height: var(--input-height);
   line-height: var(--input-height);
   border-radius: 6px;
-  padding: 0 var(--padding-size);
+  padding: 0 var(--padding-size-m);
   background: #242c477c;
   box-shadow: inset 3px 3px 4px #161f3777, 3px 2px 5px 0 #4e64a38a;
   color: #eee;
@@ -135,7 +135,7 @@
 .search-input-label {
   color: #ffffffaa;
   position: absolute;
-  right: calc(var(--padding-size) * 1.5);
+  right: calc(var(--padding-size-m) * 1.5);
 }
 
 /* __________ PC only __________ */
@@ -144,7 +144,7 @@
     display: none; visibility: hidden;
   }
   .header-top, .header-bottom {
-    padding-right: calc(var(--padding-size)*2);
+    padding-right: calc(var(--padding-size-m)*2);
   }
   #search-input:focus {
     color: var(--primary-color);
@@ -168,7 +168,7 @@
   }
   .header-bottom {
     left: unset; right: 0;
-    width: calc(var(--header-bottom-height)*3 + var(--padding-size)*2);
+    width: calc(var(--header-bottom-height)*3 + var(--padding-size-m)*2);
     transform: none; transition: 0.2s;
     background-color: var(--primary-color);
     z-index: 10;
@@ -197,7 +197,7 @@
     width: calc(var(--header-top-height) * 0.6);
     position: absolute;
     top: 50%; transform: translateY(-50%);
-    left: var(--padding-size);
+    left: var(--padding-size-m);
     z-index: 2;
   }
   #menuButton> div {
@@ -256,7 +256,7 @@
   }
   .user {
     order: -1; height: unset;
-    padding: var(--padding-size);
+    padding: var(--padding-size-m);
     align-items: flex-start;
   }
   .user> div {
@@ -264,7 +264,7 @@
     height: calc(50px + 2.5vw);
     line-height: calc(50px + 2.5vw);
     margin-left: 0;
-    margin-right: var(--padding-size);
+    margin-right: var(--padding-size-m);
     border-radius: 9px;
     order: -1;
   }

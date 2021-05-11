@@ -20,11 +20,12 @@ export class EnginePageComponent implements OnInit {
   photos: string[] = [];
   activePhoto = 0;
   amount = 1;
-  inCart = false;
+  galleryOpened = false;
 
   constructor(private catalogService: CatalogService, private router: Router) { }
 
   ngOnInit(): void {
+    this.engineLoaded = false;
     const path = this.router.url.split('/');
     const id = path[path.length - 1].split('?')[0];
     this.activePhoto = 0;
@@ -76,5 +77,14 @@ export class EnginePageComponent implements OnInit {
 
   adToCart(): void {
 
+  }
+
+  nextPhoto(): void {
+    this.activePhoto = (this.activePhoto + 1) % (this.photos.length);
+  }
+
+  prevPhoto(): void {
+    this.activePhoto = this.activePhoto > 0 ?
+      this.activePhoto - 1 : this.photos.length - 1;
   }
 }

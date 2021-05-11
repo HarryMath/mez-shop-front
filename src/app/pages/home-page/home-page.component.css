@@ -13,12 +13,12 @@
 .landing {
   width: 100%;
   max-width: var(--content-size);
-  padding: 0 var(--padding-size);
+  padding: 0 var(--padding-size-m);
   margin: 0 auto calc(20px + 1vw);
 }
 .landing-text {
   color: #fff;
-  padding: var(--padding-size);
+  padding: var(--padding-size-m);
   width: calc(50% - 100px - 5vw);
 }
 .landing-text a {
@@ -37,47 +37,47 @@
 .landing-image {
   width: calc(50% + 100px + 5vw);
   max-width: calc(400px + 20vw);
-  padding-left: var(--padding-size);
+  padding-left: var(--padding-size-m);
   margin-top: auto;
 }
 .search-block {
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 4px 10px 20px 6px #2633575e;
-  margin: 0 var(--padding-size);
-  padding: calc(var(--padding-size)*0.8);
+  margin: 0 var(--padding-size-m);
+  padding: calc(var(--padding-size-m)*0.8);
 }
 .input-block {
   margin-right: 6px;
   width: 100%;
 }
 .filter-row {
-  margin-top: calc(var(--padding-size)*0.6);
+  margin-top: calc(var(--padding-size-m)*0.6);
 }
 #resetFilters {
   font-weight: bold;
   opacity: 0.4;
   cursor: pointer;
-  padding: 0 var(--padding-size);
+  padding: 0 var(--padding-size-m);
 }
 #resetFilters:hover {opacity: 0.6;}
 
 .news, .categories {
   width: 100%;
   max-width: var(--content-size);
-  padding: var(--padding-size);
+  padding: var(--padding-size-m);
   margin: 0 auto calc(20px + 1vw);
 }
 .news h3, .categories h3 {
   text-align: center;
 }
 .categories-content, .news-content {
-  padding: var(--padding-size);
+  padding: var(--padding-size-m);
   display: flex; flex-wrap: wrap; justify-content: center;
 }
 .category {
-  width: 20%; padding: var(--padding-size); cursor: pointer;
-  margin-bottom: var(--padding-size);
+  width: 20%; padding: var(--padding-size-m); cursor: pointer;
+  margin-bottom: var(--padding-size-m);
 }
 /* __________ NEWS BLOCK _________*/
 .news-content {
@@ -85,12 +85,12 @@
 }
 .post {
   border-radius: 6px;
-  padding: var(--padding-size);
+  padding: var(--padding-size-m);
   background-color: #fff;
   display: block;
   box-shadow: 0 3px 7px 0 #26335724;
   transition: 0.2s;
-  width: calc(33.3% - var(--padding-size));
+  width: calc(33.3% - var(--padding-size-m));
 }
 .post:hover {
   transform: scale(1.01);
@@ -125,4 +125,3 @@
 @media screen and (max-width: 350px) {
   .category {width: 100%}
 }
-

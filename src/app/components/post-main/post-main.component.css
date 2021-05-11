@@ -6,7 +6,7 @@
   opacity: 1;
 }
 .post-header {
-  margin-bottom: var(--padding-size);
+  margin-bottom: var(--padding-size-m);
   font-weight: 500;
 }
 .post-date {
@@ -16,17 +16,17 @@
   border-radius: 5px;
   border: 1px solid #aaa;
   opacity: 0.5;
-  padding: 4px var(--padding-size);
+  padding: 4px var(--padding-size-m);
   padding-top: 3px;
 }
 .post-title {
   font-size: calc(16px + 0.4vw);
   font-weight: bold;
-  margin: var(--padding-size) 0;
+  margin: var(--padding-size-m) 0;
   transition: 0.2s; text-decoration: none!important;
 }
 .post-text-wrapper {
-  margin: calc(var(--padding-size)*2) 0;
+  margin: calc(var(--padding-size-m)*2) 0;
   height: 150px; overflow: hidden;
   display: flex; align-items: center;
 }

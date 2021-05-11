@@ -2,7 +2,10 @@
   --header-top-height: calc(35px + 0.875vw);
   --header-bottom-height: calc(42px + 1.05vw);
   --content-size: calc(1100px + 15vw);
-  --padding-size: calc(10px + 0.5vw);
+  --padding-size-s: calc(5px + 0.25vw);
+  --padding-size-m: calc(10px + 0.5vw);
+  --padding-size-l: calc(15px + 0.75vw);
+  --padding-size-xl: calc(20px + 1vw);
   --menu-width: calc(210px + 5.25vw);
   --input-height: calc(31px + 0.775vw);
 
@@ -67,7 +70,7 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   opacity: 0;
   z-index: 100;
   min-width: calc(70px + 10vw);  max-width: calc(100% - 40px);
-  padding: calc(var(--padding-size)*0.5) var(--padding-size); padding-right: 0;
+  padding: calc(var(--padding-size-m)*0.5) var(--padding-size-m); padding-right: 0;
   font-weight: 500; background-color: #383e4e;  border: 1px solid #eeeeee2d; color: #eee; border-radius: 4px;
   overflow: hidden;
   font-size: 15px;
@@ -111,9 +114,8 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
 .underlined {
   text-decoration: underline;
 }
-.link:hover {
-  text-decoration: underline;
-}
+.link { cursor: pointer; }
+.link:hover {text-decoration: underline;}
 .with-tooltip {
   position: relative;
   width: fit-content;
@@ -177,14 +179,14 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   cursor: pointer;
   height: var(--input-height);
   line-height: calc(var(--input-height) - 1px);
-  padding: 0 calc(var(--padding-size)*2);
+  padding: 0 calc(var(--padding-size-m)*2);
   font-weight: 500; transition: 0.1s;
   white-space: nowrap; text-align: center;
 }
 .btn-secondary {
   box-shadow: inset 0 0 0 2px #555555;
 }
-.btn-secondary:hover {
+.btn-secondary:active {
   color: var(--accent-color);
   background-color: #ffffff;
 }
@@ -192,12 +194,8 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   text-shadow: 0 -1px 1px #0000002d;
   box-shadow: inset 0 -2px 1px 1px #00000029, inset 0 2px 1px 1px #ffffff40, 0 2px 6px 0 #01040e49;
 }
-.btn-3d:hover {
-  background: var(--accent-color);
-  box-shadow: inset 0 -2px 1px 0 #00000025, inset 0 2px 1px 0 #ffffff38, 0 2px 3px 0 #01040e40;
-}
 .btn-3d:active {
-  box-shadow: inset 0 2px 3px 0 #00000020;
+  box-shadow: inset 0 2px 3px 0 #00000020!important;
 }
 .btn-primary {
   background: var(--accent-color) linear-gradient(360deg, transparent, var(--accent-color-light));
@@ -207,11 +205,8 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   background-color: var(--accent-color);
   color: #fff;
 }
-.btn-modern:hover {
-  background-color: var(--accent-color);
-  box-shadow: 0 0 0 3px #ff9879; transition: 0.2s;
-}
 .btn-modern:active {
+  background: var(--accent-color);
   background-color: var(--accent-color-dark);
   box-shadow: 0 0 0 1px #fff, 0 0 0 2px var(--accent-color-light), inset 0 0 0 1px #fff;
 }
@@ -278,13 +273,29 @@ h6 {
   width: 100%;
   max-width: var(--content-size);
   margin: 0 auto; position: relative;
-  padding: 0 calc(var(--padding-size)*2);
+  padding: 0 calc(var(--padding-size-m)*2);
 }
 .category:hover .category-name { text-decoration: underline }
 .category:hover img { transform: scale(1.1) }
 
 /* __________ PC only __________ */
 @media screen and (min-width: 551px) {
+  .btn-secondary:hover {
+    color: var(--accent-color);
+    background-color: #ffffff;
+  }
+  .btn-3d:hover {
+    background: var(--accent-color);
+    box-shadow: inset 0 -2px 1px 0 #00000025, inset 0 2px 1px 0 #ffffff38, 0 2px 3px 0 #01040e40;
+  }
+  .btn-modern:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 0 3px #ff9879; transition: 0.2s;
+  }
+}
+/* __________ desktop only __________ */
+@media screen and (min-width: 551px) {
+  .mobile{display: none; visibility: hidden}
 }
 @media screen and (max-width: 900px) {
 }
@@ -292,9 +303,10 @@ h6 {
 }
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {
+  .desktop{display: none; visibility: hidden}
   :root {
     --header-bottom-height: calc(47px + 1.175vw);
     --input-height: calc(35px + 0.875vw);
   }
-  .content-wrapper> .content { padding: 0 var(--padding-size)}
+  .content-wrapper> .content { padding: 0 var(--padding-size-m)}
 }
