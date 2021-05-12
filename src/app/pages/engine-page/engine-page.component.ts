@@ -25,7 +25,8 @@ export class EnginePageComponent implements OnInit {
   constructor(private catalogService: CatalogService, private router: Router) { }
 
   ngOnInit(): void {
-    this.engineLoaded = false;
+    this.engineLoaded = false; // @ts-ignore
+    document.body.scroll(0, 0);
     const path = this.router.url.split('/');
     const id = path[path.length - 1].split('?')[0];
     this.activePhoto = 0;
@@ -38,6 +39,11 @@ export class EnginePageComponent implements OnInit {
           this.photos.unshift(this.engine.photo);
         }
         this.engineLoaded = true;
+        try { // @ts-ignore
+          setTimeout(
+            `document.querySelector('.loading').classList.remove('loading')`,
+            1);
+        } catch (ignore) {}
       },
       error => { // @ts-ignore
         window.message.show('не удается загрузить данные');
@@ -86,5 +92,9 @@ export class EnginePageComponent implements OnInit {
   prevPhoto(): void {
     this.activePhoto = this.activePhoto > 0 ?
       this.activePhoto - 1 : this.photos.length - 1;
+  }
+
+  getHeightCss(): string {
+    return Math.round(window.innerHeight * 1.000001 + 1) + 'px';
   }
 }

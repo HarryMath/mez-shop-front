@@ -31,7 +31,10 @@ const appRoutes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}),
+    RouterModule.forRoot(appRoutes, {
+      preloadingStrategy: PreloadAllModules,
+      scrollPositionRestoration: 'top'
+    }),
     HttpClientModule,
     SharedModule
   ],

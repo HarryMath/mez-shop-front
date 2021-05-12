@@ -1,5 +1,6 @@
 .item-image {
   position: relative;
+  padding: var(--padding-size-s);
 }
 .item-image> div {
   background: url("/assets/photo.png") no-repeat center;
@@ -67,12 +68,14 @@
 }
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {
-  .item-image> img {
-    height: calc(110px + 5.5vw);
+  .item-image {padding: var(--padding-size-m);}
+  .item-image> div {
+    height: calc(27.5vw - 10px);
   }
 }
-@media screen and (max-width: 400px) {
-  .item-image> img {
-    height: calc(140px + 7vw);
+@media screen and (max-width: 440px) {
+  .item-image {padding: var(--padding-size-xl);}
+  .item-image> div {
+    height: calc(55vw - 15px);
   }
 }

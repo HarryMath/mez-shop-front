@@ -214,12 +214,17 @@
     width: 33%;
   }
 }
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 730px) {
+  .item {
+    width: 50%;
+  }
   .goods-count {
     display: none;
   }
+}
+@media screen and (max-width: 600px) {
   .item {
-    width: 50%;
+    width: 100%;
   }
 }
 /* __________ mobile only __________ */
@@ -258,9 +263,10 @@
   .item-image> img {
     height: calc(110px + 5.5vw);
   }
+  .item {width: 50%}
 
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 440px) {
   .item {
     width: 100%;
     padding-bottom: 10px;

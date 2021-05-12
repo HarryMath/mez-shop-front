@@ -9,3 +9,10 @@
   padding-bottom: 0;
   display: block;
 }
+iframe {
+  width: 100%;
+  height: calc(300px + 7.5vw);
+  border: none; box-shadow: none;
+  filter: none; border-radius: 6px;
+  overflow: hidden;
+}

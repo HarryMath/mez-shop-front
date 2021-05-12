@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {ContactsPageComponent} from './contacts-page.component';
 import {DepartmentComponent} from '../../components/department/department.component';
-import {SharedModule} from "../../shared/shared.module";
+import {SharedModule} from '../../shared/shared.module';
 
 const routes = [
   { path: '', component: ContactsPageComponent, pathMatch: 'full' },

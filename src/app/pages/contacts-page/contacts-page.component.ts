@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 export interface Department {
   name: string;
@@ -16,6 +16,7 @@ export interface Phone {
   phone: string;
   label: string;
 }
+
 
 @Component({
   selector: 'app-contacts-page',
@@ -108,8 +109,7 @@ export class ContactsPageComponent implements OnInit {
       ]}
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

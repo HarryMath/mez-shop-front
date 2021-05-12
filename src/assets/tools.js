@@ -32,10 +32,10 @@ class Notification {
 
 window.message = new Notification();
 
-window.goTo = function (elementId) {
+window.goTo = function (elementId, behavior = 'smooth') {
   try {
     document.getElementById(elementId).scrollIntoView({
-      behavior: 'smooth',
+      behavior: behavior,
       block: 'start'
     })
   } catch (e) {

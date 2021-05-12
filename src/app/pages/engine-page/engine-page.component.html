@@ -1,12 +1,14 @@
-<div class="gallery unselectable" *ngIf="galleryOpened">
-  <div class="photo" [style]="'background-image: url(' + photos[activePhoto] + ')'"></div>
+<div class="gallery unselectable" *ngIf="galleryOpened" [style]="getHeightCss()">
+  <div class="photo">
+    <img src="{{photos[activePhoto]}}" alt="фото" class="absolute-center">
+  </div>
   <div class="prev" (click)="prevPhoto()"><i class="fas absolute-center fa-chevron-left"></i></div>
   <div class="next" (click)="nextPhoto()"><i class="fas absolute-center fa-chevron-right"></i></div>
   <div class="closer" (click)="galleryOpened = false">×</div>
 </div>
 
 <div class="content-wrapper">
-  <div class="content" [ngClass]="engineLoaded? '' : 'loading'">
+  <div class="content loading" [ngClass]="engineLoaded? '' : 'loading'">
     <app-map [customStyle]="'position: absolute'"></app-map>
 
     <div class="with-columns">

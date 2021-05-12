@@ -216,8 +216,13 @@
 .gallery> .photo {
   position: absolute;
   z-index: 0; width: 100%; height: 100%;
-  background-position: center; background-repeat: no-repeat;
-  background-size: contain;
+  /*background-position: center; background-repeat: no-repeat;*/
+  /*background-size: contain;*/
+  margin: auto;
+}
+.photo> img {
+  background-color: #fff;
+  max-height: 100%; max-width: 100%;
 }
 .gallery i {
   font-size: calc(20px + 0.5vw);
@@ -275,9 +280,23 @@
   .main-photo-wrapper {
     padding: 0; width: 50vw; height: 50vw;
   }
+  .count-block {
+    height: calc(35px + 0.875vw);
+  }
+  .count-block> div {
+    width: calc(110px + 2.65vw);
+  }
+  .count-block> div> div {
+    line-height: calc(35px + 0.875vw);}
+  .counter {
+    width: calc(35px + 0.875vw);
+  }
 }
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {
+  .content> .with-columns, .item-info {
+    padding-top: 0;
+  }
   .item-top {
     display: block;
   }
@@ -289,26 +308,34 @@
     margin: 0 auto;
   }
   .characteristics> div {
-    display: flex; flex-wrap: nowrap;
-    background-color: transparent;
-    border: none;
+    overflow-x: scroll
   }
-  .characteristics> div> div {
-    display: block; border: none;
-    background-color: transparent!important;
+  .characteristics> div> div {width: 200%}
+  .characteristics> div> div> div {width: 21.5%}
+  .characteristics> div> div> div:nth-child(2) {width: 28%}
+  .main-info { padding: 0}
+
+  .next, .prev, .closer {
+    color: #fff; height: calc(70px + 1.75vw);
+    transition: none;
   }
-  .characteristics> div> div> div {
-    width: unset!important; border: none;
+  .next, .prev {
+    background-color: #1111143d;
+    top: 50%; transform: translateY(-50%) scale(0.8);
+    border-radius: 50%;
   }
-  .characteristics> div> div> div> div {
-    text-align: right;
+  .next:active, .prev:active, .closer:active {
+    background-color: #1111147d;
   }
-  .characteristics> div> div:first-child> div> div {
-    text-align: left;
-  }
+
 }
-@media screen and (max-width: 350px) {
-  .category {width: 100%}
+@media screen and (max-width: 360px) {
+  .item-buy-block> div {
+    width: 100%!important;
+  }
+  .item-buy-block .btn-primary {
+    margin-top: var(--padding-size-m);
+  }
 }
 
 

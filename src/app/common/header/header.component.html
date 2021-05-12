@@ -1,4 +1,5 @@
-<div [ngClass]="{'menu-active': menuService.menuActive}" class="header-top-wrapper unselectable">
+<div [ngClass]="{'menu-active': menuService.menuActive}"
+     class="header-top-wrapper unselectable">
     <div class="header-top">
       <a class="logo" routerLink="/">
         <img src="/assets/logo.png" alt="МЭЗ" class="header-top-item">
@@ -37,7 +38,9 @@
         <label for="search-input" class="search-input-label">
           <i class="fas fa-search"></i>
         </label>
-        <input type="text" id="search-input" placeholder="поиск" (focus)="focusSearch()" (blur)="blurSearch()">
+        <input type="text" autocomplete="off"
+               id="search-input" placeholder="поиск"
+               (focus)="focusSearch()" (blur)="blurSearch()">
       </div>
       <div class="right-block unselectable">
         <div class="header-bottom-item" onclick="goTo('contactBlock')">

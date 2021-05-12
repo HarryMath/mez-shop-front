@@ -1,6 +1,6 @@
 <div class="content-wrapper">
   <div class="content">
-    <app-map [style]="'height: unset'"></app-map>
+    <app-map [style]="'height: unset'" class="desktop"></app-map>
     <div class="content-header unselectable">
       <div class="goods-title" >Все товары </div>
       <div id="filtersBtn" class="btn" (click)="menuService.showFilters()"><i class="fas fa-sliders-h"></i> фильтры</div>
@@ -48,7 +48,7 @@
           ></app-engine>
         </div>
 
-        <div class="catalog-footer">
+        <div class="catalog-footer unselectable">
           <div class="page active-page">1</div>
           <div class="page">2</div>
           <div class="page">3</div>
