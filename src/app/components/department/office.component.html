@@ -1,0 +1,40 @@
+<div class="office">
+  <div class="office-header unselectable" (click)="opened = !opened">
+    <div>
+      <h6 class="office-name">{{office.name}}</h6>
+      <div class="with-columns contacts">
+        <div class="nowrap"><i class="fas fa-phone-alt"></i> Телефоны: </div>
+        <div *ngFor="let phone of office.phones" class="contact nowrap">
+            <a class="link" href="tel:{{phone}}">{{phone}}</a>
+        </div>
+      </div>
+      <div class="with-columns contacts">
+        <div class="nowrap"><i class="fas fa-envelope"></i> Mail-адреса: </div>
+        <div *ngFor="let mail of office.mails">
+          <div class="contact">
+            <a class="link" href="mailto:{{mail}}">{{mail}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shower unselectable" [ngClass]="{'opened': opened}">
+      <span>{{getStateString()}}</span>
+      <i class="fas fa-chevron-up"></i>
+    </div>
+  </div>
+
+  <div class="office-content" [ngClass]="{'opened': opened}">
+
+    <div *ngFor="let place of office.places" class="place">
+      <div class="place-header nowrap" (click)="place.expanded = !place.expanded">
+        <i class="fas fa-map-marker-alt"></i>
+        <div class="place-signature">
+          <div class="place-name">{{place.name}}</div>
+          <div class="address">{{place.address}}</div>
+        </div>
+      </div>
+      <iframe allowfullscreen [ngClass]="place.expanded ? 'map-visible' : ''"
+              [src]="getMap(place) | safe"></iframe>
+    </div>
+  </div>
+</div>

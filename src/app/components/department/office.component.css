@@ -1,0 +1,88 @@
+.office {
+  overflow: hidden;
+  border-radius: 4px;
+  display: block; margin-bottom: var(--padding-size-m);
+}
+.office-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px; background-color: #fff;
+  border: 1px solid #d3d3d3;
+  padding: var(--padding-size-m); cursor: pointer;
+}
+.office-name {
+  font-weight: 500; padding-right: 10px;
+  margin-bottom: var(--padding-size-m);
+  color: var(--primary-color-light)
+}
+.contacts {
+  align-items: center; flex-wrap: wrap;
+}
+.contacts i {
+  opacity: 0.6;
+  transform: translateX(-5%) scale(0.9);
+}
+.contacts> div {
+  margin-right: var(--padding-size-m);
+}
+.shower { font-weight: bold; cursor: pointer; opacity: 0.4; white-space: nowrap;}
+.office-header:hover> .shower { opacity: 0.6;}
+.shower i { margin-left: 6px; transition: 0.2s; transform: rotate(180deg); }
+.opened i { transform: rotate(0deg); }
+.office-content {
+  overflow: hidden;
+  height: 0;
+}
+.office-content> div {
+  padding: var(--padding-size-m) var(--padding-size-xl);
+  padding-bottom: 0;
+}
+.office-content.opened { height: unset}
+.place-name {
+  font-weight: 500;
+}
+.address {
+  opacity: 0.7; line-height: 1;
+  font-size: calc(11px + 0.275vw);
+}
+.phone {
+  padding: 1px;
+  margin-bottom: 1px;
+}
+a { color: var(--primary-color)}
+
+.shower {
+  float: right;
+}
+.place-header {
+  margin-bottom: var(--padding-size-m);
+  cursor: pointer; display: flex; align-items: center;
+}
+.place-header> i {
+  margin-right: var(--padding-size-s);
+  font-size: calc(20px + 0.5vw); color: #e84335;
+}
+iframe {
+  width: 100%; display: none;
+  border: none; box-shadow: none;
+  filter: none; border-radius: 6px;
+  overflow: hidden; height: 0;
+}
+.map-visible {
+  height: calc(50vw - var(--padding-size-xl));
+  max-height: 50vh;
+  display: block;
+}
+@media screen and (max-width: 700px) {
+  .contact {
+    width: calc(50% - var(--padding-size-m));
+  }
+}
+/* __________ mobile only __________ */
+@media screen and (max-width: 420px) {
+  .contact {
+    margin-right: 0;
+    width: 100%;
+  }
+}

@@ -1,15 +1,9 @@
 <div class="content-wrapper">
   <div class="content">
     <h3>Контактная информация</h3>
-    <iframe allowfullscreen
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAw1JECtjzsQ_xM0LEOX2X44nzDX-Yqge8&q=place_id:ChIJs8cyMn5MtUYRAkiFA9Qs6AI&language=ru">
-    </iframe>
-    <iframe allowfullscreen
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAw1JECtjzsQ_xM0LEOX2X44nzDX-Yqge8&q=place_id:ChIJTx7ZwpDUtEYRHBOEc2gVFW0&language=ru">
-    </iframe>
-    <app-department *ngFor="let dep of departments"
-                    [department]="dep" class="department"
-    ></app-department>
+    <app-office *ngFor="let o of offices"
+                    [office]="o" class="department"
+    ></app-office>
 
   </div>
 </div>
