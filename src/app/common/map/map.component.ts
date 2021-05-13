@@ -13,6 +13,7 @@ export class MapComponent implements OnInit {
       [['home', 'Главная'],
       ['news', 'новости'],
       ['contacts', 'котакты'],
+      ['general-info', 'общие сведения'],
       ['catalog', 'каталог']]);
 
   @Input() customStyle: string|undefined;
@@ -21,6 +22,9 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     this.path = this.router.url.split('/');
     for (let i = 0; i < this.path.length; i++) {
+      if (this.path[i].includes('?')) {
+        this.path[i] = this.path[i].split('?')[0];
+      }
       if (this.path[i] === '') {
         this.path.splice(i, 1);
         i--;

@@ -5,16 +5,24 @@
         <img src="/assets/logo.png" alt="МЭЗ" class="header-top-item">
       </a>
       <div class="right-block">
-        <a class="header-top-item" routerLink="/" (click)="hideMenu()">
+        <a class="header-top-item" routerLink="/" (click)="hideAll()">
           Главная
         </a>
-        <a class="header-top-item" routerLink="/catalog" (click)="hideMenu()">
-          Каталог
-        </a>
-        <a class="header-top-item" routerLink="/about" (click)="hideMenu()">
+        <div class="header-top-item">
+          <div (click)="menuService.catalogExpanded = !menuService.catalogExpanded">Каталог</div>
+          <div class="drop-menu" *ngIf="menuService.catalogExpanded"
+               (click)="menuService.hideAll()">
+            <a routerLink="/catalog/general-info">общие сведения</a>
+            <a routerLink="/catalog">весь каталог</a>
+            <a *ngFor="let category of catalogService.categories"
+               routerLink="/catalog" [queryParams]="{c: category.name}"
+            >{{category.name}}</a>
+          </div>
+        </div>
+        <a class="header-top-item" routerLink="/about" (click)="hideAll()">
           О нас
         </a>
-        <a class="header-top-item" routerLink="/contacts" (click)="hideMenu()">
+        <a class="header-top-item" routerLink="/contacts" (click)="hideAll()">
           Контакты
         </a>
         <div *ngIf="authService.isAuthorised()" class="header-top-item user">

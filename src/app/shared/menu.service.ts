@@ -6,6 +6,7 @@ export class MenuService {
 
   menuActive = false;
   filterMenuActive = false;
+  catalogExpanded = false;
   constructor() { }
 
   overlayActive(): boolean {
@@ -27,6 +28,7 @@ export class MenuService {
   }
 
   hideAll(): void {
+    this.catalogExpanded = false;
     this.menuActive ? this.hideMenu() : this.hideFilters();
   }
 

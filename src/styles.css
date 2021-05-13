@@ -277,7 +277,7 @@ h6 {
   width: 100%;
   max-width: var(--content-size);
   margin: 0 auto; position: relative;
-  padding: 0 calc(var(--padding-size-m)*2);
+  padding: 0 var(--padding-size-l);
 }
 .category:hover .category-name { text-decoration: underline }
 .category:hover img { transform: scale(1.1) }

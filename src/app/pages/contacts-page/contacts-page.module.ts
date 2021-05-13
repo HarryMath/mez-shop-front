@@ -16,9 +16,6 @@ const routes = [
     OfficeComponent,
     SafePipe
   ],
-  exports: [
-    ContactsPageComponent
-  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

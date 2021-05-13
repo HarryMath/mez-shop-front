@@ -9,6 +9,7 @@ import {SharedModule} from '../../shared/shared.module';
 
 const routes = [
   { path: '', component: CatalogPageComponent, pathMatch: 'full' },
+  { path: 'general-info', loadChildren: () => import('../general-info/general-info.module').then(m => m.GeneralInfoModule)},
   { path: ':id', component: EnginePageComponent, pathMatch: 'prefix' }
 ];
 
