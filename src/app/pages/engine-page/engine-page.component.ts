@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CatalogService, EngineDetails} from '../../shared/catalog.service';
 import {Router} from '@angular/router';
 
@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   templateUrl: './engine-page.component.html',
   styleUrls: ['./engine-page.component.css']
 })
-export class EnginePageComponent implements OnInit {
+export class EnginePageComponent implements OnInit, OnDestroy{
 
   engine: EngineDetails = {
     id: 0, name: '', type: {
@@ -39,11 +39,6 @@ export class EnginePageComponent implements OnInit {
           this.photos.unshift(this.engine.photo);
         }
         this.engineLoaded = true;
-        try { // @ts-ignore
-          setTimeout(
-            `document.querySelector('.loading').classList.remove('loading')`,
-            1);
-        } catch (ignore) {}
       },
       error => { // @ts-ignore
         window.message.show('не удается загрузить данные');
@@ -95,6 +90,10 @@ export class EnginePageComponent implements OnInit {
   }
 
   getHeightCss(): string {
-    return Math.round(window.innerHeight * 1.000001 + 1) + 'px';
+    return 'height: ' + Math.round(window.innerHeight * 1.000001 + 1) + 'px';
+  }
+
+  ngOnDestroy(): void {
+    this.engineLoaded = false;
   }
 }

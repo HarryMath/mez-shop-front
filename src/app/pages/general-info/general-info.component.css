@@ -16,7 +16,7 @@ table p {
   margin-bottom: 0;
 }
 .main-content {
-  margin-top: var(--padding-size-m) ;
+  padding: var(--padding-size-m);
 }
 img {
   width: 100%;

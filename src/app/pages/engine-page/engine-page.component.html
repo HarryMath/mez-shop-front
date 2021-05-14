@@ -8,7 +8,7 @@
 </div>
 
 <div class="content-wrapper">
-  <div class="content loading" [ngClass]="engineLoaded? '' : 'loading'">
+  <div class="content" [ngClass]="engineLoaded? 'loaded' : ''">
     <app-map [customStyle]="'position: absolute'"></app-map>
 
     <div class="with-columns">

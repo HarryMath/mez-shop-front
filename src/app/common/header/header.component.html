@@ -8,7 +8,7 @@
         <a class="header-top-item" routerLink="/" (click)="hideAll()">
           Главная
         </a>
-        <div class="header-top-item">
+        <div class="header-top-item catalog-link">
           <div (click)="menuService.catalogExpanded = !menuService.catalogExpanded">Каталог</div>
           <div class="drop-menu" *ngIf="menuService.catalogExpanded"
                (click)="menuService.hideAll()">

@@ -26,7 +26,7 @@
   <div class="office-content" [ngClass]="{'opened': opened}">
 
     <div *ngFor="let place of office.places" class="place">
-      <div class="place-header nowrap" (click)="place.expanded = !place.expanded">
+      <div class="place-header" (click)="place.expanded = !place.expanded">
         <i class="fas fa-map-marker-alt"></i>
         <div class="place-signature">
           <div class="place-name">{{place.name}}</div>

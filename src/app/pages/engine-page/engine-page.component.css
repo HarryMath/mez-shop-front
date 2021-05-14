@@ -1,8 +1,8 @@
 .content {
   display: block;
-  opacity: 1; transition: opacity 0.3s linear;
+  opacity: 0; transition: opacity 0.3s linear;
 }
-.content.loading { opacity: 0; }
+.content.loaded { opacity: 1; }
 .content> .with-columns {
   padding-top: var(--padding-size-l);
 }
