@@ -12,8 +12,7 @@
 .item-info> div {
   display: flex;
   align-items: center;
-  font-size: calc(11px + 0.275vw);
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   padding: 1px;
 }
 .param-name {
@@ -65,6 +64,12 @@
 }
 .item-price-block>div:last-child {
   color: var(--green-color);
+}
+/* __________ desktop only __________ */
+@media screen and (min-width: 551px) {
+  .item-info {
+    font-size: calc(11px + 0.275vw);
+  }
 }
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {

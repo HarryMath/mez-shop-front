@@ -22,7 +22,7 @@
   width: calc(50% - 100px - 5vw);
 }
 .landing-text a {
-  color: var(--accent-color-light);
+  color:#f53a48;
   font-size: calc(15px + 0.375vw);
   cursor: pointer;
   font-weight: 500;

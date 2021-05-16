@@ -1,0 +1,195 @@
+.background {
+  position: absolute;
+  width: 100%; background-color: var(--primary-color-dark);
+  height: 100%;
+  z-index: 0;
+}
+.overlay {
+  position: absolute;
+  width: 100%; height: 100%;
+  background: linear-gradient(180deg, var(--primary-color) 5%, #2d3c7a7d 100%);
+  z-index: 1; top: 0;
+}
+.decor {color: var(--accent-color)}
+video {
+  object-fit: cover; z-index: 0;
+  height: 100%; width: 100%;
+}
+.landing {
+  color: #fff;
+  height: calc(100vh - var(--header-top-height) * 2);
+}
+.landing-text {
+  position: absolute; top: 0;
+  display: flex; align-items: center;
+  justify-content: center; height: 98%;
+}
+.landing h2{
+  text-align: center;
+  font-size: calc(20px + 2vw); margin: auto;
+  padding: 0 calc(30px + 1.5vw);
+}
+.lightning {
+  transform: translateY(20px) rotate(-10deg);
+  height: calc(50px + 1.25vw); width: 100%;
+}
+p {
+  font-size: calc(15px + 0.375vw);
+}
+
+
+/* ________ SECTIONS __________*/
+.about .content, .why .content, .work .content {
+  padding: calc(var(--padding-size-xl)*2) var(--padding-size-m);
+}
+/* ________ ABOUT SECTION __________*/
+.about h2 {
+  font-size: calc(17px + 0.425vw);
+  margin-bottom: 0;
+}
+.about h3 {
+  margin-top: var(--padding-size-s);
+  font-size: calc(25px + 0.625vw);
+}
+.about .with-columns {
+  flex-wrap: wrap; align-items: center;
+}
+.about .image {
+  width: 35%; display: flex;
+}
+.certificate {
+  width: 70%;
+  margin: auto;
+  border-radius: 6px; overflow: hidden;
+  box-shadow: 6px 6px 15px 3px #2633575e;
+}
+.about .text {
+  width: 65%; padding: var(--padding-size-m);
+}
+
+/* ________ WHY SECTION __________*/
+.why {
+  color: #fff; background-color: var(--primary-color);
+}
+.why .content {
+  max-width: calc(900px + 11vw);
+}
+.why h2 {
+  font-size: calc(25px + 0.625vw);
+  position: relative;
+  padding-bottom: var(--padding-size-l);
+}
+.why h2::after {
+  content: "";
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  background-color: #f53a48;
+  height: 6px; width: calc(40px + 1vw);
+  border-radius: 3px;
+}
+.why {
+  text-align: center;
+}
+.counters {
+  justify-content: space-around;
+  text-align: center;
+}
+.why .row {
+  align-items: center;
+  padding: var(--padding-size-m);
+}
+.why .row> .with-columns {
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 29%;
+}
+.why p {
+  margin: var(--padding-size-m);
+}
+.counter-label {
+  text-align: left;
+}
+
+@keyframes scale-anim {
+  0%{ transform: scale(0.75) }
+  90%{ transform: scale(0.93) }
+  93% { transform: scale(1.4) }
+  97% { transform: scale(1.4) }
+  100% { transform: scale(1) }
+}
+#days, #engines, #clients {
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: bold; color: #f53a48;
+  font-size: calc(30px + 0.75vw); text-align: center;
+  margin-right: var(--padding-size-m); min-width: calc(60px + 1.5vw);
+}
+#days.animated {
+  animation: scale-anim linear 3.5s;
+}
+#engines.animated {
+  animation: scale-anim linear 4.525s;
+}
+#clients.animated {
+  animation: scale-anim linear 5.55s;
+}
+#years {color: #f53a48;}
+
+/* __________ WORK SECTION _________ */
+.work .with-columns {
+  flex-wrap: wrap; align-items: center;
+}
+.work .text {
+  width: 70%;
+  z-index: 1;
+}
+.canvas{
+  width: 30%;
+  z-index: 0;
+}
+canvas {
+  transform: translateX(-20%);
+  width: 220%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* __________ mobile only __________ */
+@media screen and (max-width: 550px) {
+  .landing {
+    height: calc(400px + 20vw);
+    min-height: 50vh;
+  }
+  .landing h2{
+    padding: 0 var(--padding-size-l);
+  }
+
+  .about .image, .about .text {
+    width: 100%; padding: 0;
+  }
+  .certificate {
+    width: 50%;
+  }
+  .why .row {
+    flex-wrap: wrap;
+  }
+  .why .row> .with-columns {
+    width: 100%;
+    padding-bottom: var(--padding-size-m);
+  }
+
+  .work .text {
+    width: 80%;
+    z-index: 1;
+  }
+  .canvas{
+    width: 20%;
+    z-index: 0;
+  }
+  canvas {
+    transform: translateX(-35%);
+    width: 100vw;
+    height: 60vw;
+    z-index: 0;
+  }
+}

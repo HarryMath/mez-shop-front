@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Office, Place} from '../../pages/contacts-page/contacts-page.component';
-import {SafePipe} from "../../pages/contacts-page/safe.pipe";
+import {SafePipe} from '../../pages/contacts-page/safe.pipe';
 
 
 @Component({

@@ -76,8 +76,7 @@
 }
 .drop-menu> a:hover::after {opacity: 1}
 .drop-menu> a:hover {
-  background-color: var(--primary-color);
-  color: #fff; border: none;
+  text-decoration: underline;
 }
 .drop-menu> a:last-child {border-bottom: none}
 .header-bottom-item::after {
