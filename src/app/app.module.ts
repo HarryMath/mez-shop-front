@@ -34,6 +34,7 @@ const appRoutes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes, {
       preloadingStrategy: PreloadAllModules,
+      onSameUrlNavigation: 'reload',
       scrollPositionRestoration: 'top'
     }),
     HttpClientModule,

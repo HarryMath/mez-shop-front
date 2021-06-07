@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 export class MapComponent implements OnInit {
 
   constructor(private router: Router) { }
+
   private static readonly translate: Map<string, string> = new Map<string, string>(
       [['home', 'Главная'],
       ['news', 'новости'],

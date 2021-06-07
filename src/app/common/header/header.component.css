@@ -12,7 +12,7 @@
 .header-bottom-wrapper {
   height: var(--header-bottom-height);
   background: var(--primary-color);
-  color: #fff;
+  color: #fff; overflow: hidden;
 }
 .header-top, .header-bottom {
   position: absolute;

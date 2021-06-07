@@ -2,9 +2,9 @@
   <div class="content">
     <app-map [style]="'height: unset'" class="desktop"></app-map>
     <div class="content-header unselectable">
-      <div class="goods-title" >Все товары </div>
+      <div class="goods-title" >{{title}} </div>
       <div id="filtersBtn" class="btn" (click)="menuService.showFilters()"><i class="fas fa-sliders-h"></i> фильтры</div>
-      <div class="goods-count"> 1562 единицы</div>
+      <div class="goods-count" *ngIf="catalogLoaded"> ({{quantity}} шт.) </div>
       <div class="sort-block">
         <label for="sortBy" class="sort-by-label">сортировать по: </label>
         <select id="sortBy">

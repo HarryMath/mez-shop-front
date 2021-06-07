@@ -16,6 +16,6 @@ export class PostMainComponent implements OnInit {
   }
 
   getText(): string {
-    return this.post.beforePhotoText.substring(0, 200) + '...';
+    return this.post.beforePhotoText.substring(0, 140) + '...';
   }
 }

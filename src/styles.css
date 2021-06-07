@@ -20,7 +20,7 @@
   --accent-color-dark: #ba303c;
   --green-color: #4caf50;
   --primary-color-light: #5c7fd1;
-  --primary-color: #262f60;
+  --primary-color: #2f407d;
   --primary-color-dark: #131c36;
   --header-color: #535e5bd4;
   --tooltip-color: #292929f0;
@@ -183,7 +183,7 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   cursor: pointer;
   height: var(--input-height);
   line-height: calc(var(--input-height) - 1px);
-  padding: 0 calc(var(--padding-size-m)*2);
+  padding: 0 var(--padding-size-xl);
   font-weight: 500; transition: 0.1s;
   white-space: nowrap; text-align: center;
 }

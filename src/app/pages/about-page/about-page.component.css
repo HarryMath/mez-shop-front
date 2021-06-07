@@ -139,6 +139,9 @@ p {
 .work .with-columns {
   flex-wrap: wrap; align-items: center;
 }
+.work h2 {
+  font-size: calc(25px + 0.625vw);
+}
 .work .text {
   width: 70%;
   z-index: 1;

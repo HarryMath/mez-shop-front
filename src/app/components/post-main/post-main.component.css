@@ -35,3 +35,10 @@
   font-weight: 500;
   opacity: 0.5;
 }
+
+@media screen and (max-width: 550px){
+  .post-title, .post-open {
+    opacity: 1;
+    color: var(--accent-color);
+  }
+}

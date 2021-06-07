@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {endpoint} from './request';
 
 export interface Category {
   name: string;
@@ -56,25 +57,40 @@ export interface Characteristics {
 @Injectable({providedIn: 'root'})
 export class CatalogService {
   engines: EnginePreview[] = [];
-  categories: CategoryPreview[] = [];
+  categories: CategoryPreview[] = [
+    {name: '4BP', photo: '/assets/photo.png', shortDescription: 'Взрывозащищенные двигатели серии 4ВР'},
+    {name: 'АИР', photo: '/assets/photo.png', shortDescription: 'Электродвигатели общепромышленного назначения'},
+    {name: 'АИРС', photo: '/assets/photo.png', shortDescription: 'Двигатели с повышенным скольжением'},
+    {name: 'Электродвигатели CENELEC (AIS)', photo: '/assets/photo.png', shortDescription: 'Двигатели асинхронные серии АIS'},
+  ];
 
   constructor(private http: HttpClient) {}
 
-  loadEngines(): Observable<EnginePreview[]> {
-    return this.http.get<EnginePreview[]>('https://mez-api.herokuapp.com/engines?amount=24&offset=0')
-      .pipe(
-        tap(response => this.engines = response )
-      );
+  loadEngines(filters: string): Observable<EnginePreview[]> {
+    return this.http.get<EnginePreview[]>(
+      endpoint + '/engines?amount=24&offset=0' +
+      (filters.length > 0 ? '&' + filters : '')
+    ).pipe(tap(response => this.engines = response ));
+  }
+
+  countEngines(filters: string): Observable<number> {
+    return this.http.get<number>(
+      endpoint + '/engines/count' +
+      (filters.length > 0 ? '?' + filters : '')
+    );
   }
 
   loadCategories(): Observable<CategoryPreview[]> {
-    return this.http.get<CategoryPreview[]>('https://mez-api.herokuapp.com/categories?withDetails=false')
-      .pipe(
-        tap(response => this.categories = response )
-      );
+    return this.http.get<CategoryPreview[]>(endpoint + '/categories?withDetails=false')
+      .pipe(tap(response => {
+        if (response && response.length > 0) {
+          this.categories = response;
+        }
+      }));
   }
 
   loadEngine(id: string): Observable<EngineDetails> {
     return this.http.get<EngineDetails>('https://mez-api.herokuapp.com/engines/' + id + '?withDetails=true');
   }
+
 }

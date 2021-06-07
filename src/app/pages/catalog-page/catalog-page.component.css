@@ -5,7 +5,7 @@
   padding: var(--padding-size-m);
   margin-top: calc(var(--padding-size-m)*0.5);
   border-bottom: 1px solid #88888877;
-  align-items: flex-end;
+  align-items: center;
   z-index: 8;
 }
 .goods-title {
@@ -108,7 +108,7 @@
 }
 .filter-options>div>label {
   margin-left: calc(var(--checkbox-size)*1.7);
-  cursor: pointer;
+  cursor: pointer; width: 100%;
   padding: 2px 3px 2px 0;
 }
 .removeFilters {
