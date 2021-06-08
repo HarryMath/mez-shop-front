@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CategoryPreview} from '../../shared/catalog.service';
+import {CategoryPreview} from '../../shared/models';
 
 @Component({
   selector: 'app-category',

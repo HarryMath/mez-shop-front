@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CatalogService, EngineDetails} from '../../shared/catalog.service';
+import {CatalogService} from '../../shared/catalog.service';
 import {Router} from '@angular/router';
+import {EngineDetails} from '../../shared/models';
 
 @Component({
   selector: 'app-engine-page',

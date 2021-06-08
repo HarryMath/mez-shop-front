@@ -2,7 +2,6 @@ import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 import {Camera, Light, Object3D, Renderer, Scene, WebGLRenderer} from 'three';
-import {of} from "rxjs";
 
 @Component({
   selector: 'app-about-page',
@@ -22,24 +21,17 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
   animationStarted = false;
 
   constructor() {
-    const loader = new GLTFLoader();
-    loader.load('/assets/model/scene.gltf', gltf => {
-      gltf.scene.traverse( node => {
-        if (node.type === 'Mesh') {
-          node.castShadow = true;
-          node.receiveShadow = true;
-        }
-      });
-      this.engine = gltf.scene.children[0];
-      if (this.scene) {
-        this.scene.add( this.engine );
-        this.handleScroll(new Event(''));
-      }
-    });
+    setTimeout(() => {
+      this.loadModel();
+    }, 1000);
   }
 
   ngOnInit(): void {
     document.body.addEventListener('scroll', this.handleScroll);
+    try {
+      const vid = document.getElementById('vid'); // @ts-ignore
+      vid.muted = true; vid.play();
+    } catch (ignore) { }
   }
 
   ngOnDestroy(): void {
@@ -50,8 +42,8 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
     if ( this.engine && this.canvas && this.camera) {
       const rect = this.canvas.nativeElement.getBoundingClientRect();
       const offset = rect.top + rect.height / 2;
-      this.engine.rotation.z = Math.PI / 2 - offset / window.innerHeight * Math.PI / 2;
-      this.camera.position.y = -0.1 + offset / window.innerHeight * 2;
+      this.engine.rotation.z = Math.PI / 1.6 - offset / window.innerHeight * Math.PI / 1.6;
+      this.camera.position.y = -0.1 + offset / window.innerHeight * 2.5;
       this.camera.lookAt(0, 0, 0);
       if (this.scene) { // @ts-ignore
         this.renderer.render(this.scene, this.camera);
@@ -84,6 +76,23 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.setUpCanvas();
   }
 
+  loadModel(): void {
+    const loader = new GLTFLoader();
+    loader.load('/assets/model/scene.gltf', gltf => {
+      gltf.scene.traverse( node => {
+        if (node.type === 'Mesh') {
+          node.castShadow = true;
+          node.receiveShadow = true;
+        }
+      });
+      this.engine = gltf.scene.children[0];
+      if (this.scene) {
+        this.scene.add( this.engine );
+        this.handleScroll(new Event(''));
+      }
+    });
+  }
+
   async setUpCanvas(): Promise<void> {
     if (this.canvas) {
       this.scene = new THREE.Scene();
@@ -105,7 +114,8 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
       this.renderer.setSize(this.canvas.nativeElement.offsetWidth,
         this.canvas.nativeElement.offsetHeight);
       this.renderer.shadowMap.enabled = true;
-      this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      this.renderer.shadowMap.type = window.innerWidth > 600 ?
+        THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
       this.renderer.render(this.scene, this.camera);
 
       const geometry = new THREE.PlaneGeometry(10, 10, 2, 2);
@@ -129,8 +139,8 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
     light.position.set(x, y, z);
     light.lookAt(0, 0, 0);
     light.castShadow = true;
-    light.shadow.mapSize.width = 2048; // default 512
-    light.shadow.mapSize.height = 2048; // default 512
+    light.shadow.mapSize.width = 512; // default 512
+    light.shadow.mapSize.height = 512; // default 512
     return light;
   }
 

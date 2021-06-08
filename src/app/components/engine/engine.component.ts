@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {EnginePreview} from '../../shared/catalog.service';
+import {EnginePreview} from '../../shared/models';
 
 @Component({
   selector: 'app-engine',

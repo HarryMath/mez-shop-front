@@ -4,7 +4,7 @@
     <div class="content-header unselectable">
       <div class="goods-title" >{{title}} </div>
       <div id="filtersBtn" class="btn" (click)="menuService.showFilters()"><i class="fas fa-sliders-h"></i> фильтры</div>
-      <div class="goods-count" *ngIf="catalogLoaded"> ({{quantity}} шт.) </div>
+      <div class="goods-count" *ngIf="catalogService.catalogLoaded"> ({{catalogService.quantity}} шт.) </div>
       <div class="sort-block">
         <label for="sortBy" class="sort-by-label">сортировать по: </label>
         <select id="sortBy">
@@ -19,7 +19,7 @@
 
 
       <div class="content-filters unselectable" [ngClass]="{'active': menuService.filterMenuActive}">
-        <div *ngFor="let filter of filters"
+        <div *ngFor="let filter of catalogService.filters"
              class="filter-block" [ngClass]="{'opened': filter.opened}" id="f{{filter.name}}">
             <div class="filter-name" (click)="toggleFilterBlock(filter)">
               {{filter.name}}
@@ -31,7 +31,7 @@
                 type="checkbox"
                 id="{{option.name}}"
                 [(ngModel)]="option.selected"
-                (change)="reloadCatalog()">
+                (change)="refreshAll()">
               <label for="{{option.name}}">{{option.name}}</label>
             </div>
           </div>
@@ -41,7 +41,7 @@
 
       <div class="catalog">
         <div class="catalog-content">
-          <div *ngIf="!catalogLoaded" class="catalog-loader-overlay"></div>
+          <div *ngIf="!catalogService.catalogLoaded" class="catalog-loader-overlay"></div>
           <app-engine class="item"
                       *ngFor="let engine of catalogService.engines"
                       [engine]="engine"
@@ -49,13 +49,16 @@
         </div>
 
         <div class="catalog-footer unselectable">
-          <div class="page active-page">1</div>
-          <div class="page">2</div>
-          <div class="page">3</div>
-          <div class="page">4</div>
-          <div class="page">5</div>
-          <div class="page transparent">...34</div>
-          <div class="page">next ›</div>
+          <div class="page" *ngIf="catalogService.page > 1" (click)="switchPage(catalogService.page - 1)">‹ назад</div>
+          <div class="page" *ngIf="catalogService.page != 1" (click)="switchPage(1)">1</div>
+          <div class="page transparent" *ngIf="catalogService.page >= 5">...</div>
+          <div class="page" *ngIf="catalogService.page >= 4" (click)="switchPage(catalogService.page - 2)">{{catalogService.page - 2}}</div>
+          <div class="page" *ngIf="catalogService.page >= 3" (click)="switchPage(catalogService.page - 1)">{{catalogService.page - 1}}</div>
+          <div class="page active-page" *ngIf="catalogService.page >= 1">{{catalogService.page}}</div>
+          <div class="page" *ngIf="catalogService.page <= catalogService.totalPages - 2" (click)="switchPage(catalogService.page + 1)">{{catalogService.page + 1}}</div>
+          <div class="page" *ngIf="catalogService.page <= catalogService.totalPages - 3" (click)="switchPage(catalogService.page + 2)">{{catalogService.page + 2}}</div>
+          <div class="page transparent" *ngIf="catalogService.totalPages > 5" (click)="switchPage(catalogService.totalPages)">...{{catalogService.totalPages}}</div>
+          <div class="page" *ngIf="catalogService.page < catalogService.totalPages" (click)="switchPage(catalogService.page + 1)">вперед ›</div>
         </div>
       </div>
 
