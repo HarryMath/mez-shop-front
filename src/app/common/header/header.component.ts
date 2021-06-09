@@ -11,6 +11,7 @@ import {CatalogService} from "../../shared/catalog.service";
 export class HeaderComponent implements OnInit {
 
   searchActive = false;
+  search = '';
 
   constructor(public menuService: MenuService,
               public catalogService: CatalogService,
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit {
   focusSearch(): void {
     this.searchActive = true;
   }
+
   blurSearch(): void {
     this.searchActive = false;
   }

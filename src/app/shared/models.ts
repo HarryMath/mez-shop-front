@@ -12,6 +12,10 @@ export interface FilterOption {
 }
 
 
+export interface Manufacturer {
+  name: string;
+}
+
 export interface Category {
   name: string;
   photo: string|null;

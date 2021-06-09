@@ -15,7 +15,7 @@
             <a routerLink="/catalog/general-info">общие сведения</a>
             <a routerLink="/catalog">весь каталог</a>
             <a *ngFor="let category of catalogService.categories"
-               routerLink="/catalog" [queryParams]="{c: category.name}"
+               routerLink="/catalog" [queryParams]="{types: category.name}"
             >{{category.name}}</a>
           </div>
         </div>

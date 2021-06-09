@@ -11,6 +11,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { PostMainComponent } from './components/post-main/post-main.component';
 import { EnginePageComponent } from './pages/engine-page/engine-page.component';
 import {SharedModule} from './shared/shared.module';
+import {FormsModule} from "@angular/forms";
 
 const appRoutes = [
   { path: '', component: HomePageComponent },
@@ -30,16 +31,17 @@ const appRoutes = [
     PostMainComponent,
     EnginePageComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes, {
-      preloadingStrategy: PreloadAllModules,
-      onSameUrlNavigation: 'reload',
-      scrollPositionRestoration: 'top'
-    }),
-    HttpClientModule,
-    SharedModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes, {
+            preloadingStrategy: PreloadAllModules,
+            onSameUrlNavigation: 'reload',
+            scrollPositionRestoration: 'top'
+        }),
+        HttpClientModule,
+        SharedModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

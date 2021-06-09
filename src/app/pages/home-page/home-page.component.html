@@ -18,46 +18,35 @@
         <h4>Найди свой двигатель</h4><div id="resetFilters">сбросить</div>
       </div>
       <div class="row filter-row">
-
         <div class="input-block">
-          <select id="productType" class="select" val="" onchange="this.setAttribute('val', this.value);">
-            <option value=""> </option>
-            <option>тип 1</option>
-            <option>тип 2</option>
-            <option>тип 3</option>
+          <select id="productType" (change)="recount()" class="select" val=""
+                  [(ngModel)]="category" onchange="this.setAttribute('val', this.value);">
+            <option value="" selected> </option>
+            <option *ngFor="let c of catalogService.categories">{{c.name}}</option>
           </select>
           <label for="productType">тип двигателя</label>
         </div>
-
         <div class="input-block">
-          <select id="productBrand" class="select" val="" onchange="this.setAttribute('val', this.value);">
-            <option value=""> </option>
-            <option>производитель 1</option>
-            <option>производитель 2</option>
-            <option>производитель 3</option>
+          <select id="productBrand" class="select" (change)="recount()" val=""
+                  onchange="this.setAttribute('val', this.value);" [(ngModel)]="manufacturer">
+            <option value="" selected> </option>
+            <option *ngFor="let m of catalogService.manufacturers">{{m.name}}</option>
           </select>
           <label for="productBrand">производитель</label>
         </div>
-
         <div class="input-block">
-          <select id="voltage" class="select" val="" onchange="this.setAttribute('val', this.value);">
+          <select id="efficency" class="select" val="" (change)="recount()"
+                  onchange="this.setAttribute('val', this.value);" [(ngModel)]="efficiency">
             <option value=""></option>
-            <option value="90V">90V</option>
-            <option value="115V">115V</option>
-            <option value="180V">180V</option>
-            <option value="200V">200V</option>
-            <option value="230V">230V</option>
-            <option value="277V">277V</option>
-            <option value="460V">460V</option>
-            <option value="575V">575V</option>
-            <option value="2300V">2300V</option>
-            <option value="4160V">4160V</option>
-            <option value="416V">416V</option>
-            <option value="400V">400V</option>
+            <option value="0-40">< 40%</option>
+            <option value="40-60">40% - 60%</option>
+            <option value="60-70">60% - 70%</option>
+            <option value="70-80">70% - 80%</option>
+            <option value="80-90">80% - 90%</option>
+            <option value="90-100">> 90%</option>
           </select>
-          <label for="voltage">вольтаж</label>
+          <label for="efficency">кпд</label>
         </div>
-
         <div class="input-block">
           <select id="frequency" class="select" val="" onchange="this.setAttribute('val', this.value);">
             <option value=""></option>
@@ -69,7 +58,10 @@
           <label for="frequency">частота</label>
         </div>
 
-        <div id="searchButton" class="btn btn-primary btn-3d">подобрать</div>
+        <a id="searchButton" class="btn btn-primary btn-3d" [ngClass]="counting? 'btn-loading' : ''"
+           routerLink="/catalog" [queryParams]="getParams()">
+          {{getBtnText()}}
+        </a>
 
       </div>
 

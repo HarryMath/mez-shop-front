@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-        <div class="removeFilters" (click)="removeFilters()">сбросить фильтры</div>
+        <div class="removeFilters" (click)="restorePage()">сбросить фильтры</div>
       </div>
 
       <div class="catalog">
@@ -48,7 +48,7 @@
           ></app-engine>
         </div>
 
-        <div class="catalog-footer unselectable">
+        <div class="catalog-footer unselectable" *ngIf="catalogService.quantity > 0">
           <div class="page" *ngIf="catalogService.page > 1" (click)="switchPage(catalogService.page - 1)">‹ назад</div>
           <div class="page" *ngIf="catalogService.page != 1" (click)="switchPage(1)">1</div>
           <div class="page transparent" *ngIf="catalogService.page >= 5">...</div>
