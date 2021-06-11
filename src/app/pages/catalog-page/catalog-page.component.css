@@ -140,6 +140,22 @@
   width: 100%; height: 100%;
   background: var(--background-color);
 }
+.empty {
+  width: 100%;
+  padding: var(--padding-size-xl);
+}
+.empty-image {
+  width: 100%;
+  height: calc(100px + 10vw);
+  margin: var(--padding-size-xl) 0;
+  background: url("/assets/search.svg") no-repeat center;
+  background-size: contain;
+}
+.empty-text {
+  text-align: center;
+  font-size: calc(20px + 0.5vw);
+  color: #8594ad; font-weight: bold;
+}
 @keyframes loader-anim {
   0%{ transform: translateX(-50%) rotate(0deg) }
   100% { transform: translateX(-50%) rotate(359deg) }

@@ -46,8 +46,8 @@
         <label for="search-input" class="search-input-label">
           <i class="fas fa-search"></i>
         </label>
-        <input type="text" autocomplete="off"
-               id="search-input" placeholder="поиск"
+        <input type="text" autocomplete="off" (keydown.enter)="search()"
+               id="search-input" placeholder="поиск" [(ngModel)]="query"
                (focus)="focusSearch()" (blur)="blurSearch()">
       </div>
       <div class="right-block unselectable">

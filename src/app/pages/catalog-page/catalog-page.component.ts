@@ -25,7 +25,6 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.clearFilters();
     document.body.scroll(0, this.catalogService.scrollHeight);
-    document.body.addEventListener('scroll', this.handleScroll);
     console.log(this.catalogService.scrollHeight);
     for (const param of this.route.snapshot.queryParamMap.keys) {
       for (const filter of this.catalogService.filters) {
@@ -54,12 +53,7 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    document.body.removeEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll = () => {
     this.catalogService.scrollHeight = document.body.scrollTop;
-    console.log(document.body.scrollTop);
   }
 
   toggleFilterBlock(filter: FilterBlock): void {

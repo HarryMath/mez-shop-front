@@ -157,7 +157,7 @@
 }
 .search-input-label {
   color: #ffffffaa;
-  position: absolute;
+  position: absolute;cursor: pointer;
   right: calc(var(--padding-size-m) * 1.5);
 }
 

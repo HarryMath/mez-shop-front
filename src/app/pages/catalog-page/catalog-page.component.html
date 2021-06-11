@@ -46,6 +46,14 @@
                       *ngFor="let engine of catalogService.engines"
                       [engine]="engine"
           ></app-engine>
+          <div class="unselectable empty" *ngIf="catalogService.catalogLoaded && catalogService.engines.length == 0">
+            <div class="empty-image"></div>
+            <div class="empty-text">Ничего не найдено
+              <span *ngIf="catalogService.search.length > 0">
+                по запросу "{{catalogService.search}}"
+              </span> :c
+            </div>
+          </div>
         </div>
 
         <div class="catalog-footer unselectable" *ngIf="catalogService.quantity > 0">

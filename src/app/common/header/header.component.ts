@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuService} from '../../shared/menu.service';
 import {AuthorisationService} from '../../shared/authorisation.service';
-import {CatalogService} from "../../shared/catalog.service";
+import {CatalogService} from '../../shared/catalog.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +12,18 @@ import {CatalogService} from "../../shared/catalog.service";
 export class HeaderComponent implements OnInit {
 
   searchActive = false;
-  search = '';
+  query = '';
 
   constructor(public menuService: MenuService,
+              private router: Router,
               public catalogService: CatalogService,
               public authService: AuthorisationService) { }
+
+  search(): void {
+    this.router.navigate(['/catalog'], {
+      queryParams: {query: this.query}
+    });
+  }
 
   focusSearch(): void {
     this.searchActive = true;
