@@ -38,12 +38,12 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
     document.body.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll = (event: Event) => {
+  handleScroll = () => {
     if ( this.engine && this.canvas && this.camera) {
       const rect = this.canvas.nativeElement.getBoundingClientRect();
       const offset = rect.top + rect.height / 2;
-      this.engine.rotation.z = Math.PI / 1.6 - offset / window.innerHeight * Math.PI / 1.6;
-      this.camera.position.y = -0.1 + offset / window.innerHeight * 2.5;
+      this.engine.rotation.z = Math.PI / 1.7 - offset / window.innerHeight * Math.PI / 1.6;
+      this.camera.position.y = 0.1 + (offset - window.innerHeight / 10) / window.innerHeight * 3;
       this.camera.lookAt(0, 0, 0);
       if (this.scene) { // @ts-ignore
         this.renderer.render(this.scene, this.camera);
@@ -88,7 +88,7 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
       this.engine = gltf.scene.children[0];
       if (this.scene) {
         this.scene.add( this.engine );
-        this.handleScroll(new Event(''));
+        this.handleScroll();
       }
     });
   }
@@ -129,7 +129,7 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
       this.scene.add( plane );
       if (this.engine) {
         this.scene.add(this.engine);
-        this.handleScroll(new Event(''));
+        this.handleScroll();
       }
     }
   }

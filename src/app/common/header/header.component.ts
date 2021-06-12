@@ -3,6 +3,7 @@ import {MenuService} from '../../shared/menu.service';
 import {AuthorisationService} from '../../shared/authorisation.service';
 import {CatalogService} from '../../shared/catalog.service';
 import {Router} from '@angular/router';
+import {CartService} from '../../shared/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,12 @@ export class HeaderComponent implements OnInit {
 
   constructor(public menuService: MenuService,
               private router: Router,
+              public cartService: CartService,
               public catalogService: CatalogService,
               public authService: AuthorisationService) { }
 
   search(): void {
+    this.catalogService.clearFilters();
     this.router.navigate(['/catalog'], {
       queryParams: {query: this.query}
     });

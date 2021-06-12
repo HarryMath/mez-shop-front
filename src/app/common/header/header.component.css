@@ -56,6 +56,16 @@
 .header-top-item:hover::after {
   transform:  translateX(-50%);
 }
+.cart-counter {
+  position: absolute; background-color: #ff231c; color: #fff; line-height: calc(12px + 0.3vw);
+  text-align: center; min-width: 15px; top: var(--padding-size-s); right: var(--padding-size-s); border-radius: 10px; padding: 1px 3px;
+  box-shadow: 0 0 0 1px var(--primary-color); font-weight: 400; font-size: calc(11px + 0.275vw);
+  opacity: 0; transform: scale(0.1);
+}
+.cart-counter.c {
+  opacity: 1; transform: scale(1);
+  transition: 0.2s cubic-bezier(0.42, -0.1, 0.47, 1.62);
+}
 .drop-menu {
   position: absolute; top: 100%; left: 0;
   background-color: #fff; z-index: 15; display: block;
@@ -185,9 +195,10 @@
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {
   .header-bottom-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    /* TEST VERSION FOR SAFARI WITHOUT STICKY */
+    /*  position: sticky; */
+    top: 0; position: fixed;
+    z-index: 10; display: block;
   }
   .header-bottom {
     left: unset; right: 0;

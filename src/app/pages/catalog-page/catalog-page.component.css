@@ -262,8 +262,8 @@
   .content-filters.active {
     transform: none;
   }
-  .content-header {
-    top: var(--header-bottom-height);
+  .content-header {  /* TEST VERSION FOR SAFARI WITHOUT STICKY */
+    /* top: var(--header-bottom-height); */
     background-color: #fff;
     margin: 0;
   }

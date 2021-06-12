@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+  <div class="content">
+    <app-map class="desktop"></app-map>
+    <div class="main">
+      <h3 class="unselectable">Моя корзина</h3>
+      <div class="item" *ngFor="let item of chartService.items">
+        <a class="item-body" routerLink="/catalog/{{item.item.id}}">
+          <div class="item-image" [style]="'background-image: url(' + item.item.photo + ')'"></div>
+          <div class="item-info">
+            <h5 class="name">{{item.item.name}}</h5>
+            <div class="manuf">{{item.item.manufacturer}}</div>
+            <div class="type">{{item.item.type.name}}</div>
+          </div>
+        </a>
+        <div class="price-block">
+          <div class="price">{{item.item.price}} ₽</div>
+          <div class="count-block unselectable">
+            <div>
+              <div class="counter" (click)="item.amount = item.amount - 1" [ngClass]="item.amount < 2 ? 'disabled' : ''">-</div>
+              <div class="amount">{{item.amount}}</div>
+              <div class="counter" (click)="item.amount = item.amount + 1">+</div>
+            </div> шт
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="empty unselectable" *ngIf="!chartService.loading && chartService.items.length == 0">
+      <div class="empty-image"></div>
+      <div class="empty-text">Ваша корзина пуста</div>
+      <a class="underlined" routerLink="/catalog">перейти в каталог</a>
+    </div>
+  </div>
+</div>

@@ -315,27 +315,17 @@
   .characteristics> div> div> div:nth-child(2) {width: 28%}
   .main-info { padding: 0}
 
-  .next, .prev, .closer {
-    color: #fff; height: calc(70px + 1.75vw);
-    transition: none;
-  }
-  .next, .prev {
-    background-color: #1111143d;
-    top: 50%; transform: translateY(-50%) scale(0.8);
-    border-radius: 50%;
-  }
-  .next:active, .prev:active, .closer:active {
-    background-color: #1111147d;
-  }
+  .next, .prev, .closer {color: #fff;height:calc(70px + 1.75vw);transition: none;}
+  .next, .prev {background-color: #1111143d;top:50%;transform: translateY(-50%) scale(0.8);border-radius: 50%}
+  .next:active, .prev:active, .closer:active {background-color: #1111147d}
+  .count-block {margin:0}
+  .item-buy-block> .btn{margin-top:var(--padding-size-m)}
 
 }
 @media screen and (max-width: 360px) {
-  .item-buy-block> div {
-    width: 100%!important;
-  }
-  .item-buy-block .btn-primary {
-    margin-top: var(--padding-size-m);
-  }
+  .item-buy-block> div {width: 100%!important}
+  .item-buy-block .btn {margin-top: 0}
+  .item-buy-block .btn-primary {margin-top: var(--padding-size-m)}
 }
 
 

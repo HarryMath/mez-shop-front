@@ -143,16 +143,16 @@ p {
   font-size: calc(25px + 0.625vw);
 }
 .work .text {
-  width: 70%;
-  z-index: 1;
+  width: 65%;
+  z-index: 1; padding: var(--padding-size-m);
 }
 .canvas{
-  width: 30%;
+  width: 35%;
   z-index: 0;
 }
 canvas {
   transform: translateX(-20%);
-  width: 220%;
+  width: 250%;
   height: 100%;
   z-index: 0;
 }
@@ -166,9 +166,8 @@ canvas {
   .landing h2{
     padding: 0 var(--padding-size-l);
   }
-
   .about .image, .about .text {
-    width: 100%; padding: 0;
+    width: 100%; padding: 0; height: fit-content;
   }
   .certificate {
     width: 50%;
@@ -182,7 +181,7 @@ canvas {
   }
 
   .work .text {
-    width: 80%;
+    width: 80%; padding: 0;
     z-index: 1;
   }
   .canvas{

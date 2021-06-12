@@ -54,9 +54,12 @@
         <div class="header-bottom-item" onclick="goTo('contactBlock')">
           <i class="fas fa-comment-alt"></i><span> написать нам</span>
         </div>
-        <div class="header-bottom-item">
+        <a class="header-bottom-item" routerLink="/cart">
           <i class="fas fa-shopping-cart"></i><span> корзина</span>
-        </div>
+          <div class="cart-counter" [ngClass]="cartService.items.length > 0 ? 'c': ''">
+            {{cartService.items.length}}
+          </div>
+        </a>
       </div>
     </div>
   </div>

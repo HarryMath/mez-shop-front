@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {FeedbackComponent} from '../common/feedback/feedback.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MapComponent} from '../common/map/map.component';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 
 

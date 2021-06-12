@@ -31,8 +31,7 @@
 /*_____________ REBOOT _____________*/
 html, body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  margin: 0;
-  font-weight: 400;
+  margin: 0; font-weight: 400;
   width: 100vw; height: 100vh;
   overflow: hidden;
   font-size: calc(13px + 0.325vw);
@@ -317,6 +316,9 @@ h6 {
   :root {
     --header-bottom-height: calc(47px + 1.175vw);
     --input-height: calc(35px + 0.875vw);
+  }
+  body { /* TEST VERSION FOR SAFARI WITHOUT STICKY */
+    padding-top: var(--header-bottom-height);
   }
   .content-wrapper> .content { padding: 0 var(--padding-size-m)}
 }

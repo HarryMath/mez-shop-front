@@ -29,7 +29,7 @@ export class CatalogService {
         {name: 'АИРС', queryName: 'АИРС', selected: false},
         {name: 'Специальные электродвигатели', queryName: 'Специальные электродвигатели', selected: false}
       ]},
-    {name: 'производитель', queryName: 'manufacturers', opened: false, options: [
+    {name: 'производитель', queryName: 'manufacturers', opened: true, options: [
         {name: 'ОАО «Могилевлифтмаш»', queryName: 'ОАО «Могилевлифтмаш»', selected: false},
       ]},
     {name: 'фазы', queryName: 'phase', opened: true, options: [
@@ -123,4 +123,12 @@ export class CatalogService {
     return this.http.get<EngineDetails>(endpoint + '/engines/' + id + '?withDetails=true');
   }
 
+  clearFilters(): void {
+    this.filters.forEach(filter => {
+      filter.options.forEach(option => {
+        option.selected = false;
+      });
+    });
+    this.search = '';
+  }
 }

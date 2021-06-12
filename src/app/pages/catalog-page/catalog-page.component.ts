@@ -23,9 +23,8 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.clearFilters();
+    this.catalogService.clearFilters();
     document.body.scroll(0, this.catalogService.scrollHeight);
-    console.log(this.catalogService.scrollHeight);
     for (const param of this.route.snapshot.queryParamMap.keys) {
       for (const filter of this.catalogService.filters) {
         if (filter.queryName === param) { // @ts-ignore
@@ -104,21 +103,13 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
   }
 
   restorePage(): void {
-    this.clearFilters();
+    this.catalogService.clearFilters();
     this.title = 'Все товары';
     this.catalogService.search = '';
     this.catalogService.page = 1;
     this.catalogService.scrollHeight = 0;
     document.body.scroll(0, 0);
     this.refreshAll();
-  }
-
-  clearFilters(): void {
-    this.catalogService.filters.forEach(filter => {
-      filter.options.forEach(option => {
-        option.selected = false;
-      });
-    });
   }
 
   switchPage(n: number): void {

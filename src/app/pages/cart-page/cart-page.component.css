@@ -1,0 +1,82 @@
+.main {
+  padding: 0 var(--padding-size-m) var(--padding-size-xl);
+}
+.empty {
+  width: 100%;
+  padding: var(--padding-size-xl);
+  margin-bottom: var(--padding-size-xl);
+}
+.empty-image {
+  width: 100%;
+  height: calc(80px + 5vw);
+  margin-bottom: var(--padding-size-xl);
+  background: url("/assets/cart.svg") no-repeat center;
+  background-size: contain;
+}
+.empty-text {
+  text-align: center;
+  font-size: calc(20px + 0.5vw);
+  color: #8594ad; font-weight: bold;
+}
+.underlined {color: var(--primary-color-light); text-align: center; opacity: 0.9; width: 100%; display: block}
+
+.item {
+  display: flex; width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.item-body {
+  background-color: #fdf7e3;
+  border: 1px solid #f1e5bc; cursor: pointer;
+  padding: var(--padding-size-s);
+  border-radius: 3px; display: flex;
+}
+.item-image {
+  width: calc(70px + 1.75vw);
+  height: calc(70px + 1.75vw);
+  background-color: #fff;
+  background-position: center; background-size: contain;
+  background-repeat: no-repeat; border-radius: 3px;
+  border: 1px solid #f1e5bc;
+}
+.item-info {
+  padding: 0 var(--padding-size-s);
+}
+.price-block {
+  padding: 0 var(--padding-size-m);
+}
+.price {
+  font-weight: 500;
+  font-size: calc(17px + 0.425vw);
+}
+
+.count-block {
+  display: flex; flex-wrap: nowrap;
+  justify-content: left; align-items: center;
+  height: calc(25px + 0.625vw);
+  margin: var(--padding-size-m) 0;
+}
+.count-block> div {
+  display: flex; flex-wrap: nowrap;
+  text-align: center; margin-right: 8px;
+  width: calc(78px + 1.95vw); font-weight: 500;
+}
+.counter {
+  width: calc(25px + 0.625vw);
+  line-height:  calc(25px + 0.625vw);
+  background-color: #aaabb133;
+  border-radius: 3px; cursor: pointer;
+}
+.counter:hover {
+  background-color: var(--accent-color-light);
+  color: #fff;
+}
+.counter.disabled {
+  opacity: 0.5;
+  background-color: #aaabb144;
+  color: unset;
+}
+.amount {
+  width: calc(28px + 0.7vw);
+  line-height:  calc(25px + 0.625vw);
+}

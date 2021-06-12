@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CatalogService} from '../../shared/catalog.service';
 import {Router} from '@angular/router';
 import {EngineDetails} from '../../shared/models';
+import {CartService} from "../../shared/cart.service";
 
 @Component({
   selector: 'app-engine-page',
@@ -23,7 +24,9 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   amount = 1;
   galleryOpened = false;
 
-  constructor(private catalogService: CatalogService, private router: Router) { }
+  constructor(private catalogService: CatalogService,
+              private chartService: CartService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.engineLoaded = false; // @ts-ignore
@@ -78,7 +81,7 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   }
 
   adToCart(): void {
-
+    this.chartService.add(this.engine, this.amount);
   }
 
   nextPhoto(): void {
