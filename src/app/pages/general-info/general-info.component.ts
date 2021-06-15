@@ -10,6 +10,7 @@ export class GeneralInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    document.body.scroll(0, 0);
   }
 
 }

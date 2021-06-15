@@ -13,7 +13,7 @@
           <div class="drop-menu" *ngIf="menuService.catalogExpanded"
                (click)="menuService.hideAll()">
             <a routerLink="/catalog/general-info">общие сведения</a>
-            <a routerLink="/catalog">весь каталог</a>
+            <a routerLink="/catalog">полный каталог</a>
             <a *ngFor="let category of catalogService.categories"
                routerLink="/catalog" [queryParams]="{types: category.name}"
             >{{category.name}}</a>

@@ -99,7 +99,8 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
       query += '&query=' + this.catalogService.search;
     }
     this.catalogService.query = query.substring(1, query.length);
-    this.location.replaceState('/catalog?' + this.catalogService.query);
+    query = this.catalogService.query.length > 0 ? '?' + this.catalogService.query : '';
+    this.location.replaceState('/catalog' + query);
   }
 
   restorePage(): void {

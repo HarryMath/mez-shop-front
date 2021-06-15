@@ -25,7 +25,7 @@
   --header-color: #535e5bd4;
   --tooltip-color: #292929f0;
   --my-border-color: #77777777;
-  --background-color:  #fbfcff;
+  --background-color:  #fbfbfc;
 }
 
 /*_____________ REBOOT _____________*/
@@ -194,7 +194,7 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   box-shadow: inset 0 2px 3px 0 #00000020!important;
 }
 .btn-primary {
-  background: var(--accent-color) linear-gradient(360deg, transparent, var(--accent-color-light));
+  background: var(--accent-color) linear-gradient(360deg, var(--accent-color) 0%, var(--accent-color-light) 100%);
   color: #fff;
 }
 .btn-modern {

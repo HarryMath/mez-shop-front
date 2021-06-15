@@ -28,3 +28,6 @@
   opacity: 0.5;
   text-align: center;
 }
+@media screen and (max-width: 550px) {
+  .category-name {height: unset}
+}

@@ -85,7 +85,7 @@
   justify-content: space-around;
 }
 .post {
-  border-radius: 6px;
+  border-radius: 6px; border: 2px solid #999da09d;
   padding: var(--padding-size-m);
   background-color: #fff;
   display: block;
@@ -94,8 +94,8 @@
   width: calc(33.3% - var(--padding-size-m));
 }
 .post:hover {
-  transform: scale(1.01);
-  box-shadow: 0 5px 9px 4px #26335733;
+  transform: scale(1.01); border-color: var(--accent-color-light);
+  box-shadow: 0 3px 7px 3px #26335733;
 }
 
 /* __________ PC only __________ */
@@ -127,6 +127,7 @@
 /* __________ mobile only __________ */
 @media screen and (max-width: 550px) {
   .post {
+    border-width: 1px;
     width: 100%;
   }
   .post:nth-child(2) {

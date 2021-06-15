@@ -320,7 +320,8 @@
   .next:active, .prev:active, .closer:active {background-color: #1111147d}
   .count-block {margin:0}
   .item-buy-block> .btn{margin-top:var(--padding-size-m)}
-
+  .counter:hover {background-color: #aaabb133;color: unset}
+  .counter:active {background-color:var(--accent-color-light);color: #fff}
 }
 @media screen and (max-width: 360px) {
   .item-buy-block> div {width: 100%!important}
