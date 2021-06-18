@@ -56,7 +56,7 @@
 
         <div class="description" *ngIf="hasDescription()">
           <h5 class="unselectable">Описание</h5>
-          <p>{{getDescription()}}</p>
+          <p [innerHTML]="getDescription()"></p>
         </div>
 
         <div class="characteristics" id="characteristics">

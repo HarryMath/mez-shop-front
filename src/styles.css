@@ -27,6 +27,18 @@
   --my-border-color: #77777777;
   --background-color:  #fbfbfc;
 }
+@font-face {
+  font-family: 'Etelka Medium Pro';
+  src: url('assets/fonts/EtelkaMediumPro.eot');
+  src: local('assets/fonts/Etelka Medium Pro'), local('EtelkaMediumPro'),
+  url('assets/fonts/EtelkaMediumPro.eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/EtelkaMediumPro.woff2') format('woff2'),
+  url('assets/fonts/EtelkaMediumPro.woff') format('woff'),
+  url('assets/fonts/EtelkaMediumPro.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
 
 /*_____________ REBOOT _____________*/
 html, body {
@@ -259,6 +271,9 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   font-size: calc(10px + 0.25vw);
   transform: translateY(calc(-9px - 0.225vw));
   opacity: 0.5;
+}
+h1,h2,h3,h4,h5 {
+  font-family: 'Etelka Medium Pro', sans-serif;
 }
 h1, h2, h3 {
   font-size: calc(20px + 0.5vw);

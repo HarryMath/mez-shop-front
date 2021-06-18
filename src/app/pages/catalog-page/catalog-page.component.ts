@@ -48,7 +48,7 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
       this.catalogService.search = this.route.snapshot.queryParamMap.get('query');
       this.title = '"' + this.catalogService.search + '"';
     }
-    this.refreshAll();
+    this.refreshAll(true);
   }
 
   ngOnDestroy(): void {
@@ -73,10 +73,10 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
     filter.opened = !filter.opened;
   }
 
-  refreshAll(): void {
+  refreshAll(restoreHeight: boolean): void {
     this.refreshQuery();
     this.catalogService.countEngines();
-    this.catalogService.loadEngines();
+    this.catalogService.loadEngines(restoreHeight);
   }
 
   refreshQuery(): void {
@@ -110,7 +110,7 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
     this.catalogService.page = 1;
     this.catalogService.scrollHeight = 0;
     document.body.scroll(0, 0);
-    this.refreshAll();
+    this.refreshAll(false);
   }
 
   switchPage(n: number): void {
@@ -118,8 +118,7 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
     this.catalogService.page = n;
     if (prev !== n) {
       this.catalogService.scrollHeight = 0;
-      document.body.scroll(0, 0);
-      this.catalogService.loadEngines();
+      this.catalogService.loadEngines(true);
     }
   }
 }

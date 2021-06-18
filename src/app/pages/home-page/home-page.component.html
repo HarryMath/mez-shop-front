@@ -2,41 +2,43 @@
   <div class="landing-background"></div>
   <div class="landing">
     <app-map [customStyle]="'color: #fff; opacity: 0.9'" class="desktop"></app-map>
-    <div class="row">
-      <div class="landing-text">
-        <div>
-          <h2>Электро-двигатели МЭЗ</h2>
-          <p>Если вы ищете замену двигателя или планируете новый проект,
-            найдите свой двигатель с помощью расширенного поиска или свяжитесь с нами любым удобмным вам способом, чтобы убедиться, что вы выбрали двигатель, наиболее подходящий вам.</p>
-          <a class="link" routerLink="/contacts">Контакты &#8250;</a>
+
+    <div class="slider">
+      <div class="sw-p desktop" (click)="prevSlide(13000)"><i class="fas absolute-center fa-arrow-left"></i></div>
+      <div class="sw-n desktop" (click)="nextSlide(13000)"><i class="fas absolute-center fa-arrow-right"></i></div>
+      <div *ngFor="let s of slides" class="row slide" [ngClass]="s.class">
+        <div class="landing-text">
+          <div>
+            <h2>{{s.title}}</h2>
+            <p>{{s.text}}</p>
+            <a class="link" routerLink="{{s.linkPath}}">{{s.linkName}} &#8250;</a>
+          </div>
         </div>
+        <img src="{{s.photo}}" class="landing-image" alt="best engines">
       </div>
-      <img src="/assets/landingImage.png" class="landing-image" alt="best engines">
     </div>
+
     <div class="search-block">
       <div class="row">
-        <h4>Найди свой двигатель</h4><div id="resetFilters">сбросить</div>
+        <h4>Найди свой двигатель</h4><div id="resetFilters" (click)="clearFilters()">сбросить</div>
       </div>
       <div class="row filter-row">
         <div class="input-block">
-          <select id="productType" (change)="recount()" class="select" val=""
-                  [(ngModel)]="category" onchange="this.setAttribute('val', this.value);">
+          <select id="productType" (change)="recount()" class="select" [attr.val]="category" [(ngModel)]="category">
             <option value="" selected> </option>
             <option *ngFor="let c of catalogService.categories">{{c.name}}</option>
           </select>
           <label for="productType">тип двигателя</label>
         </div>
         <div class="input-block">
-          <select id="productBrand" class="select" (change)="recount()" val=""
-                  onchange="this.setAttribute('val', this.value);" [(ngModel)]="manufacturer">
+          <select id="productBrand" class="select" (change)="recount()" [attr.val]="manufacturer" [(ngModel)]="manufacturer">
             <option value="" selected> </option>
             <option *ngFor="let m of catalogService.manufacturers">{{m.name}}</option>
           </select>
           <label for="productBrand">производитель</label>
         </div>
         <div class="input-block">
-          <select id="efficency" class="select" val="" (change)="recount()"
-                  onchange="this.setAttribute('val', this.value);" [(ngModel)]="efficiency">
+          <select id="efficency" class="select" (change)="recount()" [attr.val]="efficiency" [(ngModel)]="efficiency">
             <option value=""></option>
             <option value="0-40">< 40%</option>
             <option value="40-60">40% - 60%</option>
@@ -48,7 +50,7 @@
           <label for="efficency">кпд</label>
         </div>
         <div class="input-block">
-          <select id="frequency" class="select" val="" onchange="this.setAttribute('val', this.value);">
+          <select id="frequency" class="select" [attr.val]="frequency" [(ngModel)]="frequency">
             <option value=""></option>
             <option> < 900</option>
             <option>900 - 1200</option>
@@ -74,7 +76,7 @@
     <h3>Доступные категории</h3>
     <div class="categories-content">
       <app-category class="category"
-        *ngFor="let categoryPreview of catalogService.categories"
+        *ngFor="let categoryPreview of catalogService.categories.concat(additional)"
         [category]="categoryPreview"
       ></app-category>
     </div>

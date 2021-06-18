@@ -5,6 +5,9 @@
         <img src="/assets/logo.png" alt="МЭЗ" class="header-top-item">
       </a>
       <div class="right-block">
+        <a class="header-top-item" routerLink="/about" (click)="hideAll()">
+          О нас
+        </a>
         <a class="header-top-item" routerLink="/" (click)="hideAll()">
           Главная
         </a>
@@ -19,9 +22,6 @@
             >{{category.name}}</a>
           </div>
         </div>
-        <a class="header-top-item" routerLink="/about" (click)="hideAll()">
-          О нас
-        </a>
         <a class="header-top-item" routerLink="/contacts" (click)="hideAll()">
           Контакты
         </a>

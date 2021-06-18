@@ -40,6 +40,7 @@
 .header-top-item {
   height: var(--header-top-height); position: relative;
   line-height: var(--header-top-height);
+  font-family: 'Etelka Medium Pro', sans-serif;
 }
 .header-top-item::after {
   content: "";

@@ -1,13 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {CatalogService} from '../../shared/catalog.service';
 import {Router} from '@angular/router';
 import {EngineDetails} from '../../shared/models';
-import {CartService} from "../../shared/cart.service";
+import {CartService} from '../../shared/cart.service';
 
 @Component({
   selector: 'app-engine-page',
   templateUrl: './engine-page.component.html',
-  styleUrls: ['./engine-page.component.css']
+  styleUrls: ['./engine-page.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EnginePageComponent implements OnInit, OnDestroy{
 
@@ -66,9 +67,14 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   }
 
   getDescription(): string {
-    return this.engine.type.fullDescription.length > 3 ?
+    const text = this.engine.type.fullDescription.length > 3 ?
       this.engine.type.fullDescription :
       this.engine.type.shortDescription;
+    let result = '';
+    for (const s of text.split('\n')) {
+      result += '<div class="p">' + s + '</div>';
+    }
+    return result;
   }
 
   getPower(): string {

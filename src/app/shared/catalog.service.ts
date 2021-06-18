@@ -13,9 +13,9 @@ export class CatalogService {
     {name: 'ОАО «Могилевлифтмаш»'}
     ];
   categories: CategoryPreview[] = [
-    {name: '4BP', photo: '/assets/photo.png', shortDescription: 'Взрывозащищенные двигатели серии 4ВР'},
     {name: 'АИР', photo: '/assets/photo.png', shortDescription: 'Электродвигатели общепромышленного назначения'},
     {name: 'АИРС', photo: '/assets/photo.png', shortDescription: 'Двигатели с повышенным скольжением'},
+    {name: '4BP', photo: '/assets/photo.png', shortDescription: 'Взрывозащищенные двигатели серии 4ВР'},
     {name: 'Электродвигатели CENELEC (AIS)', photo: '/assets/photo.png', shortDescription: 'Двигатели асинхронные серии АIS'},
   ];
   scrollHeight = 0;
@@ -71,7 +71,7 @@ export class CatalogService {
 
   constructor(private http: HttpClient) {}
 
-  loadEngines(): void {
+  loadEngines(restoreHeight: boolean): void {
     let query = 'amount=' + this.enginesOnPage;
     query += '&offset=' + ((this.page - 1) * this.enginesOnPage);
     query += '&' + this.query;
@@ -79,6 +79,9 @@ export class CatalogService {
     this.http.get<EnginePreview[]>(endpoint + '/engines/find?' + query).subscribe(response => {
       this.catalogLoaded = true;
       this.engines = response;
+      if (restoreHeight) {
+        document.body.scroll(0, this.scrollHeight);
+      }
     });
   }
 
@@ -89,8 +92,8 @@ export class CatalogService {
         this.quantity = amount;
         this.totalPages = Math.ceil(amount / this.enginesOnPage);
         if (this.totalPages < this.page) {
-          this.loadEngines();
           this.page = 1;
+          this.loadEngines(false);
         }
       }
     });
@@ -106,6 +109,22 @@ export class CatalogService {
       .pipe(tap(response => {
         if (response && response.length > 0) {
           this.categories = response;
+          for (const filter of this.filters) {
+            if (filter.name === 'тип') {
+              for (const type of response) {
+                let found = false;
+                for (const option of filter.options) {
+                  if (option.queryName === type.name) {
+                    found = true;
+                    break;
+                  }
+                }
+                if (!found) {
+                  filter.options.push({name: type.name, queryName: type.name, selected: false});
+                }
+              }
+            }
+          }
         }
       }));
   }

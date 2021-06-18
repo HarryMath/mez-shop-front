@@ -77,21 +77,20 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.setUpCanvas();
   }
 
-  loadModel(): void {
+  async loadModel(): Promise<void> {
     const loader = new GLTFLoader();
-    loader.load('/assets/model/scene.gltf', gltf => {
-      gltf.scene.traverse( node => {
-        if (node.type === 'Mesh') {
-          node.castShadow = true;
-          node.receiveShadow = true;
-        }
-      });
-      this.engine = gltf.scene.children[0];
-      if (this.scene) {
-        this.scene.add( this.engine );
-        this.handleScroll();
+    const  gltf = await loader.loadAsync('/assets/model/scene.gltf');
+    gltf.scene.traverse( node => {
+      if (node.type === 'Mesh') {
+        node.castShadow = true;
+        node.receiveShadow = true;
       }
     });
+    this.engine = gltf.scene.children[0];
+    if (this.scene) {
+      this.scene.add( this.engine );
+      this.handleScroll();
+    }
   }
 
   async setUpCanvas(): Promise<void> {

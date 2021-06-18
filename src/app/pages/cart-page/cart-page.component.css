@@ -74,7 +74,7 @@
 .counter.disabled {
   opacity: 0.5;
   background-color: #aaabb144!important;
-  color: unset;
+  color: unset; cursor: not-allowed;
 }
 .amount {
   width: calc(28px + 0.7vw);

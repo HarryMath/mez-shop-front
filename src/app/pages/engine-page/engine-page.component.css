@@ -55,7 +55,7 @@
 .counter.disabled {
   opacity: 0.5;
   background-color: #aaabb144;
-  color: unset;
+  color: unset; cursor: not-allowed;
 }
 .amount {
   width: calc(28px + 0.7vw);
@@ -166,6 +166,10 @@
 .description {
   margin: var(--padding-size-xl) 0;
 }
+.description .p {
+  min-height: calc(13px + 0.325vw);
+  min-width: 3px;
+}
 
 
 
@@ -265,7 +269,7 @@
   .item-buy-block {
     width: 100%; display: flex; flex-wrap: wrap; align-items: center;
     top: unset; bottom: 0; background-color: var(--background-color);
-    box-shadow: 0 -13px 8px 0 var(--background-color); z-index: 5;
+    box-shadow: 0 -9px 3px 9px var(--background-color); z-index: 5;
     padding: 0; justify-content: space-between;
   }
   .item-buy-block> .btn { width: calc(50% - var(--padding-size-s));}

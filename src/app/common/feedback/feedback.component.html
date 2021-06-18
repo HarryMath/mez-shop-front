@@ -1,0 +1,31 @@
+<div class="contact-block-wrapper unselectable">
+  <div class="contact-block with-columns" id="contactBlock">
+    <div class="contact-text">
+      <h4>Как мы можем помочь?</h4>
+      <p>Если у вас есть какие-либо вопросы или вам нужен совет, мы с радостью ответим!
+        Заполните форму обратной связи или свяжитесь с нами
+        другим удобным для вас способом
+      </p>
+    </div>
+    <div class="contact-form">
+      <div class="form">
+        <div class="input-block">
+          <input id="name" class="input" autocomplete="off" required [formControl]="name" >
+          <label for="name">Ваше имя*</label>
+        </div>
+        <div class="input-block">
+          <input id="contact" class="input" autocomplete="off" required [formControl]="contact">
+          <label for="contact">E-mail или телефон*</label>
+        </div>
+        <div class="input-block">
+          <textarea id="message" class="input" autocomplete="off" required [formControl]="message"></textarea>
+          <label for="message">Ваше сообщение</label>
+        </div>
+        <div class="row">
+          <div class="label">поля, помеченные звёздочкой (*), обязательны для заполнения</div>
+          <div class="btn btn-primary btn-3d" (click)="sendFeedback()">отправить</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
