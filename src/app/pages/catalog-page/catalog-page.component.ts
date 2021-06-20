@@ -58,18 +58,17 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
   toggleFilterBlock(filter: FilterBlock): void {
     try {
       const filterElement = document.getElementById('f' + filter.name); // @ts-ignore
-      filterElement.style.cssText = 'height: ' + filterElement.offsetHeight + 'px';
       if (filter.opened) { // @ts-ignore
+        filterElement.style.cssText = 'height: ' + filterElement.offsetHeight + 'px'; // @ts-ignore
         filterElement.setAttribute('openedHeight', filterElement.offsetHeight); // @ts-ignore
         setTimeout(() => { filterElement.style.cssText = ''; }, 5); // @ts-ignore
-      } else if (filterElement.getAttribute('openedHeight')) {
+      } else if (filterElement.getAttribute('openedHeight')) { // @ts-ignore
+        filterElement.style.cssText = 'height: ' + filterElement.offsetHeight + 'px';
         setTimeout(() => { // @ts-ignore
             filterElement.style.cssText = 'height: ' + filterElement.getAttribute('openedHeight') + 'px';
           }, 5);
       }
-    } catch (e) {
-      console.warn(e);
-    }
+    } catch (ignore) {}
     filter.opened = !filter.opened;
   }
 

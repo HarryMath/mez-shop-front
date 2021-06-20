@@ -173,4 +173,25 @@ export class HomePageComponent implements OnInit {
     }, 210);
   }
 
+  slideTo(j: number): void {
+    window.clearInterval(this.slideInterval);
+    window.clearInterval(this.hideInterval);
+    if (j !== this.activeSlide) {
+      const prevSlide = this.activeSlide;
+      this.activeSlide = j;
+      for (let i = 0; i < this.slides.length; i++) {
+        if (i === this.activeSlide) {
+          this.slides[i].class = 's-in-f';
+        } else if (i === prevSlide) {
+          this.slides[i].class = 's-out-f';
+        } else {
+          this.slides[i].class = '';
+        }
+      }
+      this.hideInterval = window.setTimeout(() => {
+        this.slides[prevSlide].class = '';
+      }, 210);
+    }
+    this.setSlideInterval(13000);
+  }
 }

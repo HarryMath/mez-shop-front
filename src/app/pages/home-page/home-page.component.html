@@ -6,15 +6,18 @@
     <div class="slider">
       <div class="sw-p desktop" (click)="prevSlide(13000)"><i class="fas absolute-center fa-arrow-left"></i></div>
       <div class="sw-n desktop" (click)="nextSlide(13000)"><i class="fas absolute-center fa-arrow-right"></i></div>
+      <div class="sw-s">
+        <div *ngFor="let s of slides; index as i" (click)="slideTo(i)" [ngClass]="i == activeSlide ? 'sw-a': ''"></div>
+      </div>
       <div *ngFor="let s of slides" class="row slide" [ngClass]="s.class">
-        <div class="landing-text">
+        <div class="lt">
           <div>
             <h2>{{s.title}}</h2>
             <p>{{s.text}}</p>
             <a class="link" routerLink="{{s.linkPath}}">{{s.linkName}} &#8250;</a>
           </div>
         </div>
-        <img src="{{s.photo}}" class="landing-image" alt="best engines">
+        <img src="{{s.photo}}" class="l-im" alt="best engines">
       </div>
     </div>
 

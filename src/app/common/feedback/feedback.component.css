@@ -1,7 +1,7 @@
 /* ________ CONTACT BLOCK __________*/
 .contact-block-wrapper {
   width: 100%;
-  background-color: #f7f8fb;
+  background-color: var(--background-color);
   padding-bottom: var(--padding-size-m);
 }
 .contact-block {
@@ -28,8 +28,8 @@
   position: absolute; z-index: 0;
   bottom: -3px;right: -3px; border-radius: 7px;
   background-size: 10px 10px;
-  background-image: -o-linear-gradient(#f7f8fb 4px, transparent 4px),-o-linear-gradient(left, #f7f8fb 4px, transparent 4px),-o-linear-gradient(#f7f8fb 4px, transparent 4px),-o-linear-gradient(left, #f7f8fb 4px, transparent 4px);
-  background-image: linear-gradient(#f7f8fb 4px, transparent 4px),linear-gradient(90deg, #f7f8fb 4px, transparent 4px),linear-gradient(#f7f8fb 4px, transparent 4px),linear-gradient(90deg, #f7f8fb 4px, transparent 4px);
+  background-image: -o-linear-gradient(#fbfbfc 4px, transparent 4px),-o-linear-gradient(left, #fbfbfc 4px, transparent 4px),-o-linear-gradient(#fbfbfc 4px, transparent 4px),-o-linear-gradient(left, #fbfbfc 4px, transparent 4px);
+  background-image: linear-gradient(#fbfbfc 4px, transparent 4px),linear-gradient(90deg, #fbfbfc 4px, transparent 4px),linear-gradient(#fbfbfc 4px, transparent 4px),linear-gradient(90deg, #fbfbfc 4px, transparent 4px);
   background-position: bottom; background-repeat: repeat;
   height: 90%;width: 70%;
   background-color: #2835740d;

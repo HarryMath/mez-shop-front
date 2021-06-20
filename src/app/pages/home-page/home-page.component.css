@@ -15,18 +15,19 @@
   flex-wrap: nowrap;
 }
 @keyframes s-in {
-  0% {transform: translate(10%, 5%) scale(0.9);opacity:0}
-  100% {transform: translate(0,0) scale(1);opacity:1}
+  0% {transform: translateX(25%);opacity:0}
+  100% {transform: translateX(0);opacity:1}
 }
 @keyframes s-out {
-  0% {transform: translate(0,0) scale(1);opacity:1}
-  100% {transform: translate(-10%, 5%) scale(0.9);opacity:0}
+  0% {transform: translateX(0);opacity:1}
+  100% {transform: translateX(-25%) scale(0.95);opacity:0}
 }
-.slide {width:100%;opacity:0;position:absolute;top:0;right:0;transform:translateX(100%) scale(0.9); animation-fill-mode: none}
-.s-in-f {position: relative; transform: translateX(0) scale(1);opacity:1; animation: s-in 0.5s none}
-.s-out-f {top:0;right:0;position: absolute;transform: translateX(-100%) scale(0.9);opacity:0; animation: s-out 0.2s none}
-.s-in-b {position: relative; transform: translateX(0) scale(1);opacity:1; animation: s-out 0.5s reverse}
-.s-out-b {top:0;right:0;position: absolute;transform: translateX(100%) scale(0.9);opacity:0; animation: s-in 0.2s reverse}
+.slide {width:100%;opacity:0;position:absolute;top:0;right:0;transform:translateX(100%)}
+.s-in-f {position: relative; transform: translateX(0);opacity:1; animation: s-in 0.4s none}
+.s-out-f {top:0;right:0;position: absolute;transform: translateX(-100%);opacity:0; animation: s-out 0.2s none}
+.s-in-b {position: relative; transform: translateX(0);opacity:1; animation: s-out 0.4s reverse}
+.s-out-b {top:0;right:0;position: absolute;transform: translateX(100%);opacity:0; animation: s-in 0.2s reverse}
+.slide {animation-fill-mode: both;}
 .sw-n, .sw-p {
   position: absolute; width: var(--header-top-height); top: 50%; transform: translateY(-50%); z-index: 5;
   height: var(--header-top-height); border-radius: 50%; background-color: #fff;cursor: pointer;
@@ -35,31 +36,40 @@
 .sw-p>i , .sw-n> i {font-size: calc(15px + 0.375vw); color: var(--accent-color)}
 .slider:hover .sw-p, .slider:hover .sw-n {opacity: 1}
 .sw-n {right: -10px } .sw-p {left: -10px;box-shadow: 1px 3px 6px 2px var(--primary-color)}
+.sw-s {
+  position: absolute; bottom: var(--padding-size-s); left: 50%; transform: translateX(-50%);
+  display: flex; flex-wrap: nowrap; z-index: 5;
+}
+.sw-s> div {
+  width: calc(8px + 0.2vw); border-radius: 20px; background-color: #fff; transition: 0.2s;
+  height: calc(8px + 0.2vw); margin: calc(3px + 0.05vw); opacity: 0.7; cursor: pointer; box-shadow: 0 0 1px 0 var(--primary-color-dark);
+}
+.sw-s> .sw-a {width: calc(14px + 0.35vw); opacity: 1}
 .landing {
   width: 100%;
   max-width: var(--content-size);
   padding: 0 var(--padding-size-m);
   margin: 0 auto calc(20px + 1vw);
 }
-.landing-text {
+.lt {
   color: #fff;
   padding: var(--padding-size-m);
-  width: calc(50% - 100px - 5vw);
+  width: calc(50% - 100px - 5vw); margin-bottom: var(--padding-size-s);
 }
-.landing-text a {
+.lt a {
   color:#f53a48;
   font-size: calc(15px + 0.375vw);
   cursor: pointer;
   font-weight: 500;
   filter: brightness(1.1) saturate(1.1);
 }
-.landing-text h2 {
+.lt h2 {
   white-space: nowrap;
 }
-.landing-text>div {
+.lt>div {
   width: calc(130% + 50px + 2.5vw);
 }
-.landing-image {
+.l-im {
   height: calc(160px + 16vw);
   max-height: calc(500px + 4vw);
   padding-left: var(--padding-size-m);
@@ -164,8 +174,10 @@
   .post:nth-child(2) {
     display: none; visibility: hidden;
   }
-  .landing-text, .landing-text>div { width: 100%}
-  .landing-image { display: none; visibility: hidden}
+  .lt { margin-bottom: var(--padding-size-m)}
+  .lt h2 {white-space: pre-wrap}
+  .lt, .lt>div { width: 100%}
+  .l-im { display: none; visibility: hidden}
   #searchButton { margin-top: 4px }
   .categories-content { padding: 0}
   .category {width: 50%}
