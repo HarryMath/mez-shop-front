@@ -8,6 +8,7 @@ import {CategoryPreview} from '../../shared/models';
 })
 export class CategoryComponent implements OnInit {
   @Input() category!: CategoryPreview;
+  @Input() isSeparate!: boolean;
 
   constructor() { }
 

@@ -35,7 +35,7 @@
 }
 .sw-p>i , .sw-n> i {font-size: calc(15px + 0.375vw); color: var(--accent-color)}
 .slider:hover .sw-p, .slider:hover .sw-n {opacity: 1}
-.sw-n {right: -10px } .sw-p {left: -10px;box-shadow: 1px 3px 6px 2px var(--primary-color)}
+.sw-n {right: -2vw } .sw-p {left: -2vw;box-shadow: 1px 3px 6px 2px var(--primary-color)}
 .sw-s {
   position: absolute; bottom: var(--padding-size-s); left: 50%; transform: translateX(-50%);
   display: flex; flex-wrap: nowrap; z-index: 5;

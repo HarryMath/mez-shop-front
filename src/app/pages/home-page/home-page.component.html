@@ -3,7 +3,7 @@
   <div class="landing">
     <app-map [customStyle]="'color: #fff; opacity: 0.9'" class="desktop"></app-map>
 
-    <div class="slider">
+    <div class="slider" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
       <div class="sw-p desktop" (click)="prevSlide(13000)"><i class="fas absolute-center fa-arrow-left"></i></div>
       <div class="sw-n desktop" (click)="nextSlide(13000)"><i class="fas absolute-center fa-arrow-right"></i></div>
       <div class="sw-s">
@@ -78,10 +78,10 @@
   <div class="categories">
     <h3>Доступные категории</h3>
     <div class="categories-content">
-      <app-category class="category"
-        *ngFor="let categoryPreview of catalogService.categories.concat(additional)"
-        [category]="categoryPreview"
-      ></app-category>
+      <app-category class="category" *ngFor="let categoryPreview of catalogService.categories"
+        [category]="categoryPreview" [isSeparate]="false"></app-category>
+      <app-category class="category" *ngFor="let categoryPreview of additional"
+        [category]="categoryPreview" [isSeparate]="true"></app-category>
     </div>
   </div>
 </div>

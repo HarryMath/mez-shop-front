@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
 
   slides: Slide[] = [
     {title: 'Электро-двигатели МЭЗ', class: 's-in-f',
-      photo: '/assets/photos/landingImage.png',
+      photo: '/assets/photos/engine.png',
       text: 'Если вы ищете замену двигателя или планируете новый проект, найдите свой двигатель с помощью расширенного поиска или свяжитесь с нами любым удобмным вам способом, чтобы убедиться, что вы выбрали двигатель, наиболее подходящий вам.',
       linkName: 'Контакты', linkPath: '/contacts'},
     {title: 'Редуктора и мотор редуктора', class: '',
@@ -42,6 +42,8 @@ export class HomePageComponent implements OnInit {
   activeSlide = 0;
   slideInterval: number | undefined;
   hideInterval: number | undefined;
+  private swipeCoords: [number, number] = [0, 0];
+  private swipeTime = 0;
 
   newsLoaded = false;
 
@@ -193,5 +195,22 @@ export class HomePageComponent implements OnInit {
       }, 210);
     }
     this.setSlideInterval(13000);
+  }
+
+  swipe(e: TouchEvent, type: 'start'|'end'): void {
+    const coord: [number, number] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY];
+    const time = new Date().getTime();
+    if (type === 'start') {
+      this.swipeCoords = coord;
+      this.swipeTime = time;
+    } else {
+      const direction = [coord[0] - this.swipeCoords[0], coord[1] - this.swipeCoords[1]];
+      const duration = time - this.swipeTime;
+      if (duration < 1500
+        && Math.abs(direction[0] / duration * 1000) > 30 // pixels per second > 30
+        && Math.abs(direction[0]) > Math.abs(direction[1] * 3)) { // horizontal
+        direction[0] < 0 ? this.nextSlide(13000) : this.prevSlide(13000);
+      }
+    }
   }
 }
