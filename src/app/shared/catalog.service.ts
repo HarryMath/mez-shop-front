@@ -13,10 +13,10 @@ export class CatalogService {
     {name: 'ОАО «Могилевлифтмаш»'}
     ];
   categories: CategoryPreview[] = [
-    {name: 'АИР', photo: '/assets/photo.png', shortDescription: 'Электродвигатели общепромышленного назначения'},
-    {name: 'АИРС', photo: '/assets/photo.png', shortDescription: 'Двигатели с повышенным скольжением'},
-    {name: '4BP', photo: '/assets/photo.png', shortDescription: 'Взрывозащищенные двигатели серии 4ВР'},
-    {name: 'Электродвигатели CENELEC (AIS)', photo: '/assets/photo.png', shortDescription: 'Двигатели асинхронные серии АIS'},
+    {name: 'АИР', linkName: '', photo: '/assets/photo.png', shortDescription: 'Электродвигатели общепромышленного назначения'},
+    {name: 'АИРС', linkName: '', photo: '/assets/photo.png', shortDescription: 'Двигатели с повышенным скольжением'},
+    {name: '4BP', linkName: '', photo: '/assets/photo.png', shortDescription: 'Взрывозащищенные двигатели серии 4ВР'},
+    {name: 'Электродвигатели CENELEC (AIS)', linkName: '', photo: '/assets/photo.png', shortDescription: 'Двигатели асинхронные серии АIS'},
   ];
   scrollHeight = 0;
 

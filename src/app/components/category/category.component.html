@@ -1,6 +1,6 @@
 <a id="category{{category.name}}"
    onClick="document.body.scroll(0, 0);"
-   [routerLink]="isSeparate ? '/catalog/' + category.name : '/catalog'"
+   [routerLink]="isSeparate ? '/catalog/' + category.linkName : '/catalog'"
    [queryParams]="isSeparate ? {} : {types: category.name}">
   <div class="category-image">
     <img src="{{getPhoto()}}" alt="двигатель">

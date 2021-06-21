@@ -16,6 +16,7 @@ export class MapComponent implements OnInit {
       ['contacts', 'котакты'],
       ['general-info', 'общие сведения'],
       ['about', 'о компании'],
+      ['bearings', 'опорно-поворотные устройства'],
       ['catalog', 'каталог']]);
 
   @Input() customStyle: string|undefined;

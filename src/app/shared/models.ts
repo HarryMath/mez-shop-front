@@ -25,6 +25,7 @@ export interface Category {
 
 export interface CategoryPreview {
   name: string;
+  linkName: string;
   photo: string|null;
   shortDescription: string;
 }

@@ -1,7 +1,5 @@
 <div class="gallery unselectable" *ngIf="galleryOpened" [style]="getHeightCss()">
-  <div class="photo">
-    <img src="{{photos[activePhoto]}}" alt="фото" class="absolute-center">
-  </div>
+  <div class="photo"><img src="{{photos[activePhoto]}}" alt="фото" class="absolute-center"></div>
   <div class="prev" (click)="prevPhoto()"><i class="fas absolute-center fa-chevron-left"></i></div>
   <div class="next" (click)="nextPhoto()"><i class="fas absolute-center fa-chevron-right"></i></div>
   <div class="closer" (click)="galleryOpened = false">×</div>
@@ -19,15 +17,12 @@
           <div class="item-gallery">
             <div class="main-photo-wrapper">
               <img *ngIf="photos.length > 0" alt="photo"
-                   src="{{photos[activePhoto]}}"
-                   (click)="galleryOpened = true">
+                   src="{{photos[activePhoto]}}" (click)="galleryOpened = true">
               <img *ngIf="photos.length < 1" src="assets/noImage.png" alt="photo">
             </div>
             <div class="rest-photos" *ngIf="photos.length > 0">
-              <div
-                *ngFor="let photo of photos; let i = index"
-                [ngClass]="i === activePhoto ? 'selected' : ''"
-                (click)="activePhoto = i"
+              <div *ngFor="let photo of photos; let i = index"
+                [ngClass]="i === activePhoto ? 'selected' : ''" (click)="activePhoto = i"
                 [style]="'background-image: url(' + photo + ')'"
               ></div>
             </div>
@@ -35,15 +30,9 @@
           <div class="main-info">
             <h2 class="name desktop">Двигатель {{engine.name}}</h2>
             <div class="origin">
-              <div>
-                <a class="link" routerLink="/catalog" [queryParams]="{brand : engine.manufacturer}">{{engine.manufacturer}}</a>
-              </div>
-              <div>
-                <a class="link" routerLink="/catalog" [queryParams]="{type : engine.type.name}">{{engine.type.name}}</a>
-              </div>
-              <div class="naming">
-                <span>наименование: </span> {{engine.name}}
-              </div>
+              <div><a class="link" routerLink="/catalog" [queryParams]="{brand : engine.manufacturer}">{{engine.manufacturer}}</a></div>
+              <div><a class="link" routerLink="/catalog" [queryParams]="{type : engine.type.name}">{{engine.type.name}}</a></div>
+              <div class="naming"><span>наименование: </span> {{engine.name}}</div>
             </div>
             <div class="main-characteristics">
               <div><div>&#x2022; фазность: </div><div>{{engine.characteristics.length}}</div></div>
@@ -105,12 +94,9 @@
           </div> шт
         </div>
         <div class="btn btn-primary btn-3d unselectable" (click)="adToCart()">
-          в корзину
-          <i class="fas fa-shopping-cart"></i>
+          в корзину<i class="fas fa-shopping-cart"></i>
         </div>
-        <div class="btn btn-secondary unselectable">
-          купить в 1 клик
-        </div>
+        <div class="btn btn-secondary unselectable">купить в 1 клик</div>
         <div class="available desktop"><i class="fas fa-check"></i> в наличии на складе</div>
       </div>
     </div>

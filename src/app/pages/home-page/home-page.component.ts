@@ -20,22 +20,22 @@ export interface Slide {
 export class HomePageComponent implements OnInit {
 
   additional: CategoryPreview[] = [
-    {name: 'Опорно-поворотные устройства', shortDescription: '', photo: '/assets/photos/slewingBearings.png'},
-    {name: 'Электроакустические приборы', shortDescription: '', photo: '/assets/photos/electroacousticDevices.png'},
-    {name: 'Редуктора и мотор редуктора', shortDescription: '', photo: '/assets/photos/gearMotors.png'},
+    {name: 'Опорно-поворотные устройства', linkName: 'bearings', shortDescription: '', photo: '/assets/photos/slewingBearings.png'},
+    {name: 'Электроакустические приборы', linkName: 'acoustic', shortDescription: '', photo: '/assets/photos/electroacousticDevices.png'},
+    {name: 'Редуктора и мотор редуктора', linkName: 'gearMotors', shortDescription: '', photo: '/assets/photos/gearMotors.png'},
   ];
 
   slides: Slide[] = [
     {title: 'Электро-двигатели МЭЗ', class: 's-in-f',
-      photo: '/assets/photos/engine.png',
+      photo: '/assets/photos/landingImages/engine.png',
       text: 'Если вы ищете замену двигателя или планируете новый проект, найдите свой двигатель с помощью расширенного поиска или свяжитесь с нами любым удобмным вам способом, чтобы убедиться, что вы выбрали двигатель, наиболее подходящий вам.',
       linkName: 'Контакты', linkPath: '/contacts'},
     {title: 'Редуктора и мотор редуктора', class: '',
-      photo: '/assets/photos/gearReducers.png',
+      photo: '/assets/photos/landingImages/gearReducers.png',
       text: 'Если вы ищете замену двигателя или планируете новый проект, найдите свой двигатель с помощью расширенного поиска или свяжитесь с нами любым удобмным вам способом, чтобы убедиться, что вы выбрали двигатель, наиболее подходящий вам.',
       linkName: 'Подробнее', linkPath: '/contacts'},
     {title: 'Электро-двигатели МЭЗ', class: '',
-      photo: '/assets/photos/parts.png',
+      photo: '/assets/photos/landingImages/parts.png',
       text: 'Если вы ищете замену двигателя или планируете новый проект, найдите свой двигатель с помощью расширенного поиска или свяжитесь с нами любым удобмным вам способом, чтобы убедиться, что вы выбрали двигатель, наиболее подходящий вам.',
       linkName: 'Контакты', linkPath: '/contacts'}
   ];

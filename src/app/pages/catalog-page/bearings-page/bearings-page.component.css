@@ -1,0 +1,17 @@
+h5 {
+  margin-bottom: var(--padding-size-s);
+}
+.main-content {
+  padding: var(--padding-size-m); padding-top: 0;
+}
+img {
+  max-width: 80%; min-width: 50%; border-radius: 6px;
+  border: 1px solid var(--my-border-color); background-color: #fff;
+  margin: var(--padding-size-m) auto;
+}
+@media screen and (max-width: 600px) {
+  .img {
+    max-width: unset;
+    width: 100%;
+  }
+}
