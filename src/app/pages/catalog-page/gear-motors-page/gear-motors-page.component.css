@@ -1,16 +1,25 @@
-h5 {
-  margin-bottom: var(--padding-size-s);
-}
 .main-content {
   padding: var(--padding-size-m); padding-top: 0;
 }
 img {
-  max-width: 80%; min-width: 50%; border-radius: 6px;
+  max-width: 80%; min-width: 30%; border-radius: 6px;
   border: 1px solid var(--my-border-color); background-color: #fff;
   margin: var(--padding-size-m) auto;
 }
+.w {
+  max-width: 100%; width: 100%;
+}
+.s {
+  width: calc(200px + 5vw);
+}
+.img-w {
+  display: flex;
+}
+.img-w> img {
+  margin: 0 auto; border: none; mix-blend-mode: multiply;
+}
 @media screen and (max-width: 600px) {
-  img {
+  img, .s {
     max-width: 100%;
     width: 100%;
   }

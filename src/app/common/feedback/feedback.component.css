@@ -32,7 +32,7 @@
   background-image: linear-gradient(#fbfbfc 4px, transparent 4px),linear-gradient(90deg, #fbfbfc 4px, transparent 4px),linear-gradient(#fbfbfc 4px, transparent 4px),linear-gradient(90deg, #fbfbfc 4px, transparent 4px);
   background-position: bottom; background-repeat: repeat;
   height: 90%;width: 70%;
-  background-color: #2835740d;
+  background-color: #28357413;
 }
 .contact-form input {
   margin-bottom: calc(var(--padding-size-m)*0.6);

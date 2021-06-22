@@ -4,7 +4,7 @@ import { GeneralInfoComponent } from './general-info.component';
 import {SharedModule} from '../../../shared/shared.module';
 import {RouterModule} from '@angular/router';
 
-const routes = [
+const route = [
   { path: '', component: GeneralInfoComponent, pathMatch: 'full' },
 ];
 
@@ -12,7 +12,7 @@ const routes = [
   declarations: [GeneralInfoComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(route),
     SharedModule
   ]
 })

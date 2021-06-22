@@ -1,0 +1,33 @@
+.left { text-align: left}
+.right { text-align: right}
+.center {text-align: center}
+h5 {
+  margin-bottom: var(--padding-size-s);
+}
+table {
+  border-collapse: collapse;
+}
+thead tr> td {
+  background-color: var(--primary-color-light);
+  font-weight: bold; color: #fff;
+}
+table tr, table td {
+  border: 2px solid #dbe1e1;
+  padding: 7px;
+}
+table p {
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+.main-content {
+  padding: var(--padding-size-m); padding-top: 0;
+}
+img {
+  width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .table-wrap {
+    width: 100%; overflow-x: scroll;
+  }
+}
