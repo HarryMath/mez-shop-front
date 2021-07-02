@@ -13,6 +13,7 @@ import { EnginePageComponent } from './pages/engine-page/engine-page.component';
 import {SharedModule} from './shared/shared.module';
 import {FormsModule} from '@angular/forms';
 import { ContactBtnComponent } from './common/contact-btn/contact-btn.component';
+import { SubmitModalComponent } from './common/submit-modal/submit-modal.component';
 
 const appRoutes = [
   { path: '', component: HomePageComponent },
@@ -32,7 +33,8 @@ const appRoutes = [
     CategoryComponent,
     PostMainComponent,
     EnginePageComponent,
-    ContactBtnComponent
+    ContactBtnComponent,
+    SubmitModalComponent
   ],
     imports: [
         BrowserModule,

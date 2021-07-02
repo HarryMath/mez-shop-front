@@ -10,6 +10,7 @@
     <app-map [customStyle]="'position: absolute'"></app-map>
 
     <div class="with-columns">
+
       <div class="item-info">
 
         <h2 class="mobile">Двигатель {{engine.name}}</h2>
@@ -93,11 +94,12 @@
             <div class="counter" (click)="more()">+</div>
           </div> шт
         </div>
-        <div class="btn btn-primary btn-3d unselectable" (click)="adToCart()">
-          в корзину<i class="fas fa-shopping-cart"></i>
+        <div class="btn btn-primary btn-3d unselectable" (click)="adToCart()" [ngClass]="state">
+          <span *ngIf="state != 'in'">в корзину <i class="fas fa-shopping-cart"></i></span>
+          <span *ngIf="state == 'in'">в корзине <i class="fas fa-check-circle"></i></span>
         </div>
         <div class="btn btn-secondary unselectable">купить в 1 клик</div>
-        <div class="available desktop"><i class="fas fa-check"></i> в наличии на складе</div>
+        <div class="available desktop unselectable"><i class="fas fa-check"></i> в наличии на складе</div>
       </div>
     </div>
 

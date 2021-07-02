@@ -1,11 +1,10 @@
 .category-image {
   width: 100%;
   overflow: hidden;
-  display: flex;
+  display: flex; justify-content: center;
 }
 .category-image> img {
-  height: calc(90px + 6vw);
-  margin: 0 auto;
+  height: calc(90px + 4.5vw);
   padding: 5px;
   transition: 0.2s;
 }

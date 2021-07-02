@@ -1,0 +1,10 @@
+<div class="o" *ngIf="modalService.isShown" [ngClass]="modalService.removing ? 'hide' : ''">
+  <div class="w absolute-center">
+    <div class="h">{{modalService.title}}</div>
+    <div class="b" [innerHTML]="modalService.getBody()"></div>
+    <div class="f">
+      <div class="btn cancel-btn" *ngIf="modalService.cancelText.length > 0" (click)="modalService.hide()">{{modalService.cancelText}}</div>
+      <div class="btn btn-3d" [ngClass]="modalService.state" (click)="modalService.submit()">{{modalService.submitText}}</div>
+    </div>
+  </div>
+</div>

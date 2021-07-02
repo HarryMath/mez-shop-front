@@ -25,7 +25,7 @@ export class CartService {
       } catch (ignore) { }
     }}
 
-  add(item: EngineDetails, amount: number): void {
+  async add(item: EngineDetails, amount: number): Promise<void> {
     let alreadyInCart = false;
     for (const cartItem of this.items) {
       if (cartItem.item.id === item.id) {
@@ -37,16 +37,28 @@ export class CartService {
     if (!alreadyInCart) {
       this.items.unshift({item, amount});
     }
+    await this.saveState();
+  }
+
+  getFinalPrice(): number {
+    let finalPrice = 0;
+    for (const item of this.items) {
+      finalPrice += item.amount * item.item.price;
+    }
+    return finalPrice;
+  }
+
+  async saveState(): Promise<void> {
     window.localStorage.setItem('cart', JSON.stringify(this.items));
   }
 
-  remove(id: number): void {
+  async remove(id: number): Promise<void> {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].item.id === id) {
         this.items.splice(i, 1);
         break;
       }
     }
-    window.localStorage.setItem('cart', JSON.stringify(this.items));
+    await this.saveState();
   }
 }

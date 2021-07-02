@@ -58,9 +58,9 @@
   transform:  translateX(-50%);
 }
 .cart-counter {
-  position: absolute; background-color: #ff231c; color: #fff; line-height: calc(12px + 0.3vw);
-  text-align: center; min-width: 15px; top: var(--padding-size-s); right: var(--padding-size-s); border-radius: 10px; padding: 1px 3px;
-  box-shadow: 0 0 0 1px var(--primary-color); font-weight: 400; font-size: calc(11px + 0.275vw);
+  position: absolute; background-color: #ff231c; color: #fff; line-height: calc(13px + 0.325vw);
+  text-align: center; min-width: calc(16px + 0.325vw); top: var(--padding-size-s); right: var(--padding-size-s); border-radius: 10px; padding: 2px 3px;
+  box-shadow: 0 0 0 2px var(--primary-color); font-weight: bold; font-size: calc(12px + 0.3vw);
   opacity: 0; transform: scale(0.1);
 }
 .cart-counter.c {

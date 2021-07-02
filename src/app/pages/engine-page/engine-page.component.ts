@@ -7,8 +7,7 @@ import {CartService} from '../../shared/cart.service';
 @Component({
   selector: 'app-engine-page',
   templateUrl: './engine-page.component.html',
-  styleUrls: ['./engine-page.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./engine-page.component.css']
 })
 export class EnginePageComponent implements OnInit, OnDestroy{
 
@@ -24,6 +23,7 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   activePhoto = 0;
   amount = 1;
   galleryOpened = false;
+  state: 'in'|'btn-loading'|'' = '';
 
   constructor(private catalogService: CatalogService,
               private chartService: CartService,
@@ -87,7 +87,12 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   }
 
   adToCart(): void {
-    this.chartService.add(this.engine, this.amount);
+    if (this.state === '') {
+      this.state = 'btn-loading';
+      this.chartService.add(this.engine, this.amount).then(() => {
+        setTimeout(() => {this.state = 'in'; }, 200);
+      });
+    }
   }
 
   nextPhoto(): void {
