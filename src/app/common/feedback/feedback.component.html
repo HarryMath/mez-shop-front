@@ -10,15 +10,15 @@
     <div class="contact-form">
       <div class="form">
         <div class="input-block">
-          <input id="name" class="input" autocomplete="off" required [formControl]="name" >
+          <input id="name" class="input" autocomplete="off" required [(ngModel)]="feedBack.name">
           <label for="name">Ваше имя*</label>
         </div>
         <div class="input-block">
-          <input id="contact" class="input" autocomplete="off" required [formControl]="contact">
+          <input id="contact" class="input" autocomplete="off" required [(ngModel)]="feedBack.contact">
           <label for="contact">E-mail или телефон*</label>
         </div>
         <div class="input-block">
-          <textarea id="message" class="input" autocomplete="off" required [formControl]="message"></textarea>
+          <textarea id="message" class="input" autocomplete="off" required [(ngModel)]="feedBack.message"></textarea>
           <label for="message">Ваше сообщение</label>
         </div>
         <div class="row">

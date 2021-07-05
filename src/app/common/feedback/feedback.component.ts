@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {tap} from 'rxjs/operators';
+import {endpoint} from '../../shared/request';
+import {AuthorisationService} from "../../shared/authorisation.service";
+
+export interface FeedBack {
+  name: string;
+  contact: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-feedback',
@@ -10,41 +16,35 @@ import {tap} from 'rxjs/operators';
 })
 export class FeedbackComponent implements OnInit {
 
-  name = new FormControl('');
-  contact = new FormControl('');
-  message = new FormControl('');
+  feedBack: FeedBack = {name: '', contact: '', message: ''};
 
   constructor(private http: HttpClient) { }
 
   sendFeedback(): void {
-    const name = this.name.value.trim();
-    const contact = this.contact.value.trim();
-    const message = this.message.value.trim();
+    const name = this.feedBack.name.trim();
+    const contact = this.feedBack.contact.trim();
+    const message = this.feedBack.message.trim();
     if (name.length > 2) {
       if (contact.length > 4) {
-        let requestText = `https://mez-api.herokuapp.com/feedback?name=${name}&contact=${contact}`;
-        if (message.length) { requestText += `&message=${message}`; }
-        this.http.get(requestText)
-          .pipe(
-            tap(response => {
-              // @ts-ignore
-              window.message.show(response === 1 ?
-                'ваше сообщение отправлено!' :
-                'сообщение не отправлено :c<br>попробуйте связаться другим способом', -1
-              );
-            })
-          ).subscribe();
-      } else {
-        // @ts-ignore
+        this.http.post(endpoint + '/feedback', this.feedBack).subscribe(response => {// @ts-ignore
+          window.message.show(response === 1 ?
+            'ваше сообщение отправлено!' :
+            'сообщение не отправлено :c<br>попробуйте связаться другим способом', -1
+          );
+        });
+      } else {// @ts-ignore
         window.message.show('введите ваш контакт, чтобы мы могли с вами связаться', -1);
       }
-    } else {
-      // @ts-ignore
-      window.message.show('имя слишком короткое', -1);
+    } else { // @ts-ignore
+      window.message.show('заполните имя', -1);
     }
   }
 
   ngOnInit(): void {
+    if (AuthorisationService.isAuthorised) {
+      this.feedBack.contact = AuthorisationService.user.mail;
+      this.feedBack.name = AuthorisationService.user.name;
+    }
   }
 
 }

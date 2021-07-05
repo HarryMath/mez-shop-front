@@ -4,8 +4,8 @@ class Notification {
 
   constructor() {
     this.messageElement = document.createElement('div');
-    this.messageElement.className = 'notification unselectable';
-    this.messageElement.innerHTML = `<div></div><div class="closer" onclick="message.hide()">×</div>`;
+    this.messageElement.className = 'notif unselectable';
+    this.messageElement.innerHTML = `<div class="c"></div><div class="closer" onclick="message.hide()">×</div>`;
     document.body.appendChild(this.messageElement);
   }
 
