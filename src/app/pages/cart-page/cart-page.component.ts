@@ -23,8 +23,8 @@ export class CartPageComponent implements OnInit {
         'удаление ' + item.item.name,
         'вы уверенны, что хотите убрать двигатель ' + item.item.name + ' из корзины?',
         'убрать', 'отмена', 'danger',
-        () => { // @ts-ignore
-          this.chartService.remove(item.item.id);
+        () => {
+          this.chartService.remove(item.item.name);
         }
       );
     }

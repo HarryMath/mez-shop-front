@@ -12,7 +12,7 @@ import {CartService} from '../../shared/cart.service';
 export class EnginePageComponent implements OnInit, OnDestroy{
 
   engine: EngineDetails = {
-    id: 0, name: '', type: {
+    name: '', type: {
       name: '', shortDescription: '', fullDescription: '', photo: null
     }, manufacturer: '', price: 0, mass: 0, photo: '',
     characteristics: [],
@@ -31,12 +31,12 @@ export class EnginePageComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.engineLoaded = false; // @ts-ignore
-    document.body.scroll(0, 0);
+    document.body.scrollTop = 0;
     const path = this.router.url.split('/');
-    const id = path[path.length - 1].split('?')[0];
+    const name = path[path.length - 1].split('?')[0];
     this.activePhoto = 0;
     this.amount = 1;
-    this.catalogService.loadEngine(id)
+    this.catalogService.loadEngine(name)
       .subscribe(response => {
         this.engine = response;
         this.photos = this.engine.photos;

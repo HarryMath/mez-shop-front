@@ -45,13 +45,13 @@ export class MapComponent implements OnInit {
     if (MapComponent.translate.has(this.path[i])) { // @ts-ignore
       return  MapComponent.translate.get(this.path[i]);
     }
-    return this.path[i];
+    return decodeURI(this.path[i]);
   }
 
   getLink(i: number): string {
     let link = '';
     for (let j = 0; j <= i; j++) {
-      link += '/' + this.path[j];
+      link += '/' + decodeURI(this.path[j]);
     }
     return link;
   }

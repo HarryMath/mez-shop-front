@@ -28,7 +28,7 @@ export class CartService {
   async add(item: EngineDetails, amount: number): Promise<void> {
     let alreadyInCart = false;
     for (const cartItem of this.items) {
-      if (cartItem.item.id === item.id) {
+      if (cartItem.item.name === item.name) {
         cartItem.amount += amount;
         alreadyInCart = true;
         break;
@@ -52,9 +52,9 @@ export class CartService {
     window.localStorage.setItem('cart', JSON.stringify(this.items));
   }
 
-  async remove(id: number): Promise<void> {
+  async remove(name: string): Promise<void> {
     for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].item.id === id) {
+      if (this.items[i].item.name === name) {
         this.items.splice(i, 1);
         break;
       }

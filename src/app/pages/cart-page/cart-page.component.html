@@ -6,7 +6,7 @@
       <div class="main">
         <h3 class="unselectable">Моя корзина <span *ngIf="chartService.items.length > 0">({{chartService.items.length}})</span></h3>
         <div class="item" *ngFor="let item of chartService.items">
-          <a class="item-body" routerLink="/catalog/{{item.item.id}}">
+          <a class="item-body" routerLink="/catalog/{{item.item.name}}">
             <div class="item-image" [style]="getPhotoStyle(item.item.photo)"></div>
             <div class="item-info">
               <h5 class="name">{{item.item.name}}</h5>

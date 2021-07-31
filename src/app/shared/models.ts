@@ -31,7 +31,6 @@ export interface CategoryPreview {
 }
 
 export interface EnginePreview {
-  id: number;
   name: string;
   manufacturer: string;
   type: string;
@@ -42,7 +41,6 @@ export interface EnginePreview {
 }
 
 export interface EngineDetails {
-  id: number;
   name: string;
   manufacturer: string;
   price: number;
@@ -54,7 +52,7 @@ export interface EngineDetails {
 }
 
 export interface Characteristics {
-  engineId: number;
+  engineName: string;
   power: number;
   frequency: number;
   efficiency: number;

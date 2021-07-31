@@ -138,8 +138,8 @@ export class CatalogService {
       });
   }
 
-  loadEngine(id: string): Observable<EngineDetails> {
-    return this.http.get<EngineDetails>(endpoint + '/engines/' + id + '?withDetails=true');
+  loadEngine(name: string): Observable<EngineDetails> {
+    return this.http.get<EngineDetails>(endpoint + '/engines/' + name + '?withDetails=true');
   }
 
   clearFilters(): void {
