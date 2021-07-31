@@ -174,7 +174,7 @@
   .post:nth-child(2) {
     display: none; visibility: hidden;
   }
-  .lt { margin-bottom: var(--padding-size-m)}
+  .lt { margin-bottom: var(--padding-size-m); min-height: calc(330px - 8.25vw);}
   .lt h2 {white-space: pre-wrap}
   .lt, .lt>div { width: 100%}
   .l-im { display: none; visibility: hidden}

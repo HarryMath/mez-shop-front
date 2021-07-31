@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {MenuService} from '../../shared/menu.service';
 import {CatalogService} from '../../shared/catalog.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -10,21 +10,23 @@ import {Location} from '@angular/common';
   templateUrl: './catalog-page.component.html',
   styleUrls: ['./catalog-page.component.css']
 })
-export class CatalogPageComponent implements OnInit, OnDestroy {
+export class CatalogPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   title = 'Все товары';
 
-  constructor(public menuService: MenuService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private location: Location,
-              public catalogService: CatalogService) {
+  constructor(
+    public menuService: MenuService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location,
+    public catalogService: CatalogService
+  ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
     this.catalogService.clearFilters();
-    document.body.scroll(0, this.catalogService.scrollHeight);
+    document.body.scrollTop = this.catalogService.bodyScroll;
     for (const param of this.route.snapshot.queryParamMap.keys) {
       for (const filter of this.catalogService.filters) {
         if (filter.queryName === param) { // @ts-ignore
@@ -46,13 +48,24 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
     }
     if (this.route.snapshot.queryParamMap.has('query')) { // @ts-ignore
       this.catalogService.search = this.route.snapshot.queryParamMap.get('query');
-      this.title = '"' + this.catalogService.search + '"';
+      if (this.catalogService.search.length > 1) {
+        this.title = '"' + this.catalogService.search + '"';
+      }
     }
     this.refreshAll(true);
   }
 
+  ngAfterViewInit(): void {
+    document.body.scrollTop = this.catalogService.bodyScroll;
+    window.addEventListener('scroll', this.handleScroll, true);
+  }
+
+  handleScroll = () => {
+    this.catalogService.bodyScroll = document.body.scrollTop;
+  }
+
   ngOnDestroy(): void {
-    this.catalogService.scrollHeight = document.body.scrollTop;
+    window.removeEventListener('scroll', this.handleScroll, true);
   }
 
   toggleFilterBlock(filter: FilterBlock): void {
@@ -107,8 +120,9 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
     this.title = 'Все товары';
     this.catalogService.search = '';
     this.catalogService.page = 1;
-    this.catalogService.scrollHeight = 0;
+    this.catalogService.bodyScroll = 0;
     document.body.scroll(0, 0);
+    console.warn('restore page called');
     this.refreshAll(false);
   }
 
@@ -116,7 +130,7 @@ export class CatalogPageComponent implements OnInit, OnDestroy {
     const prev = this.catalogService.page;
     this.catalogService.page = n;
     if (prev !== n) {
-      this.catalogService.scrollHeight = 0;
+      this.catalogService.bodyScroll = 0;
       this.catalogService.loadEngines(true);
     }
   }

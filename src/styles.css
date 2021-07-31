@@ -84,7 +84,7 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
   font-weight: 500;  border-radius: 6px;
   overflow: hidden;font-size: 15px;
   color: #444; background-color: #fff; box-shadow: 2px 4px 7px 3px #00001f3a;
-  transition: 0.3s linear;
+  transition: 0.35s;
   transform: translate(-50%, 300%);
   display: flex; align-items: center; justify-content: space-between;
 }
@@ -97,14 +97,14 @@ iframe { filter: drop-shadow(0px 0px 6px #16203d52)}
 }
 .notif> .closer {
   position: relative;
-  width: 35px;
-  height: 35px;
-  line-height: 30px;
+  width: 35px;height: 35px;
+  line-height: 30px; transition: 0.2s;
   text-align: center;
   font-size: 25px;
   cursor: pointer;
   opacity: 0.5;
 }
+.notif> .closer:hover {opacity: 1}
 .notif> .closer::after {
   content: ""; left: 0; top: 0;
   position: absolute; width: 100%; height: 100%;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SubmitService} from "../../shared/submit.service";
+import {SubmitService} from '../../shared/submit.service';
 
 @Component({
   selector: 'app-submit-modal',

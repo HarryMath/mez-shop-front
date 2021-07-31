@@ -39,6 +39,8 @@ window.goTo = function (elementId, behavior = 'smooth') {
       block: 'start'
     })
   } catch (e) {
-    console.log('element not found')
+    try {
+      document.getElementById(elementId).scrollIntoView();
+    } catch (ignore) {}
   }
 }

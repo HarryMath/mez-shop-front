@@ -32,11 +32,11 @@ export class HomePageComponent implements OnInit {
       linkName: 'Контакты', linkPath: '/contacts'},
     {title: 'Редуктора и мотор редуктора', class: '',
       photo: '/assets/photos/landingImages/gearReducers.png',
-      text: 'Наши мотор-редуктора имеют универсальные присоединительные размеры и агрегатированы с электродвигателями любых производителей по желанию, что позволяет менять вышедший из строя агрегат на наш без переделывания конструкции готового изделия. ',
+      text: 'Наши мотор-редуктора имеют универсальные присоединительные размеры и агрегатированы с электродвигателями любых производителей по желанию, что позволяет менять вышедший из строя агрегат на наш без переделывания конструкции готового изделия.',
       linkName: 'Подробнее', linkPath: '/catalog/gearMotors'},
-    {title: 'Электро-двигатели МЭЗ', class: '',
+    {title: 'Дополнительная гарантия', class: '',
       photo: '/assets/photos/landingImages/parts.png',
-      text: 'Если вы ищете замену двигателя или планируете новый проект, найдите свой двигатель с помощью расширенного поиска или свяжитесь с нами любым удобмным вам способом, чтобы убедиться, что вы выбрали двигатель, наиболее подходящий вам.',
+      text: 'Мы предоставляем своим клиентам дополниельную гарантию 1 год на все электодвигатели производства ОАО «Могилевлифтмаш» через свой сервисный центр.',
       linkName: 'Контакты', linkPath: '/contacts'}
   ];
   activeSlide = 0;
@@ -127,6 +127,12 @@ export class HomePageComponent implements OnInit {
   getBtnText(): string {
     return this.quantity >= 0 ?
       'показать ' + this.quantity : 'подобрать';
+  }
+
+  getSlideText(slide: Slide): string {
+    return slide.text.length > 239 ?
+      slide.text.substring(0, 233) + '...' :
+      slide.text;
   }
 
   prevSlide(timeout: number): void {

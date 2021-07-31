@@ -18,7 +18,7 @@ export class CatalogService {
     {name: '4BP', linkName: '', photo: '/assets/photo.png', shortDescription: 'Взрывозащищенные двигатели серии 4ВР'},
     {name: 'Электродвигатели CENELEC (AIS)', linkName: '', photo: '/assets/photo.png', shortDescription: 'Двигатели асинхронные серии АIS'},
   ];
-  scrollHeight = 0;
+  bodyScroll = 0;
 
   filters: FilterBlock[] = [
     {name: 'тип', queryName: 'types', opened: true, options: [
@@ -80,7 +80,7 @@ export class CatalogService {
       this.catalogLoaded = true;
       this.engines = response;
       if (restoreHeight) {
-        document.body.scroll(0, this.scrollHeight);
+        document.body.scroll(0, this.bodyScroll);
       }
     });
   }
