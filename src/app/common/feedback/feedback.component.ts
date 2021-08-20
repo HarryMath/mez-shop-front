@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {endpoint} from '../../shared/request';
-import {AuthorisationService} from "../../shared/authorisation.service";
+import {AuthorisationService} from '../../shared/authorisation.service';
 
 export interface FeedBack {
   name: string;
@@ -23,7 +23,6 @@ export class FeedbackComponent implements OnInit {
   sendFeedback(): void {
     const name = this.feedBack.name.trim();
     const contact = this.feedBack.contact.trim();
-    const message = this.feedBack.message.trim();
     if (name.length > 2) {
       if (contact.length > 4) {
         this.http.post(endpoint + '/feedback', this.feedBack).subscribe(response => {// @ts-ignore

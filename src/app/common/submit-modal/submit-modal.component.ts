@@ -4,7 +4,7 @@ import {SubmitService} from '../../shared/submit.service';
 @Component({
   selector: 'app-submit-modal',
   templateUrl: './submit-modal.component.html',
-  styleUrls: ['./submit-modal.component.css']
+  styleUrls: []
 })
 export class SubmitModalComponent implements OnInit {
 

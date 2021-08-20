@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CatalogService} from '../../shared/catalog.service';
 import {Router} from '@angular/router';
 import {EngineDetails} from '../../shared/models';
@@ -14,7 +14,7 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   engine: EngineDetails = {
     name: '', type: {
       name: '', shortDescription: '', fullDescription: '', photo: null
-    }, manufacturer: '', price: 0, mass: 0, photo: '',
+    }, manufacturer: '', priceCombi: 0, priceLapy: 0, priceFlanets: 0, mass: 0, photo: '',
     characteristics: [],
     photos: []
   };

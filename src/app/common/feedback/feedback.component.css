@@ -35,7 +35,7 @@
   background-color: #28357413;
 }
 .contact-form input {
-  margin-bottom: calc(var(--padding-size-m)*0.6);
+  margin-bottom: var(--padding-size-m);
 }
 .contact-form textarea {
   min-height: calc(var(--header-top-height)*2);
@@ -48,10 +48,6 @@
   width: calc(100% - var(--form-width));
   padding: var(--padding-size-m);
   font-style: italic;
-}
-.form .label {
-  font-size: calc(10px + 0.25vw);
-  margin-right: var(--padding-size-m);
 }
 
 

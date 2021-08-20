@@ -18,7 +18,9 @@ export class EngineComponent implements OnInit {
     if (this.engine.photo === null || this.engine.photo === 'null' || this.engine.photo.length < 5) {
       return '';
     }
-    return `background-image: url(${this.engine.photo})`;
+    return 'background-image: url(' +
+      this.engine.photo.replace('upload/',
+        'upload/c_scale,h_200,q_50/') + ')';
   }
 
   getPower(): string {

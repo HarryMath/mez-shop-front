@@ -34,7 +34,7 @@ export interface EnginePreview {
   name: string;
   manufacturer: string;
   type: string;
-  price: number;
+  minPrice: number;
   mass: number;
   photo: string;
   characteristics: Characteristics[];
@@ -43,7 +43,9 @@ export interface EnginePreview {
 export interface EngineDetails {
   name: string;
   manufacturer: string;
-  price: number;
+  priceLapy: number;
+  priceCombi: number;
+  priceFlanets: number;
   mass: number;
   photo: string;
   type: Category;

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {MenuService} from '../../shared/menu.service';
 import {CatalogService} from '../../shared/catalog.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -26,7 +26,6 @@ export class CatalogPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit(): void {
     this.catalogService.clearFilters();
-    document.body.scrollTop = this.catalogService.bodyScroll;
     for (const param of this.route.snapshot.queryParamMap.keys) {
       for (const filter of this.catalogService.filters) {
         if (filter.queryName === param) { // @ts-ignore

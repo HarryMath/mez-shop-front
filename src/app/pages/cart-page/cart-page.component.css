@@ -1,9 +1,12 @@
 .main {
   margin: var(--padding-size-m);
-  padding: var(--padding-size-m); border-radius: 6px;
   width: calc(100% - var(--buy-block-width));
+}
+.s {
   box-shadow: 1px 2px 6px #0c0c1525;background-color: #fff;
-} h3 {margin-top: var(--padding-size-s)}
+  padding: var(--padding-size-m); border-radius: 6px;
+}
+h3 {margin-top: var(--padding-size-s)}
 .content-wrapper {
   background-color: #f5f5f7;
 }
@@ -11,7 +14,7 @@
 .empty {
   width: 100%;
   padding: var(--padding-size-xl);
-  margin-bottom: var(--padding-size-xl);
+  padding-bottom: calc(var(--padding-size-xl) * 2);
 }
 .empty-image {
   width: 100%;
@@ -85,6 +88,9 @@
   width: calc(28px + 0.7vw);
   line-height:  calc(25px + 0.625vw);
 }
+input {
+  margin-bottom: var(--padding-size-m);}
+.f i {font-size: calc(var(--input-height) * 0.5)}
 
 .buy-block {
   position: sticky; top: calc(var(--header-top-height) + var(--header-bottom-height) + var(--padding-size-l));

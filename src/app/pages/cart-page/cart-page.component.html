@@ -1,9 +1,37 @@
+<div class="o" *ngIf="dialogShown" [ngClass]="closingDialog ? 'hide' : ''">
+  <div class="w absolute-center">
+    <div class="h">Заказ на сумму {{chartService.getFinalPrice()}}₽</div>
+    <div class="b">
+      <div class="input-block">
+        <input id="name" class="input" autocomplete="off" required [(ngModel)]="name">
+        <label for="name">Ваше ФИО*</label>
+      </div>
+      <div class="input-block">
+        <input id="mail" class="input" autocomplete="off" required [(ngModel)]="mail">
+        <label for="mail">E-mail*</label>
+      </div>
+      <div class="input-block">
+        <input id="phone" class="input" autocomplete="off" required [(ngModel)]="phone">
+        <label for="phone">телефон*</label>
+      </div>
+      <div class="label">поля, помеченные звёздочкой (*), обязательны для заполнения</div>
+    </div>
+    <div class="f">
+      <div class="btn cancel-btn" (click)="hideDialog()">отмена</div>
+      <div class="btn btn-3d green" (click)="submitOrder()" [ngClass]="orderProcessing ? 'btn-loading' : ''">
+        <span *ngIf="!success">подтвердить</span>
+        <span *ngIf="success">подтверждено <i class="fas fa-check-circle"></i></span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="content-wrapper">
   <div class="content">
     <app-map class="desktop"></app-map>
 
     <div class="with-columns">
-      <div class="main">
+      <div class="main" [ngClass]="chartService.items.length > 0 ? 's' : ''">
         <h3 class="unselectable">Моя корзина <span *ngIf="chartService.items.length > 0">({{chartService.items.length}})</span></h3>
         <div class="item" *ngFor="let item of chartService.items">
           <a class="item-body" routerLink="/catalog/{{item.item.name}}">
@@ -15,7 +43,7 @@
             </div>
           </a>
           <div class="price-block">
-            <div class="price">{{item.item.price}} ₽</div>
+            <div class="price">{{item.item.priceLapy}} ₽</div>
             <div class="count-block unselectable">
               <div>
                 <div class="counter" (click)="less(item)" [ngClass]="item.amount < 1 ? 'disabled' : ''">-</div>
@@ -30,7 +58,7 @@
         <div class="final-price">
           Итоговая цена:<span> {{getFinalPrice()}}₽</span>
         </div>
-        <div class="btn btn-primary btn-3d unselectable" (click)="submit()">
+        <div class="btn btn-primary btn-3d unselectable" (click)="makeOrder()">
           оформить заказ <i class="fas fa-file-invoice-dollar"></i>
         </div>
       </div>

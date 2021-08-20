@@ -1,10 +1,21 @@
 import {Injectable} from '@angular/core';
 import {EngineDetails} from './models';
-import {HttpClient} from '@angular/common/http';
+import {endpoint, simpleRequest} from './request';
 
 export interface CartItem {
   item: EngineDetails;
   amount: number;
+}
+
+export interface CartItemDTO {
+  itemId: string;
+  amount: number;
+}
+
+export interface Order {
+  items: CartItemDTO[];
+  name: string;
+  mail: string;
 }
 
 @Injectable({providedIn: 'root'})
@@ -13,7 +24,7 @@ export class CartService {
   items: CartItem[] = [];
   loading = false;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     const itemsString = window.localStorage.getItem('cart');
     if (itemsString !== null) {
       try {
@@ -43,7 +54,7 @@ export class CartService {
   getFinalPrice(): number {
     let finalPrice = 0;
     for (const item of this.items) {
-      finalPrice += item.amount * item.item.price;
+      finalPrice += item.amount * item.item.priceLapy;
     }
     return finalPrice;
   }
@@ -60,5 +71,19 @@ export class CartService {
       }
     }
     await this.saveState();
+  }
+
+  async makeOrder(clientName: string, mail: string, phone: string): Promise<any> {
+    const items: CartItemDTO[] = [];
+    this.items.forEach(i => {
+      items.push({itemId: i.item.name, amount: i.amount});
+    });
+    const order: Order = {name: clientName, mail, items};
+    return simpleRequest(endpoint + '/orders/create', 'POST', order);
+  }
+
+  clear(): void {
+    this.items = [];
+    this.saveState();
   }
 }

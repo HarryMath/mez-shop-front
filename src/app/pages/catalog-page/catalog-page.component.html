@@ -7,11 +7,11 @@
       <div class="goods-count" *ngIf="catalogService.catalogLoaded"> ({{catalogService.quantity}} шт.) </div>
       <div class="sort-block">
         <label for="sortBy" class="sort-by-label">сортировать по: </label>
-        <select id="sortBy">
-          <option value="0" selected>популярности</option>
-          <option value="1">цене (сначала дешевые)</option>
-          <option value="2">цене (сначала дорогие)</option>
-          <option value="3">новизне</option>
+        <select id="sortBy" [(ngModel)]="catalogService.orderBy"
+                (change)="catalogService.loadEngines(false)">
+          <option value="engines.name DESC" selected>алфавиту</option>
+          <option value="engines.priceLapy ASC">цене (сначала дешевые)</option>
+          <option value="engines.priceLapy DESC">цене (сначала дорогие)</option>
         </select>
       </div>
     </div>
