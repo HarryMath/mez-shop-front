@@ -207,7 +207,7 @@
 }
 .item {
   width: 25%;
-  transition: 0.2s;
+  transition: 0.1s;
   border-radius: 4px;
   padding: calc(var(--padding-size-m)*0.5);
 }

@@ -36,6 +36,7 @@ export interface EnginePreview {
   type: string;
   minPrice: number;
   mass: number;
+  axisHeight: number;
   photo: string;
   characteristics: Characteristics[];
 }
@@ -47,6 +48,7 @@ export interface EngineDetails {
   priceCombi: number;
   priceFlanets: number;
   mass: number;
+  axisHeight: number;
   photo: string;
   type: Category;
   characteristics: Characteristics[];
@@ -59,10 +61,17 @@ export interface Characteristics {
   frequency: number;
   efficiency: number;
   cosFi: number;
+  electricityNominal115: number;
   electricityNominal220: number;
   electricityNominal380: number;
   electricityRatio: number;
   momentsRatio: number;
   momentsMaxRatio: number;
   momentsMinRatio: number;
+  voltage115: number;
+  voltage220_230: number;
+  capacity115: number;
+  capacity220: number;
+  capacity230: number;
+  criticalSlipping: number;
 }

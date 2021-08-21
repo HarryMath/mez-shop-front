@@ -13,7 +13,7 @@
 
       <div class="item-info">
 
-        <h2 class="mobile">Двигатель {{engine.name}}</h2>
+        <h2 class="mobile">Двигатель {{getName()}}</h2>
         <div class="with-columns item-top">
           <div class="item-gallery">
             <div class="main-photo-wrapper">
@@ -38,6 +38,7 @@
             <div class="main-characteristics">
               <div><div>&#x2022; фазность: </div><div>{{engine.characteristics.length}}</div></div>
               <div><div>&#x2022; мощности: </div><div>{{getPower()}}</div></div>
+              <div><div>&#x2022; высота оси вращения: </div><div>{{engine.axisHeight}} мм</div></div>
               <div><div>&#x2022; масса: </div><div>{{engine.mass}} кг</div></div>
             </div>
             <div class="link goTo" onclick="goTo('characteristics')">все характеристики <i class="fas fa-chevron-down"></i></div>
@@ -53,27 +54,57 @@
           <h5 class="unselectable">Характеристики</h5>
           <div>
             <div class="unselectable">
-              <div><div>Р, кВт</div></div>
-              <div><div>Номин. частота, <span style="white-space: nowrap">об/мин</span></div></div>
-              <div><div>КПД, %</div></div>
-              <div><div>cos φ</div></div>
-              <div><div>I<span class="index">н</span>, А</div></div>
-              <div><div>I<span class="index">п</span>/I<span class="index">н</span></div></div>
-              <div><div>М<span class="index">п</span>/М<span class="index">н</span></div></div>
-              <div><div>М<span class="index">max</span>/М<span class="index">н</span></div></div>
-              <div><div>М<span class="index">min</span>/М<span class="index">н</span></div></div>
+              <div *ngIf="hasPower"><div>Р, кВт</div></div>
+              <div *ngIf="hasFrequency"><div>Номин. частота, <span style="white-space: nowrap">об/мин</span></div></div>
+              <div *ngIf="hasEfficiency"><div>КПД, %</div></div>
+              <div *ngIf="hasCosFi"><div>cos φ</div></div>
+              <div *ngIf="hasElectricity220 || hasElectricity115 || hasElectricity380"><div>I<span class="index">н</span>, А</div></div>
+              <div *ngIf="hasElectricityRatio"><div>I<span class="index">п</span>/I<span class="index">н</span></div></div>
+              <div *ngIf="hasMomentsMaxRatio"><div>М<span class="index">п</span>/М<span class="index">н</span></div></div>
+              <div *ngIf="hasMomentsMaxRatio"><div>М<span class="index">max</span>/М<span class="index">н</span></div></div>
+              <div *ngIf="hasMomentsMinRatio"><div>М<span class="index">min</span>/М<span class="index">н</span></div></div>
+              <div *ngIf="hasVoltage115 || hasVoltage220230"><div>U<span class="index">нс</span>, В</div></div>
+              <div *ngIf="hasCpacity115 || hasCpacity220 || hasCpacity230"><div>C, мкф</div></div>
+              <div *ngIf="hasCriticalSlipping"><div>Критич. скольжение, %</div></div>
             </div>
             <div *ngFor="let row of engine.characteristics">
-              <div><div>{{row.power}}</div></div>
-              <div><div>{{row.frequency}}</div></div>
-              <div><div>{{row.efficiency}}</div></div>
-              <div><div>{{row.cosFi}}</div></div>
-              <div><div>{{row.electricityNominal220}}, {{row.electricityNominal380}}</div></div>
-              <div><div>{{row.electricityRatio}}</div></div>
-              <div><div>{{row.momentsRatio}}</div></div>
-              <div><div>{{row.momentsMaxRatio}}</div></div>
-              <div><div>{{row.momentsMinRatio}}</div></div>
+              <div *ngIf="hasPower"><div>{{row.power}}</div></div>
+              <div *ngIf="hasFrequency"><div>{{row.frequency}}</div></div>
+              <div *ngIf="hasEfficiency"><div>{{row.efficiency}}</div></div>
+              <div *ngIf="hasCosFi"><div>{{row.cosFi}}</div></div>
+              <div *ngIf="hasElectricity220 || hasElectricity115 || hasElectricity380"><div>{{getElectricity(row)}}</div></div>
+              <div *ngIf="hasElectricityRatio"><div>{{row.electricityRatio}}</div></div>
+              <div *ngIf="hasMomentsRatio"><div>{{row.momentsRatio}}</div></div>
+              <div *ngIf="hasMomentsMaxRatio"><div>{{row.momentsMaxRatio}}</div></div>
+              <div *ngIf="hasMomentsMinRatio"><div>{{row.momentsMinRatio}}</div></div>
+              <div *ngIf="hasVoltage115 || hasVoltage220230"><div>{{getVoltage(row)}}</div></div>
+              <div *ngIf="hasCpacity115 || hasCpacity220 || hasCpacity230"><div>{{getCapacity(row)}}</div></div>
+              <div *ngIf="hasCriticalSlipping"><div>{{row.criticalSlipping}}</div></div>
             </div>
+          </div>
+        </div>
+
+        <div class="description">
+          <div *ngIf="hasElectricity115 || hasElectricity220 || hasElectricity380">
+            * I<span class="index">н</span> — {{getElectricityDescription()}}
+          </div>
+          <div *ngIf="hasElectricityRatio">
+            * I<span class="index">п</span>/I<span class="index">н</span> — отношение пускового тока к номинальному
+          </div>
+          <div *ngIf="hasMomentsRatio">
+            * М<span class="index">п</span>/М<span class="index">н</span> — отношение пускового момента к номинальному
+          </div>
+          <div *ngIf="hasMomentsMaxRatio">
+            * М<span class="index">max</span>/М<span class="index">н</span> — отношение максимального момента к номинальному
+          </div>
+          <div *ngIf="hasMomentsMinRatio">
+            * М<span class="index">min</span>/М<span class="index">н</span> — отношение минимального момента к номинальному
+          </div>
+          <div *ngIf="hasVoltage115 || hasVoltage220230">
+            * U<span class="index">нс</span> — {{getVoltageDescription()}}
+          </div>
+          <div *ngIf="hasCpacity115 || hasCpacity220 || hasCpacity230">
+            * C — {{getCapacityDescription()}}
           </div>
         </div>
       </div>

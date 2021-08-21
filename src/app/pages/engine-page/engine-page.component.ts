@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CatalogService} from '../../shared/catalog.service';
 import {Router} from '@angular/router';
-import {EngineDetails} from '../../shared/models';
+import {Characteristics, EngineDetails} from '../../shared/models';
 import {CartService} from '../../shared/cart.service';
 
 @Component({
@@ -12,11 +12,10 @@ import {CartService} from '../../shared/cart.service';
 export class EnginePageComponent implements OnInit, OnDestroy{
 
   engine: EngineDetails = {
-    name: '', type: {
+    axisHeight: 0, characteristics: [], manufacturer: '', mass: 0, photo: '',
+    photos: [], priceCombi: 0, priceFlanets: 0, priceLapy: 0, type: {
       name: '', shortDescription: '', fullDescription: '', photo: null
-    }, manufacturer: '', priceCombi: 0, priceLapy: 0, priceFlanets: 0, mass: 0, photo: '',
-    characteristics: [],
-    photos: []
+    }, name: ''
   };
   engineLoaded = false;
   photos: string[] = [];
@@ -24,6 +23,26 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   amount = 1;
   galleryOpened = false;
   state: 'in'|'btn-loading'|'' = '';
+  characteristics: string[][] = [];
+
+
+  hasPower = false;
+  hasFrequency = false;
+  hasEfficiency = false;
+  hasCosFi = false;
+  hasElectricity115 = false;
+  hasElectricity220 = false;
+  hasElectricity380 = false;
+  hasElectricityRatio = false;
+  hasMomentsRatio = false;
+  hasMomentsMaxRatio = false;
+  hasMomentsMinRatio = false;
+  hasVoltage115 = false;
+  hasVoltage220230 = false;
+  hasCpacity115 = false;
+  hasCpacity220 = false;
+  hasCpacity230 = false;
+  hasCriticalSlipping = false;
 
   constructor(private catalogService: CatalogService,
               private chartService: CartService,
@@ -43,12 +62,17 @@ export class EnginePageComponent implements OnInit, OnDestroy{
         if (this.engine.photo !== null && this.engine.photo.length > 5) {
           this.photos.unshift(this.engine.photo);
         }
+        this.setUpCharacteristics();
         this.engineLoaded = true;
       },
       error => { // @ts-ignore
         window.message.show('не удается загрузить данные');
         console.warn(error);
       });
+  }
+
+  getName(): string {
+    return this.engine.name.replace('%252F', '/');
   }
 
   more(): void {
@@ -110,5 +134,114 @@ export class EnginePageComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.engineLoaded = false;
+  }
+
+  private setUpCharacteristics(): void {
+    this.engine.characteristics.forEach(c => {
+      this.hasPower = c.power > 0 || this.hasPower;
+      this.hasFrequency = c.frequency > 0 || this.hasFrequency;
+      this.hasEfficiency = c.efficiency > 0 || this.hasEfficiency;
+      this.hasCosFi = c.cosFi > 0 || this.hasCosFi;
+      this.hasElectricity115 = c.electricityNominal115 > 0 || this.hasElectricity115;
+      this.hasElectricity220 = c.electricityNominal220 > 0 || this.hasElectricity220;
+      this.hasElectricity380 = c.electricityNominal380 > 0 || this.hasElectricity380;
+      this.hasElectricityRatio = c.electricityRatio > 0 || this.hasElectricityRatio;
+      this.hasMomentsRatio = c.momentsRatio > 0 || this.hasMomentsRatio;
+      this.hasMomentsMaxRatio = c.momentsMaxRatio > 0 || this.hasMomentsMaxRatio;
+      this.hasMomentsMinRatio = c.momentsMinRatio > 0 || this.hasMomentsMinRatio;
+      this.hasVoltage115 = c.voltage115 > 0 || this.hasVoltage115;
+      this.hasVoltage220230 = c.voltage220_230 > 0 || this.hasVoltage220230;
+      this.hasCpacity115 = c.capacity115 > 0 || this.hasCpacity115;
+      this.hasCpacity220 = c.capacity220 > 0 || this.hasCpacity220;
+      this.hasCpacity230 = c.capacity230 > 0 || this.hasCpacity230;
+      this.hasCriticalSlipping = c.criticalSlipping > 0 || this.hasCriticalSlipping;
+    });
+  }
+
+  getElectricity(row: Characteristics): string {
+    const list: number[] = [];
+    if (this.hasElectricity115) {
+      list.push(row.electricityNominal115);
+    }
+    if (this.hasElectricity220) {
+      list.push(row.electricityNominal220);
+    }
+    if (this.hasElectricity115) {
+      list.push(row.electricityNominal380);
+    }
+    return list.join(', ');
+  }
+
+  getVoltage(row: Characteristics): string {
+    const list: number[] = [];
+    if (this.hasVoltage115) {
+      list.push(row.voltage115);
+    }
+    if (this.hasVoltage220230) {
+      list.push(row.voltage220_230);
+    }
+    return list.join(', ');
+  }
+
+  getCapacity(row: Characteristics): string {
+    const list: number[] = [];
+    if (this.hasCpacity115) {
+      list.push(row.capacity115);
+    }
+    if (this.hasCpacity220) {
+      list.push(row.capacity220);
+    }
+    if (this.hasCpacity230) {
+      list.push(row.capacity230);
+    }
+    return list.join(', ');
+  }
+
+  getElectricityDescription(): string {
+    let result = 'номинальный ток, указан для напряжени';
+    const list: string[] = [];
+    let counter = 0;
+    if (this.hasElectricity115) {
+      list.push('115В'); counter++;
+    }
+    if (this.hasElectricity220) {
+      list.push('220В'); counter++;
+    }
+    if (this.hasElectricity380) {
+      list.push('380В'); counter++;
+    }
+    result += counter > 1 ? 'й' : 'я';
+    return result + ' ' + list.join(', ');
+  }
+
+  getVoltageDescription(): string {
+    let result = 'номинальное напряжение рабочего конденсатора, указано для напряжени';
+    const list: string[] = [];
+    let counter = 0;
+    if (this.hasVoltage115) {
+      list.push('115В'); counter++;
+    }
+    if (this.hasVoltage220230) {
+      list.push('220В/230'); counter++;
+    }
+    result += counter > 1 ? 'й' : 'я';
+    return result + ' ' + list.join(', ');
+  }
+
+  getCapacityDescription(): string {
+    let result = 'номинальная емкость рабочего конденсатора, указана для напряжени';
+    const list: string[] = [];
+    let counter = 0;
+    if (this.hasCpacity115) {
+      list.push('115В'); counter++;
+    }
+    if (this.hasCpacity220) {
+      list.push('220В'); counter++;
+    }
+    if (this.hasCpacity230) {
+      list.push('230В'); counter++;
+    }
+    result += counter > 1 ? 'й' : 'я';
+    return result + ' ' + list.join(', ');
   }
 }

@@ -45,7 +45,9 @@ export class MapComponent implements OnInit {
     if (MapComponent.translate.has(this.path[i])) { // @ts-ignore
       return  MapComponent.translate.get(this.path[i]);
     }
-    return decodeURI(this.path[i]);
+    return decodeURIComponent(this.path[i])
+      .replace('%252F', '/')
+      .replace('%2F', '/');
   }
 
   getLink(i: number): string {

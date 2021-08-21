@@ -65,7 +65,7 @@
           <div class="page active-page" *ngIf="catalogService.page >= 1">{{catalogService.page}}</div>
           <div class="page" *ngIf="catalogService.page <= catalogService.totalPages - 2" (click)="switchPage(catalogService.page + 1)">{{catalogService.page + 1}}</div>
           <div class="page" *ngIf="catalogService.page <= catalogService.totalPages - 3" (click)="switchPage(catalogService.page + 2)">{{catalogService.page + 2}}</div>
-          <div class="page transparent" *ngIf="catalogService.totalPages > 5" (click)="switchPage(catalogService.totalPages)">...{{catalogService.totalPages}}</div>
+          <div class="page transparent" *ngIf="catalogService.totalPages > 5 && catalogService.page < catalogService.totalPages" (click)="switchPage(catalogService.totalPages)">...{{catalogService.totalPages}}</div>
           <div class="page" *ngIf="catalogService.page < catalogService.totalPages" (click)="switchPage(catalogService.page + 1)">вперед ›</div>
         </div>
       </div>

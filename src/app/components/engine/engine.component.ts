@@ -49,4 +49,8 @@ export class EngineComponent implements OnInit {
     }
     return result;
   }
+
+  getLink(): string {
+    return this.engine.name.replace('/', '%252F');
+  }
 }
