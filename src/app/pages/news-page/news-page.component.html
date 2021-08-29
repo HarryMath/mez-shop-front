@@ -1,0 +1,13 @@
+<div class="content-wrapper">
+  <div class="content">
+    <app-map class="desktop"></app-map>
+    <div class="pad">
+      <h3>Все новости</h3>
+      <div class="posts">
+        <app-post-news *ngFor="let p of posts" class="post"
+                       [post]="p"></app-post-news>
+      </div>
+    </div>
+  </div>
+</div>
+<app-feedback></app-feedback>

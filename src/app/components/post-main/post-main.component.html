@@ -1,11 +1,10 @@
-<a routerLink="news/{{post.id}}" class="post">
-  <div class="row post-header unselectable">
-    <div class="label">новость</div>
-    <div class="post-date">{{post.date}}</div>
+<a routerLink="news/{{post.id}}" class="post" [ngClass]="isLight ? 'light' : ''" [style]="'background-color: ' + color">
+  <div class="b" [style]="getCssPhoto()"></div>
+  <div class="overlay" [style]="getOverlayStyle()"></div>
+  <div class="date" [style]="'background-color: ' + color">{{post.date}}</div>
+  <div class="desc" [style]="getDescriptionStyle()">
+    <h5 class="title">{{post.title}}</h5>
+    <div class="text">{{getText()}}</div>
+    <div class="v"><i class="fas fa-eye"></i> {{post.views}}</div>
   </div>
-  <h4 class="post-title">{{post.title}}</h4>
-  <div class="post-text-wrapper">
-    <p class="post-text">{{getText()}}</p>
-  </div>
-  <div class="post-open">читать полностью <i class="fas fa-long-arrow-alt-right"></i></div>
 </a>

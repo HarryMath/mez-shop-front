@@ -18,6 +18,7 @@ import { SubmitModalComponent } from './common/submit-modal/submit-modal.compone
 const appRoutes = [
   { path: '', component: HomePageComponent },
   { path: 'catalog', loadChildren: () => import('./pages/catalog-page/catalog-page.module').then(m => m.CatalogPageModule)},
+  { path: 'news', loadChildren: () => import('./pages/news-page/news-page.module').then(m => m.NewsPageModule)},
   { path: 'contacts', loadChildren: () => import('./pages/contacts-page/contacts-page.module').then(m => m.ContactsPageModule)},
   { path: 'about', loadChildren: () => import('./pages/about-page/about-page.module').then(m => m.AboutPageModule)},
   { path: 'cart', loadChildren: () => import('./pages/cart-page/cart-page.module').then(m => m.CartPageModule)},

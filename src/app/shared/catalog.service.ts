@@ -23,10 +23,10 @@ export class CatalogService {
 
   filters: FilterBlock[] = [
     {name: 'тип', queryName: 'types', opened: false, options: [
-        {name: '4BP', queryName: '4BP', selected: false},
+        {name: '4ВР', queryName: '4ВР', selected: false},
         {name: 'АИР', queryName: 'АИР', selected: false},
         {name: 'АИРЕ', queryName: 'АИРЕ', selected: false},
-        {name: 'Электродвигатели CENELEC (AIS)', queryName: 'Электродвигатели CENELEC (AIS)', selected: false},
+        {name: 'Электродвигатели CENELEC (AIS)', queryName: 'AIS', selected: false},
         {name: 'АИРС', queryName: 'АИРС', selected: false},
         {name: 'Специальные электродвигатели', queryName: 'Специальные электродвигатели', selected: false}
       ]},

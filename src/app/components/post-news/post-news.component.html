@@ -1,0 +1,11 @@
+<a routerLink="{{post.id}}" class="post">
+  <div class="row post-header unselectable">
+    <div class="label">новость</div>
+    <div class="post-date">{{post.date}}</div>
+  </div>
+  <h4 class="post-title">{{post.title}}</h4>
+  <div class="post-text-wrapper">
+    <p class="post-text">{{getText()}}</p>
+  </div>
+  <div class="post-open">читать полностью <i class="fas fa-long-arrow-alt-right"></i></div>
+</a>

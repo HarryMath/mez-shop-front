@@ -13,7 +13,6 @@ const routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        CommonModule,
         SharedModule
     ]
 })

@@ -4,6 +4,12 @@ import {Router} from '@angular/router';
 import {Characteristics, EngineDetails} from '../../shared/models';
 import {CartService} from '../../shared/cart.service';
 
+interface PriceBlock {
+  montage: 'лапы'|'комби'|'фланец';
+  price: number;
+  amount: number;
+}
+
 @Component({
   selector: 'app-engine-page',
   templateUrl: './engine-page.component.html',
@@ -20,7 +26,10 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   engineLoaded = false;
   photos: string[] = [];
   activePhoto = 0;
-  amount = 1;
+  priceBlocks: PriceBlock[] = [
+    {montage: 'лапы', amount: 1, price: 0},
+    {montage: 'комби', amount: 0, price: 0},
+    {montage: 'фланец', amount: 0, price: 0}];
   galleryOpened = false;
   state: 'in'|'btn-loading'|'' = '';
   characteristics: string[][] = [];
@@ -49,12 +58,11 @@ export class EnginePageComponent implements OnInit, OnDestroy{
               private router: Router) { }
 
   ngOnInit(): void {
-    this.engineLoaded = false; // @ts-ignore
+    this.engineLoaded = false;
     document.body.scrollTop = 0;
     const path = this.router.url.split('/');
     const name = path[path.length - 1].split('?')[0];
     this.activePhoto = 0;
-    this.amount = 1;
     this.catalogService.loadEngine(name)
       .subscribe(response => {
         this.engine = response;
@@ -62,6 +70,9 @@ export class EnginePageComponent implements OnInit, OnDestroy{
         if (this.engine.photo !== null && this.engine.photo.length > 5) {
           this.photos.unshift(this.engine.photo);
         }
+        this.priceBlocks[0].price = response.priceLapy;
+        this.priceBlocks[1].price = response.priceCombi;
+        this.priceBlocks[2].price = response.priceFlanets;
         this.setUpCharacteristics();
         this.engineLoaded = true;
       },
@@ -75,14 +86,24 @@ export class EnginePageComponent implements OnInit, OnDestroy{
     return this.engine.name.replace('%252F', '/');
   }
 
-  more(): void {
-    this.amount += 1;
+  more(montage: 'лапы'|'комби'|'фланец'): void {
+    this.priceBlocks.forEach(b => {
+      if (b.montage === montage) {
+        b.amount++;
+        return;
+      }
+    });
   }
 
-  less(): void {
-    if (this.amount > 1) {
-      this.amount -= 1;
-    }
+  less(montage: 'лапы'|'комби'|'фланец'): void {
+    this.priceBlocks.forEach(b => {
+      if (b.montage === montage) {
+        if (b.amount > 0) {
+          b.amount--;
+        }
+        return;
+      }
+    });
   }
 
   hasDescription(): boolean {
@@ -113,9 +134,14 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   adToCart(): void {
     if (this.state === '') {
       this.state = 'btn-loading';
-      this.chartService.add(this.engine, this.amount).then(() => {
-        setTimeout(() => {this.state = 'in'; }, 200);
-      });
+      const amountLapy = this.priceBlocks[0].amount;
+      const amountCombi = this.priceBlocks[1].amount;
+      const amountFlanets = this.priceBlocks[2].amount;
+      if (amountLapy + amountCombi + amountFlanets > 0) {
+        this.chartService.add(this.engine, amountLapy, amountCombi, amountFlanets).then(() => {
+          setTimeout(() => {this.state = 'in'; }, 200);
+        });
+      }
     }
   }
 
@@ -166,7 +192,7 @@ export class EnginePageComponent implements OnInit, OnDestroy{
     if (this.hasElectricity220) {
       list.push(row.electricityNominal220);
     }
-    if (this.hasElectricity115) {
+    if (this.hasElectricity380) {
       list.push(row.electricityNominal380);
     }
     return list.join(', ');
@@ -243,5 +269,13 @@ export class EnginePageComponent implements OnInit, OnDestroy{
     }
     result += counter > 1 ? 'й' : 'я';
     return result + ' ' + list.join(', ');
+  }
+
+  getPrice(): number {
+    let sum = 0;
+    this.priceBlocks.forEach(b => {
+      sum += b.amount * b.price;
+    });
+    return sum;
   }
 }

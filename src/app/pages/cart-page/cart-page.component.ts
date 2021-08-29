@@ -35,11 +35,11 @@ export class CartPageComponent implements OnInit {
       this.chartService.saveState();
     } else if (item.amount === 1) {
       this.submitService.show(
-        'удаление ' + item.item.name,
-        'вы уверенны, что хотите убрать двигатель ' + item.item.name + ' из корзины?',
+        'удаление ' + item.name,
+        'вы уверенны, что хотите убрать двигатель ' + item.name + '(' + item.montage + ') из корзины?',
         'убрать', 'отмена', 'danger',
         () => {
-          this.chartService.remove(item.item.name);
+          this.chartService.remove(item.name, item.montage);
         }
       );
     }

@@ -51,6 +51,6 @@ export class EngineComponent implements OnInit {
   }
 
   getLink(): string {
-    return this.engine.name.replace('/', '%252F');
+    return this.engine.name.replaceAll('/', '%252F');
   }
 }

@@ -110,21 +110,23 @@
       </div>
 
       <div class="item-buy-block">
-        <div class="price-block">
-          <div>Цена: </div>
-          <div>{{engine.priceLapy}} ₽
-            <span style="opacity: 0.3; font-size: 0.75em;" *ngIf="amount > 1">
-               · {{amount}} = {{engine.priceLapy * amount}} ₽
+        <div class="p-b" *ngFor="let b of priceBlocks">
+          <div class="price-block">
+            <div>{{b.montage}}: </div>
+            <div>{{b.price}} ₽
+              <span style="opacity: 0.4; font-size: 0.7em;"> · {{b.amount}} = {{b.price * b.amount}} ₽
             </span>
+            </div>
+          </div>
+          <div class="count-block unselectable">
+            <div>
+              <div class="counter" (click)="less(b.montage)" [ngClass]="b.amount < 1 ? 'disabled' : ''">-</div>
+              <div class="amount">{{b.amount}}</div>
+              <div class="counter" (click)="more(b.montage)">+</div>
+            </div> шт
           </div>
         </div>
-        <div class="count-block unselectable">
-          <div>
-            <div class="counter" (click)="less()" [ngClass]="amount < 2 ? 'disabled' : ''">-</div>
-            <div class="amount">{{amount}}</div>
-            <div class="counter" (click)="more()">+</div>
-          </div> шт
-        </div>
+
         <div class="btn btn-primary btn-3d unselectable" (click)="adToCart()" [ngClass]="state">
           <span *ngIf="state != 'in'">в корзину <i class="fas fa-shopping-cart"></i></span>
           <span *ngIf="state == 'in'">в корзине <i class="fas fa-check-circle"></i></span>

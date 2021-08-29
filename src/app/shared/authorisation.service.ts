@@ -30,7 +30,7 @@ export class AuthorisationService {
         }
       } catch (e) { console.warn(e); }
     }
-    setTimeout(this.showGoogleOneTapWindow, 4000);
+    // setTimeout(this.showGoogleOneTapWindow, 4000);
   }
 
   static handleGoogleResponse(response: object): void {

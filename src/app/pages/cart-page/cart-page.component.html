@@ -34,16 +34,16 @@
       <div class="main" [ngClass]="chartService.items.length > 0 ? 's' : ''">
         <h3 class="unselectable">Моя корзина <span *ngIf="chartService.items.length > 0">({{chartService.items.length}})</span></h3>
         <div class="item" *ngFor="let item of chartService.items">
-          <a class="item-body" routerLink="/catalog/{{item.item.name}}">
-            <div class="item-image" [style]="getPhotoStyle(item.item.photo)"></div>
+          <a class="item-body" routerLink="/catalog/{{item.name}}">
+            <div class="item-image" [style]="getPhotoStyle(item.photo)"></div>
             <div class="item-info">
-              <h5 class="name">{{item.item.name}}</h5>
-              <div class="manuf">{{item.item.manufacturer}}</div>
-              <div class="type">{{item.item.type.name}}</div>
+              <h5 class="name">{{item.name}} ({{item.montage}})</h5>
+              <div class="manuf">{{item.manufacturer}}</div>
+              <div class="type">{{item.type}}</div>
             </div>
           </a>
           <div class="price-block">
-            <div class="price">{{item.item.priceLapy}} ₽</div>
+            <div class="price">{{item.price}} ₽</div>
             <div class="count-block unselectable">
               <div>
                 <div class="counter" (click)="less(item)" [ngClass]="item.amount < 1 ? 'disabled' : ''">-</div>

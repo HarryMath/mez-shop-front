@@ -3,12 +3,19 @@ import {EngineDetails} from './models';
 import {endpoint, simpleRequest} from './request';
 
 export interface CartItem {
-  item: EngineDetails;
+  photo: string;
+  name: string;
+  montage: 'лапы'|'комби'|'фланец';
+  type: string;
+  manufacturer: string;
+  price: number;
   amount: number;
 }
 
 export interface CartItemDTO {
   itemId: string;
+  montage: 'лапы'|'комби'|'фланец';
+  price: number;
   amount: number;
 }
 
@@ -16,6 +23,7 @@ export interface Order {
   items: CartItemDTO[];
   name: string;
   mail: string;
+  phone: string;
 }
 
 @Injectable({providedIn: 'root'})
@@ -36,17 +44,35 @@ export class CartService {
       } catch (ignore) { }
     }}
 
-  async add(item: EngineDetails, amount: number): Promise<void> {
-    let alreadyInCart = false;
+  async add(item: EngineDetails, amountLapy: number, amountCombi: number, amountFlanets: number): Promise<void> {
+    let lapyInCart = false;
+    let combiInCart = false;
+    let flanetsInCart = false;
     for (const cartItem of this.items) {
-      if (cartItem.item.name === item.name) {
-        cartItem.amount += amount;
-        alreadyInCart = true;
-        break;
+      if (cartItem.name === item.name) {
+        if (cartItem.montage === 'лапы') {
+          lapyInCart = true;
+          cartItem.amount += amountLapy;
+        } else if (cartItem.montage === 'комби') {
+          combiInCart = true;
+          cartItem.amount += amountCombi;
+        } else if (cartItem.montage === 'фланец') {
+          flanetsInCart = true;
+          cartItem.amount += amountFlanets;
+        }
       }
     }
-    if (!alreadyInCart) {
-      this.items.unshift({item, amount});
+    if (!lapyInCart && amountLapy > 0) {
+      this.items.unshift({name: item.name, montage: 'лапы', photo: item.photo,
+        price: item.priceLapy, manufacturer: item.manufacturer, amount: amountLapy, type: item.type.name});
+    }
+    if (!combiInCart && amountCombi > 0) {
+      this.items.unshift({name: item.name, montage: 'комби', photo: item.photo,
+        price: item.priceCombi, manufacturer: item.manufacturer, amount: amountCombi, type: item.type.name});
+    }
+    if (!flanetsInCart && amountFlanets > 0) {
+      this.items.unshift({name: item.name, montage: 'фланец', photo: item.photo,
+        price: item.priceFlanets, manufacturer: item.manufacturer, amount: amountFlanets, type: item.type.name});
     }
     await this.saveState();
   }
@@ -54,7 +80,7 @@ export class CartService {
   getFinalPrice(): number {
     let finalPrice = 0;
     for (const item of this.items) {
-      finalPrice += item.amount * item.item.priceLapy;
+      finalPrice += item.amount * item.price;
     }
     return finalPrice;
   }
@@ -63,9 +89,9 @@ export class CartService {
     window.localStorage.setItem('cart', JSON.stringify(this.items));
   }
 
-  async remove(name: string): Promise<void> {
+  async remove(name: string, montage: 'лапы'|'комби'|'фланец'): Promise<void> {
     for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].item.name === name) {
+      if (this.items[i].name === name && this.items[i].montage === montage) {
         this.items.splice(i, 1);
         break;
       }
@@ -76,9 +102,9 @@ export class CartService {
   async makeOrder(clientName: string, mail: string, phone: string): Promise<any> {
     const items: CartItemDTO[] = [];
     this.items.forEach(i => {
-      items.push({itemId: i.item.name, amount: i.amount});
+      items.push({itemId: i.name, montage: i.montage, amount: i.amount, price: i.price});
     });
-    const order: Order = {name: clientName, mail, items};
+    const order: Order = {name: clientName, mail, items, phone};
     return simpleRequest(endpoint + '/orders/create', 'POST', order);
   }
 

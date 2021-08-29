@@ -1,0 +1,23 @@
+<div class="content-wrapper land">
+  <div class="back" *ngIf="postLoaded && hasPhoto()" [style]="'background-image: url(' + post.photo + ')'"></div>
+  <div class="overlay" *ngIf="postLoaded" [style]="getOverlayGradient()"></div>
+  <div class="content" [ngClass]="postLoaded? 'loaded' : ''">
+    <div *ngIf="postLoaded">
+      <app-map></app-map>
+      <h2 class="title absolute-center">{{post.title}}</h2>
+      <div class="date">{{post.date}}</div>
+    </div>
+  </div>
+</div>
+<div class="content-wrapper">
+  <div class="content flex" [ngClass]="postLoaded? 'loaded' : ''">
+    <div class="content-part">
+      <p class="text">{{post.beforePhotoText}}</p>
+      <img *ngIf="hasPhoto()" src="{{post.photo}}" alt="{{post.title}}">
+      <p class="text">{{post.afterPhotoText}}</p>
+      <a routerLink="/news" class="underlined">все новости</a>
+    </div>
+    <div class="tags-part"></div>
+  </div>
+</div>
+<app-feedback></app-feedback>

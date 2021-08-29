@@ -1,0 +1,30 @@
+.content {opacity: 0; transition: opacity 0.3s linear; z-index: 2; padding: var(--padding-size-m); height: 100%}
+.flex {display: flex}
+.title {margin: 0 auto; width: 100%; text-align: center}
+.content.loaded { opacity: 1; }
+.land {
+  width: 100%;
+  background-color: var(--primary-color);
+  height: calc(99vh - var(--header-top-height) * 4); position: relative;
+  color: #fff;
+}
+h2 {font-size: calc(20px + 0.5vw);
+  margin: auto;
+  padding: 0 calc(30px + 1.5vw);}
+.back {
+  width: 100%; height: 100%; position: absolute;
+  background-size: cover;
+  z-index: 0;
+}
+.overlay {
+  width: 100%; height: 100%; position: absolute;
+  z-index: 1;
+}
+.date {padding:calc(30px + 1.5vw); position: absolute; bottom: 0; left: 0}
+.content-part { width: calc(100% - var(--buy-block-width)); min-height: calc(200px + 5vw);
+  padding-right: var(--padding-size-m);
+  padding-top: var(--padding-size-m);}
+.text {font-size: calc(14px + 0.35vw)}
+.tags-part {width: var(--buy-block-width); padding: var(--padding-size-m);position: sticky; top: 0}
+img {width: 100%; border-radius: 8px; margin: var(--padding-size-m) 0; box-shadow: 0 0 0 1px #9999997d}
+.underlined {color: var(--primary-color-light)}

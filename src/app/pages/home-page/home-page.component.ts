@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CatalogService} from '../../shared/catalog.service';
-import {NewsService} from '../../shared/news.service';
+import {NewsService, PostPreview} from '../../shared/news.service';
 import {CategoryPreview} from '../../shared/models';
 
 export interface Slide {
@@ -45,6 +45,7 @@ export class HomePageComponent implements OnInit {
   private swipeCoords: [number, number] = [0, 0];
   private swipeTime = 0;
 
+  postPreviews: PostPreview[] = [];
   newsLoaded = false;
 
   category = '';
@@ -56,7 +57,7 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     public catalogService: CatalogService,
-    public newsService: NewsService
+    private newsService: NewsService
   ) {
     this.catalogService.loadManufacturers();
     this.setSlideInterval(7000);
@@ -64,8 +65,11 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.recount();
-    this.newsService.load3Previews().subscribe(() => {
+    this.newsService.load3Previews().subscribe((response) => {
       this.newsLoaded = true;
+      this.postPreviews = response;
+    }, error => {
+      console.clear();
     });
   }
 

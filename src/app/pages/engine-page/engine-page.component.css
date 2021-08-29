@@ -22,22 +22,21 @@
   font-weight: 500; white-space: nowrap;
   align-items: baseline;
 }
+.p-b { margin-bottom: 15px}
 .price-block> div:first-child {
   opacity: 0.8; margin-right: 13px;
-  font-size: calc(17px + 0.425vw);
 }
 .price-block> div:last-child {
-  font-size: calc(20px + 0.5vw);
+  font-size: calc(16px + 0.4vw);
   color: #111119;
 }
-
 .count-block {
   display: flex; flex-wrap: nowrap;
   justify-content: left; align-items: center;
   height: calc(25px + 0.625vw);
-  margin: var(--padding-size-m) 0;
+  margin: var(--padding-size-s) 0;
 }
-.count-block> div {
+.count-block> div{
   display: flex; flex-wrap: nowrap;
   text-align: center; margin-right: 8px;
   width: calc(78px + 1.95vw); font-weight: 500;

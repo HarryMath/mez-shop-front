@@ -1,5 +1,5 @@
-// export const endpoint = 'https://mez-api.herokuapp.com';
-export const endpoint = 'http://localhost';
+export const endpoint = 'https://mez-api.herokuapp.com';
+// export const endpoint = 'http://localhost';
 
 export async function simpleRequest(url: string, method = 'GET', data: any = null): Promise<any> {
   try {

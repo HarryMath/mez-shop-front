@@ -77,8 +77,7 @@
   width: 100%; line-height: 1.1;
   padding: var(--padding-size-m); position: relative;
   padding-right: var(--padding-size-xl);
-  display: block; white-space: initial;
-  border-bottom: 1px solid #8998ae4d;
+  display: block; border-bottom: 1px solid #8998ae4d;
 }
 .drop-menu> a::after {
   content: ">"; position: absolute;

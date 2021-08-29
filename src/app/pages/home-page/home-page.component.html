@@ -85,11 +85,11 @@
   </div>
 </div>
 
-<div class="news-wrapper">
+<div class="news-wrapper" *ngIf="newsLoaded">
   <div class="news">
     <h3>Новости</h3>
-    <div class="news-content" *ngIf="newsService.postPreviews.length > 0">
-      <app-post-main *ngFor="let post of newsService.postPreviews" [post]="post" class="post"></app-post-main>
+    <div class="news-content" *ngIf="postPreviews.length > 0">
+      <app-post-main *ngFor="let post of postPreviews" [post]="post" class="post"></app-post-main>
     </div>
   </div>
 </div>
