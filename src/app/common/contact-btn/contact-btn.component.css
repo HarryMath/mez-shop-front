@@ -26,7 +26,14 @@
 .blg-r:nth-child(3) {
   animation-delay: 0.4s;
 }
-
+.input-block {
+  margin-bottom: var(--padding-size-m);
+}
+.sm {font-size:0.7em;opacity:0.7;font-weight:500;white-space:nowrap;overflow:hidden;width:100%}
+.m-desc {margin-bottom: var(--padding-size-m);opacity: 0.7;}
 svg {
   width: 40%; height: 40%;
+}
+/* __________ mobile only __________ */
+@media screen and (max-width: 550px) {
 }

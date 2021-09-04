@@ -27,7 +27,9 @@ export class CartPageComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    document.body.scrollTop = 0;
+  }
 
   less(item: CartItem): void {
     if (item.amount > 1) {
@@ -78,8 +80,8 @@ export class CartPageComponent implements OnInit {
   submitOrder(): void {
     this.orderProcessing = true;
     this.chartService.makeOrder(this.name, this.mail, this.phone)
-      .then(reponse => {
-        if (reponse === 'SUCCESS') {
+      .then(response => {
+        if (response >= 0 || response === 'SUCCESS') {
           this.success = true;
           this.orderProcessing = false; // @ts-ignore
           window.message.show('Заказ оформлен, проверите вашу почту ' + this.mail);
@@ -87,7 +89,7 @@ export class CartPageComponent implements OnInit {
           this.chartService.clear();
         } else {
           this.orderProcessing = false;
-          console.error(reponse); // @ts-ignore
+          console.error(response); // @ts-ignore
           window.message.show('не удалось оформить заказ, свяжитесь с нами напрямую');
         }
       });

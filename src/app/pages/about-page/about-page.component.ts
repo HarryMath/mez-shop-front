@@ -27,12 +27,13 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    document.body.scroll(0, 0);
     document.body.addEventListener('scroll', this.handleScroll);
     try {
       const vid = document.getElementById('vid'); // @ts-ignore
       vid.muted = true; vid.play();
     } catch (ignore) { }
+    document.body.scroll(0, 0);
+    document.body.scrollTop = 0;
   }
 
   ngOnDestroy(): void {

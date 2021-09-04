@@ -2,12 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {endpoint} from '../../shared/request';
 import {AuthorisationService} from '../../shared/authorisation.service';
-
-export interface FeedBack {
-  name: string;
-  contact: string;
-  message: string;
-}
+import {FeedBack} from '../../shared/models';
 
 @Component({
   selector: 'app-feedback',

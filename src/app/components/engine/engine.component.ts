@@ -53,4 +53,8 @@ export class EngineComponent implements OnInit {
   getLink(): string {
     return this.engine.name.replaceAll('/', '%252F');
   }
+
+  getPrice(): string {
+    return this.engine.minPrice > 0 ? 'от ' + this.engine.minPrice + '₽' : 'цену уточняйте';
+  }
 }

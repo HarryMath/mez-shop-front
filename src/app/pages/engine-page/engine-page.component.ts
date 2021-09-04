@@ -33,6 +33,7 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   galleryOpened = false;
   state: 'in'|'btn-loading'|'' = '';
   characteristics: string[][] = [];
+  countWindowVisible = false;
 
 
   hasPower = false;
@@ -132,15 +133,28 @@ export class EnginePageComponent implements OnInit, OnDestroy{
   }
 
   adToCart(): void {
+    if (window.innerWidth > 660) {
+      this.submitAdToCart();
+    } else {
+      this.countWindowVisible = true;
+    }
+  }
+
+  submitAdToCart(): void {
     if (this.state === '') {
-      this.state = 'btn-loading';
       const amountLapy = this.priceBlocks[0].amount;
       const amountCombi = this.priceBlocks[1].amount;
       const amountFlanets = this.priceBlocks[2].amount;
       if (amountLapy + amountCombi + amountFlanets > 0) {
+        this.state = 'btn-loading';
         this.chartService.add(this.engine, amountLapy, amountCombi, amountFlanets).then(() => {
-          setTimeout(() => {this.state = 'in'; }, 200);
+          setTimeout(() => {
+            this.state = 'in';
+            this.countWindowVisible = false;
+            }, 200);
         });
+      } else { // @ts-ignore
+        message.show('Вы ничего не выбрали');
       }
     }
   }

@@ -277,13 +277,12 @@
   .item-buy-block {
     width: 100%; display: flex; flex-wrap: wrap; align-items: center;
     top: unset; bottom: 0; background-color: var(--background-color);
-    box-shadow: 0 -9px 3px 9px var(--background-color); z-index: 5;
+    box-shadow: 0 -9px 3px 9px var(--background-color); z-index: 3;
     padding: 0; justify-content: space-between;
   }
-  .item-buy-block> .btn { width: calc(50% - var(--padding-size-s));}
-  .count-block {order: -1; width: fit-content!important;}
-  .price-block { min-width: calc(50% - var(--padding-size-s))}
-  .available { width: 100%; display: none; visibility: hidden}
+
+  .item-buy-block> .btn {width:calc(50% - var(--padding-size-s))}
+  .available, .item-buy-block>.p-b { width: 0; display: none; visibility: hidden}
 
   .item-info {
     width: 100%; padding-right: 0;
@@ -331,14 +330,9 @@
   .next, .prev {background-color: #1111143d;top:50%;transform: translateY(-50%) scale(0.8);border-radius: 50%}
   .next:active, .prev:active, .closer:active {background-color: #1111147d}
   .count-block {margin:0}
-  .item-buy-block> .btn{margin-top:var(--padding-size-m)}
+  .item-buy-block .btn {margin-top: 0; width: 100%!important;}
   .counter:hover {background-color: #aaabb133;color: unset}
   .counter:active {background-color:var(--accent-color-light);color: #fff}
-}
-@media screen and (max-width: 360px) {
-  .item-buy-block> div {width: 100%!important}
-  .item-buy-block .btn {margin-top: 0}
-  .item-buy-block .btn-primary {margin-top: var(--padding-size-m)}
 }
 
 

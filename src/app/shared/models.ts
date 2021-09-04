@@ -1,3 +1,9 @@
+export interface FeedBack {
+  name: string;
+  contact: string;
+  message: string;
+}
+
 export interface FilterBlock {
   name: string;
   queryName: string;

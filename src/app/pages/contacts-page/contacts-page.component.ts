@@ -43,6 +43,8 @@ export class ContactsPageComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.body.scrollTop = 0;
+  }
 
 }

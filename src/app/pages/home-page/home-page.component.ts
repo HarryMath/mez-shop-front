@@ -65,12 +65,14 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.recount();
+    document.body.scrollTop = 0;
     this.newsService.load3Previews().subscribe((response) => {
       this.newsLoaded = true;
       this.postPreviews = response;
     }, error => {
       console.clear();
     });
+    document.body.scrollTop = 0;
   }
 
   setSlideInterval(timeout: number): void {

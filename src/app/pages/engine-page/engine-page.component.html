@@ -5,6 +5,34 @@
   <div class="closer" (click)="galleryOpened = false">×</div>
 </div>
 
+<div class="o" *ngIf="countWindowVisible">
+  <div class="w absolute-center">
+    <div class="h">Положить товар в корзину:</div>
+    <div class="b">
+      <div class="p-b" *ngFor="let b of priceBlocks">
+        <div class="price-block">
+          <div>{{b.montage}}: </div>
+          <div>{{b.price}} ₽
+            <span style="opacity: 0.4; font-size: 0.7em;"> · {{b.amount}} = {{b.price * b.amount}} ₽
+            </span>
+          </div>
+        </div>
+        <div class="count-block unselectable">
+          <div>
+            <div class="counter" (click)="less(b.montage)" [ngClass]="b.amount < 1 ? 'disabled' : ''">-</div>
+            <div class="amount">{{b.amount}}</div>
+            <div class="counter" (click)="more(b.montage)">+</div>
+          </div> шт
+        </div>
+      </div>
+    </div>
+    <div class="f">
+      <div class="btn cancel-btn" (click)="countWindowVisible = false">отмена</div>
+      <div class="btn btn-3d green" (click)="submitAdToCart()">подтвердить</div>
+    </div>
+  </div>
+</div>
+
 <div class="content-wrapper">
   <div class="content" [ngClass]="engineLoaded? 'loaded' : ''">
     <app-map [customStyle]="'position: absolute'"></app-map>
