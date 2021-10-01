@@ -17,7 +17,8 @@
   color: var(--primary-color-light)
 }
 .contacts {
-  align-items: center; flex-wrap: wrap;
+  align-items: flex-start; flex-wrap: wrap;
+  margin-top: 7px;
 }
 .contacts i {
   opacity: 0.6;

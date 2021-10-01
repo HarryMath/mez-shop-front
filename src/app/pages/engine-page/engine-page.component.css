@@ -12,7 +12,8 @@
   padding-top: var(--padding-size-m);
 }
 .item-buy-block {
-  position: sticky; top: calc(var(--header-top-height) + var(--header-bottom-height) + var(--padding-size-l));
+  position: sticky;position: -webkit-sticky;
+  top: calc(var(--header-top-height) + var(--header-bottom-height) + var(--padding-size-l));
   right: 0; height: fit-content;
   width: var(--buy-block-width);
   padding: var(--padding-size-m);

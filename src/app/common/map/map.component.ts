@@ -46,8 +46,8 @@ export class MapComponent implements OnInit {
       return  MapComponent.translate.get(this.path[i]);
     }
     return decodeURIComponent(this.path[i])
-      .replaceAll('%252F', '/')
-      .replaceAll('%2F', '/');
+      .replace(/%252F/g, '/')
+      .replace(/%2F/g, '/');
   }
 
   getLink(i: number): string {

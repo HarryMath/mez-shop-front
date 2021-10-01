@@ -37,8 +37,16 @@ export class ContactsPageComponent implements OnInit {
       {name: 'Офис-склад', address: 'г. Владимир, 16 лет Октября, д. 33А, офис 27', expanded: false,
         googleId: 'EkxVbGl0c2EgMTYgTGV0IE9rdHlhYnJ5YSwgMzMsIFZsYWRpbWlyLCBWbGFkaW1pcnNrYXlhIG9ibGFzdCcsIFJ1c3NpYSwgNjAwMDA3IlASTgo0CjIJg7rc_Zh7TEERs4YLQg2GMj4aHgsQ7sHuoQEaFAoSCeWdrCwVeUxBEdaucVqIFwkFDBAhKhQKEgk_88xXmHtMQRG7xR6-Ju8uxw'}
     ],
-    phones: ['+7 (963) 787-45-76'],
-    mails: ['ooo.npo.mez@mail.ru']
+    phones: ['+7 (4922) 42-29-06', '+7 (910) 095-50-13', '+7 (963) 787-45-76'],
+    mails: ['mez-sbyt2@mail.ru', 'ooo.npo.mez@mail.ru']
+  }, {
+    name: 'Офис в Ростове-на-Дону',
+    places: [
+      {name: 'Офис-склад', address: 'г. Ростов-на-Дону, пр-т 40-летия Победы 117', expanded: true,
+        googleId: 'ChIJBZS__76w40ARx9LclxdTjaA'}
+    ],
+    phones: ['+7 (910) 806-71-29'],
+    mails: ['mez-sbyt1@mail.ru']
   }];
 
   constructor() {}

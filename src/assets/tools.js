@@ -10,6 +10,7 @@ class Notification {
   }
 
   show(message, status) {
+    this.hide();
     this.messageElement.querySelector('div').innerHTML = message;
     if ( status === -1) {
       try {

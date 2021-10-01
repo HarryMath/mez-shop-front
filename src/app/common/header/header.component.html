@@ -29,9 +29,9 @@
           <span>{{authService.getUserName()}}</span>
           <div class="user-image" style="{{authService.getUserImageStyle()}}">{{authService.getFirstChar()}}</div>
         </div>
-        <div *ngIf="!authService.isAuthorised()" class="header-top-item" id="authButton">
-          <i class="fas fa-user"></i> вход | регистрация
-        </div>
+<!--        <div *ngIf="!authService.isAuthorised()" class="header-top-item" id="authButton">-->
+<!--          <i class="fas fa-user"></i> вход | регистрация-->
+<!--        </div>-->
       </div>
     </div>
   </div>
@@ -47,15 +47,15 @@
           <i class="fas fa-search"></i>
         </label>
         <input type="text" autocomplete="off" (keydown.enter)="search()"
-               id="search-input" placeholder="поиск" [(ngModel)]="query"
+               id="search-input" placeholder="Поиск" [(ngModel)]="query"
                (focus)="focusSearch()" (blur)="blurSearch()">
       </div>
       <div class="right-block unselectable">
         <div class="header-bottom-item" onclick="goTo('contactBlock')">
-          <i class="fas fa-comment-alt"></i><span> написать нам</span>
+          <i class="fas fa-comment-alt"></i><span> Написать нам</span>
         </div>
         <a class="header-bottom-item" routerLink="/cart">
-          <i class="fas fa-shopping-cart"></i><span> корзина</span>
+          <i class="fas fa-shopping-cart"></i><span> Корзина</span>
           <div class="cart-counter" [ngClass]="cartService.items.length > 0 ? 'c': ''">{{cartService.items.length}}</div>
         </a>
       </div>

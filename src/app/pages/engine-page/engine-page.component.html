@@ -7,7 +7,7 @@
 
 <div class="o" *ngIf="countWindowVisible">
   <div class="w absolute-center">
-    <div class="h">Положить товар в корзину:</div>
+    <div class="h" *ngIf="!buyNow">Положить товар в корзину:</div>
     <div class="b">
       <div class="p-b" *ngFor="let b of priceBlocks">
         <div class="price-block">
@@ -64,9 +64,9 @@
               <div class="naming"><span>наименование: </span> {{engine.name}}</div>
             </div>
             <div class="main-characteristics">
-              <div><div>&#x2022; фазность: </div><div>{{engine.characteristics.length}}</div></div>
-              <div><div>&#x2022; мощности: </div><div>{{getPower()}}</div></div>
               <div><div>&#x2022; высота оси вращения: </div><div>{{engine.axisHeight}} мм</div></div>
+              <div><div>&#x2022; мощности: </div><div>{{getPower()}}</div></div>
+              <div><div>&#x2022; частота вращения: </div><div>{{getFrequency()}}</div></div>
               <div><div>&#x2022; масса: </div><div>{{engine.mass}} кг</div></div>
             </div>
             <div class="link goTo" onclick="goTo('characteristics')">все характеристики <i class="fas fa-chevron-down"></i></div>
@@ -155,11 +155,11 @@
           </div>
         </div>
 
-        <div class="btn btn-primary btn-3d unselectable" (click)="adToCart()" [ngClass]="state">
+        <div class="btn btn-primary btn-3d unselectable" (click)="adToCart(false)" [ngClass]="state">
           <span *ngIf="state != 'in'">в корзину <i class="fas fa-shopping-cart"></i></span>
           <span *ngIf="state == 'in'">в корзине <i class="fas fa-check-circle"></i></span>
         </div>
-        <div class="btn btn-secondary unselectable">купить в 1 клик</div>
+        <div class="btn btn-secondary unselectable" (click)="adToCart(true)">купить в 1 клик</div>
         <div class="available desktop unselectable"><i class="fas fa-check"></i> в наличии на складе</div>
       </div>
     </div>

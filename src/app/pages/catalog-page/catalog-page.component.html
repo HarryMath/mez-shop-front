@@ -2,16 +2,17 @@
   <div class="content">
     <app-map [style]="'height: unset'" class="desktop"></app-map>
     <div class="content-header unselectable">
-      <div class="goods-title" >{{title}} </div>
+      <div class="goods-title" >{{title}}<span class="goods-count" *ngIf="catalogService.catalogLoaded"> ({{catalogService.quantity}} шт.) </span></div>
       <div id="filtersBtn" class="btn" (click)="menuService.showFilters()"><i class="fas fa-sliders-h"></i> фильтры</div>
-      <div class="goods-count" *ngIf="catalogService.catalogLoaded"> ({{catalogService.quantity}} шт.) </div>
       <div class="sort-block">
         <label for="sortBy" class="sort-by-label">сортировать по: </label>
-        <select id="sortBy" [(ngModel)]="catalogService.orderBy"
+        <select id="sortBy" class="select" [(ngModel)]="catalogService.orderBy"
                 (change)="catalogService.loadEngines(false)">
-          <option value="engines.name DESC" selected>алфавиту</option>
-          <option value="engines.priceLapy ASC">цене (сначала дешевые)</option>
+          <option value="engines.axisHeight" selected>высоте оси ↑</option>
+          <option value="engines.axisHeight DESC">высоте оси ↓</option>
+          <option value="engines.priceLapy">цене (сначала дешевые)</option>
           <option value="engines.priceLapy DESC">цене (сначала дорогие)</option>
+          <option value="engines.name DESC">алфавиту</option>
         </select>
       </div>
     </div>

@@ -23,44 +23,46 @@
 
     <div class="search-block">
       <div class="row">
-        <h4>Найди свой двигатель</h4><div id="resetFilters" (click)="clearFilters()">сбросить</div>
+        <h4>Найди свой двигатель</h4><div id="resetFilters" (click)="clearFilters()">Сбросить</div>
       </div>
       <div class="row filter-row">
         <div class="input-block">
-          <select id="productType" (change)="recount()" class="select" [attr.val]="category" [(ngModel)]="category">
+          <select id="type" (change)="recount()" class="select" [attr.val]="category" [(ngModel)]="category">
             <option value="" selected> </option>
             <option *ngFor="let c of catalogService.categories">{{c.name}}</option>
           </select>
-          <label for="productType">тип двигателя</label>
+          <label for="type">Тип двигателя</label>
         </div>
         <div class="input-block">
-          <select id="productBrand" class="select" (change)="recount()" [attr.val]="manufacturer" [(ngModel)]="manufacturer">
+          <select id="ah" class="select" (change)="recount()" [attr.val]="axisHeight" [(ngModel)]="axisHeight">
             <option value="" selected> </option>
-            <option *ngFor="let m of catalogService.manufacturers">{{m.name}}</option>
+            <option *ngFor="let v of ['56', '63', '71', '80', '90', '100', '112', '132', '160', '180']"
+                    value="{{v}}"
+            >{{v + 'мм'}}</option>
           </select>
-          <label for="productBrand">производитель</label>
+          <label for="ah">Высота оси</label>
         </div>
         <div class="input-block">
-          <select id="efficency" class="select" (change)="recount()" [attr.val]="efficiency" [(ngModel)]="efficiency">
+          <select id="freq" class="select" (change)="recount()" [attr.val]="frequency" [(ngModel)]="frequency">
             <option value=""></option>
-            <option value="0-40">< 40%</option>
-            <option value="40-60">40% - 60%</option>
-            <option value="60-70">60% - 70%</option>
-            <option value="70-80">70% - 80%</option>
-            <option value="80-90">80% - 90%</option>
-            <option value="90-100">> 90%</option>
+            <option value="0-900"> < 900 об/мин</option>
+            <option value="900-1200">900 - 1200 об/мин</option>
+            <option value="1200-2500">1200 - 2500 об/мин</option>
+            <option value="2500-3600">2500 - 3600 об/мин</option>
+            <option value="3600-999999"> > 3600 об/мин</option>
           </select>
-          <label for="efficency">кпд</label>
+          <label for="freq">Частота</label>
         </div>
         <div class="input-block">
-          <select id="frequency" class="select" [attr.val]="frequency" [(ngModel)]="frequency">
+          <select id="pow" class="select" (change)="recount()" [attr.val]="power" [(ngModel)]="power">
             <option value=""></option>
-            <option> < 900</option>
-            <option>900 - 1200</option>
-            <option>1200 - 2500</option>
-            <option>2500 - 3600</option>
+            <option value="0-1"> < 1 кВт</option>
+            <option value="1-3">1 - 3 кВт</option>
+            <option value="3-9">3 - 9 кВт</option>
+            <option value="9-20">9 - 20 кВт</option>
+            <option value="20-99999"> > 20 кВт</option>
           </select>
-          <label for="frequency">частота</label>
+          <label for="pow">Мощность</label>
         </div>
 
         <a id="searchButton" class="btn btn-primary btn-3d" [ngClass]="counting? 'btn-loading' : ''"
@@ -81,6 +83,17 @@
         [category]="categoryPreview" [isSeparate]="false"></app-category>
       <app-category class="category" *ngFor="let categoryPreview of additional"
         [category]="categoryPreview" [isSeparate]="true"></app-category>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrapper p-wrap">
+  <div class="content">
+    <h3>Партнёры</h3>
+    <div class="row">
+      <div *ngFor="let p of ['0.jpg', '1.jpg', '2.png', '3.png', '4.svg'];" class="partner">
+        <img src="assets/partners/p{{p}}" alt="партнер">
+      </div>
     </div>
   </div>
 </div>

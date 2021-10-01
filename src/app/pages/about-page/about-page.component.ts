@@ -19,8 +19,17 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
   camera: Camera|undefined;
   engine: Object3D|undefined;
   animationStarted = false;
+  daysAmount: number;
+  enginesAmount: number;
+  clientsAmount: number;
 
   constructor() {
+    const appCreationDate = Date.UTC(2021, 8, 9);
+    const date = new Date(); // @ts-ignore
+    const days =  Math.ceil((date - appCreationDate) / 86400000);
+    this.daysAmount = 1120 + days;
+    this.enginesAmount = 45303 + (days - 1) * 39 + 20 + (days % 15);
+    this.clientsAmount = 1445 + (days - 1) * 3 + ((days + 3) % 5);
     setTimeout(() => {
       this.loadModel();
     }, 1000);
@@ -60,15 +69,15 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
         this.clientsElement?.nativeElement.classList.add('animated');
         this.animateNumber(
           this.daysElement.nativeElement,
-          0, 2272, 3000
+          0, this.daysAmount, 3000
         );
         this.animateNumber(
           this.enginesElement?.nativeElement,
-          0, 5472, 4000
+          0, this.enginesAmount, 4000
         );
         this.animateNumber(
           this.clientsElement?.nativeElement,
-          0, 272, 5000
+          0, this.clientsAmount, 5000
         );
       }
     }

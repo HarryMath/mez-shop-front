@@ -51,7 +51,7 @@ export class EngineComponent implements OnInit {
   }
 
   getLink(): string {
-    return this.engine.name.replaceAll('/', '%252F');
+    return this.engine.name.replace(/\//g, '%252F');
   }
 
   getPrice(): string {

@@ -26,7 +26,7 @@ export class HomePageComponent implements OnInit {
   ];
 
   slides: Slide[] = [
-    {title: 'Электро-двигатели МЭЗ', class: 's-in-f',
+    {title: 'Электродвигатели МЭЗ', class: 's-in-f',
       photo: '/assets/photos/landingImages/engine.png',
       text: 'Если вы ищете замену двигателя или планируете новый проект, найдите свой двигатель с помощью расширенного поиска или свяжитесь с нами любым удобмным вам способом, чтобы убедиться, что вы выбрали двигатель, наиболее подходящий вам.',
       linkName: 'Контакты', linkPath: '/contacts'},
@@ -49,9 +49,9 @@ export class HomePageComponent implements OnInit {
   newsLoaded = false;
 
   category = '';
-  manufacturer = '';
-  efficiency = '';
+  axisHeight = '';
   frequency = '';
+  power = '';
   quantity = -1;
   counting = false;
 
@@ -83,9 +83,9 @@ export class HomePageComponent implements OnInit {
 
   clearFilters(): void {
     this.category = '';
-    this.manufacturer = '';
-    this.efficiency = '';
+    this.axisHeight = '';
     this.frequency = '';
+    this.power = '';
     this.recount();
   }
 
@@ -94,11 +94,11 @@ export class HomePageComponent implements OnInit {
     if (this.category.length > 0) {
       query += 'types=' + this.category + '&';
     }
-    if (this.manufacturer.length > 0) {
-      query += 'manufacturers=' + this.manufacturer + '&';
+    if (this.axisHeight.length > 0) {
+      query += 'axisHeight=' + this.axisHeight + '&';
     }
-    if (this.efficiency.length > 0) {
-      query += 'efficiency=' + this.efficiency + '&';
+    if (this.power.length > 0) {
+      query += 'power=' + this.power + '&';
     }
     if (this.frequency.length > 0) {
       query += 'frequency=' + this.frequency + '&';
@@ -118,11 +118,11 @@ export class HomePageComponent implements OnInit {
     if (this.category.length > 0) {
       params.types = this.category;
     }
-    if (this.manufacturer.length > 0) {
-      params.manufacturers = this.manufacturer;
+    if (this.axisHeight.length > 0) {
+      params.axisHeight = this.axisHeight;
     }
-    if (this.efficiency.length > 0) {
-      params.efficiency = this.efficiency;
+    if (this.power.length > 0) {
+      params.power = this.power;
     }
     if (this.frequency.length > 0) {
       params.frequency = this.frequency;

@@ -32,6 +32,7 @@ export class EnginePageComponent implements OnInit, OnDestroy{
     {montage: 'фланец', amount: 0, price: 0}];
   galleryOpened = false;
   state: 'in'|'btn-loading'|'' = '';
+  buyNow = false;
   characteristics: string[][] = [];
   countWindowVisible = false;
 
@@ -132,12 +133,21 @@ export class EnginePageComponent implements OnInit, OnDestroy{
     return result;
   }
 
-  adToCart(): void {
+  adToCart(buyNow: boolean): void {
     if (window.innerWidth > 660) {
-      this.submitAdToCart();
+      buyNow ? this.submitPurchase() :
+        this.submitAdToCart();
     } else {
+      this.buyNow = buyNow; if (buyNow) {
+        this.submitPurchase();
+        return;
+      }
       this.countWindowVisible = true;
     }
+  }
+
+  submitPurchase(): void { // @ts-ignore
+    message.show('эта опция временно недоступна');
   }
 
   submitAdToCart(): void {
@@ -291,5 +301,14 @@ export class EnginePageComponent implements OnInit, OnDestroy{
       sum += b.amount * b.price;
     });
     return sum;
+  }
+
+  getFrequency(): string {
+    let result = '';
+    for (let i = 0; i < this.engine.characteristics.length; i++) {
+      result += this.engine.characteristics[i].frequency +  ' об/мин';
+      if (i !== this.engine.characteristics.length - 1) { result += ', '; }
+    }
+    return result;
   }
 }

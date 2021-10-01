@@ -1,6 +1,7 @@
 .content-header {
-  display: flex;
+  display: flex; justify-content: space-between;
   position: sticky;
+  position: -webkit-sticky;
   top: 0; background-color: var(--background-color);
   padding: var(--padding-size-m);
   margin-top: calc(var(--padding-size-m)*0.5);
@@ -18,21 +19,11 @@
   color: #77777788;
   font-weight: 500;
 }
-.sort-block {
-  position: absolute;
-  right: var(--padding-size-m);
-  top: 50%;
-  transform: translateY(-50%);
-}
 #sortBy {
   height: calc(var(--header-top-height) * 0.76);
   line-height: calc(var(--header-top-height) * 0.76);
-  outline: none!important;
-  border: 1px solid #88888877;
-  margin-left: 5px;
-  border-radius: 4px;
-  padding-left: 5px;
-  cursor: pointer;
+  outline: none!important; width: fit-content;
+  margin-left: 5px;padding-left: 5px;cursor: pointer;
 }
 
 .content-main {
@@ -207,9 +198,9 @@
 }
 .item {
   width: 25%;
-  transition: 0.1s;
-  border-radius: 4px;
+  border-radius: 5px;
   padding: calc(var(--padding-size-m)*0.5);
+  overflow: hidden;
 }
 
 /* __________ PC only __________ */
@@ -217,11 +208,11 @@
   #filtersBtn {
     display: none;
   }
+  .item {transition: 0.15s;}
   .item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 2px 7px 1px #121c385c;
+    transform: scale(1.02); z-index: 1;
+    box-shadow: 0 0 0 1px #2F407D9d,0 3px 9px 2px #121c385c;
     background-color: #fff;
-    border: 1px solid var(--primary-color);
     cursor: pointer;
   }
 }
@@ -263,15 +254,14 @@
     transform: none;
   }
   .content-header {  /* TEST VERSION FOR SAFARI WITHOUT STICKY */
-    /* top: var(--header-bottom-height); */
     background-color: #fff;
     margin: 0;
   }
-  .sort-block { width: calc(50% - var(--padding-size-m)) }
+  .sort-block { width: calc(50% - var(--padding-size-s)) }
   #sortBy { width: 100%; overflow: hidden; margin: 0; height: var(--input-height) }
   .goods-title, .sort-block> label { display: none }
   #filtersBtn {
-    width: calc(50% - var(--padding-size-m));
+    width: calc(50% - var(--padding-size-s));
     background-color: var(--primary-color);
     color: #fff; box-shadow: none;
   }
