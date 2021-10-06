@@ -13,6 +13,7 @@ export class MapComponent implements OnInit {
   private static readonly translate: Map<string, string> = new Map<string, string>(
       [['home', 'Главная'],
       ['news', 'новости'],
+      ['cart', 'корзина'],
       ['contacts', 'котакты'],
       ['general-info', 'общие сведения'],
       ['about', 'о компании'],

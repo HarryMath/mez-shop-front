@@ -131,8 +131,7 @@ export class HomePageComponent implements OnInit {
   }
 
   getBtnText(): string {
-    return this.quantity >= 0 ?
-      'показать ' + this.quantity : 'подобрать';
+    return 'Показать ' + this.quantity;
   }
 
   getSlideText(slide: Slide): string {
