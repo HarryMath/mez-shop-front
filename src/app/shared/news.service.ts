@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
-import {endpoint} from "./request";
+import {endpoint} from './request';
 
 export interface Post {
   id: number|null;

@@ -1,4 +1,4 @@
-export interface FeedBack {
+export interface Feedback {
   name: string;
   contact: string;
   message: string;

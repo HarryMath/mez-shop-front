@@ -15,9 +15,7 @@ class Notification {
     if ( status === -1) {
       try {
         window.navigator.vibrate(30);
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (ignore) {}
     }
     this.messageElement.classList.add('visible');
     this.interval = window.setInterval(() => {

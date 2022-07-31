@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {endpoint} from '../../shared/request';
 import {AuthorisationService} from '../../shared/authorisation.service';
-import {FeedBack} from '../../shared/models';
+import {Feedback} from '../../shared/models';
 
 @Component({
   selector: 'app-feedback',
@@ -11,7 +11,7 @@ import {FeedBack} from '../../shared/models';
 })
 export class FeedbackComponent implements OnInit {
 
-  feedBack: FeedBack = {name: '', contact: '', message: ''};
+  feedBack: Feedback = {name: '', contact: '', message: ''};
 
   constructor(private http: HttpClient) { }
 

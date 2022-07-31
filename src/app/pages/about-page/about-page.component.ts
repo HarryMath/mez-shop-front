@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import * as THREE from 'three';
+import {Camera, Object3D, Scene, WebGLRenderer} from 'three';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
-import {Camera, Light, Object3D, Renderer, Scene, WebGLRenderer} from 'three';
 
 @Component({
   selector: 'app-about-page',
@@ -31,7 +31,7 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.enginesAmount = 45303 + (days - 1) * 39 + 20 + (days % 15);
     this.clientsAmount = 1445 + (days - 1) * 3 + ((days + 3) % 5);
     setTimeout(() => {
-      this.loadModel();
+      this.loadModel().then(() => this.handleScroll);
     }, 1000);
   }
 
@@ -89,18 +89,18 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async loadModel(): Promise<void> {
     const loader = new GLTFLoader();
-    const  gltf = await loader.loadAsync('/assets/model/scene.gltf');
-    gltf.scene.traverse( node => {
+    const t1 = new Date().getTime();
+    const gltf = await loader.loadAsync('/assets/model/scene.gltf');
+    const t2 = new Date().getTime();
+    console.log('load time: ' + (t2 - t1));
+    gltf.scene.children[0].traverse(node => {
       if (node.type === 'Mesh') {
         node.castShadow = true;
         node.receiveShadow = true;
       }
     });
     this.engine = gltf.scene.children[0];
-    if (this.scene) {
-      this.scene.add( this.engine );
-      this.handleScroll();
-    }
+    this.scene?.add(this.engine);
   }
 
   async setUpCanvas(): Promise<void> {
@@ -144,7 +144,7 @@ export class AboutPageComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  setUpLight(x: number, y: number, z: number, power: number): Light {
+  setUpLight(x: number, y: number, z: number, power: number): any {
     const light = new THREE.DirectionalLight( 0xffeedd, power);
     light.position.set(x, y, z);
     light.lookAt(0, 0, 0);

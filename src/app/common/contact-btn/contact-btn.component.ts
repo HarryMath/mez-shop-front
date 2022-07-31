@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FeedBack} from '../../shared/models';
+import {Feedback} from '../../shared/models';
 import {endpoint} from '../../shared/request';
 import {HttpClient} from '@angular/common/http';
 
@@ -12,7 +12,7 @@ export class ContactBtnComponent implements OnInit {
 
   isShown = false;
   removing = false;
-  feedBack: FeedBack = {name: '', contact: '', message: ''};
+  feedBack: Feedback = {name: '', contact: '', message: ''};
 
   constructor(private http: HttpClient) { }
 
@@ -30,7 +30,7 @@ export class ContactBtnComponent implements OnInit {
   submit(): void {
     const name = this.feedBack.name.trim();
     const contact = this.feedBack.contact.trim();
-    const feedBack: FeedBack = {contact, message: 'Когда позвонить: ' + this.feedBack.message, name};
+    const feedBack: Feedback = {contact, message: 'Когда позвонить: ' + this.feedBack.message, name};
     if (name.length > 2) {
       if (contact.length > 4) {
         this.http.post(endpoint + '/feedback', feedBack).subscribe(response => {
